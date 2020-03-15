@@ -1,80 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
 <head>
+    <!-- Meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Drift - A fully responsive, HTML5 based admin template">
+    <meta name="keywords"
+          content="Responsive, HTML5, admin theme, business, professional, jQuery, web design, CSS3, sass">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <!-- /meta tags -->
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Site favicon -->
+    <link rel="shortcut icon" href="{{asset('drift/default/assets/images/favicon.ico')}}" type="image/x-icon">
+    <!-- /site favicon -->
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Font Icon Styles -->
+    <link rel="stylesheet" href="{{asset('drift/node_modules/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('drift/vendors/gaxon-icon/styles.css')}}">
+    <!-- /font icon Styles -->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Perfect Scrollbar stylesheet -->
+    <link rel="stylesheet" href="{{asset('drift/node_modules/perfect-scrollbar/css/perfect-scrollbar.css')}}">
+    <!-- /perfect scrollbar stylesheet -->
+
+    <!-- Load Styles -->
+    <link rel="stylesheet" href="{{asset('drift/default/assets/css/light-style-1.min.css')}}">
+    <!-- /load styles -->
+
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="dt-sidebar--fixed dt-header--fixed">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+<!-- Loader -->
+<div class="dt-loader-container">
+    <div class="dt-loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+        </svg>
     </div>
+</div>
+<!-- /loader -->
+<!-- Root -->
+<div class="dt-root">
+    <div class="dt-root__inner">
+    @guest
+        @yield('content')
+    @else
+        <!-- Header -->
+        @include('layouts.header')
+        <!-- /header -->
+            <!-- Site Main -->
+            <main class="dt-main">
+                <!-- Sidebar -->
+            @include('layouts.sidebar')
+            <!-- /sidebar -->
+                <!-- Site Content Wrapper -->
+                <div class="dt-content-wrapper">
+                @yield('content')
+                <!-- Footer -->
+                @include('layouts.footer')
+                <!-- /footer -->
+                </div>
+                <!-- /site content wrapper -->
+            </main>
+        @endguest
+    </div>
+</div>
+<!-- /root -->
+
+<!-- Optional JavaScript -->
+<script src="{{asset('drift/node_modules/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('drift/node_modules/moment/moment.js')}}"></script>
+<script src="{{asset('drift/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Perfect Scrollbar jQuery -->
+<script src="{{asset('drift/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
+<!-- /perfect scrollbar jQuery -->
+
+<!-- masonry script -->
+<script src="{{asset('drift/node_modules/masonry-layout/dist/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('drift/node_modules/sweetalert2/dist/sweetalert2.js')}}"></script>
+<script src="{{asset('drift/default/assets/js/functions.js')}}"></script>
+<script src="{{asset('drift/default/assets/js/customizer.js')}}"></script>
+<script src="{{asset('drift/node_modules/chart.js/dist/Chart.min.js')}}"></script>
+
+<!-- Resources -->
+<script src="{{asset('drift/node_modules/ammap3/ammap/ammap.js')}}"></script>
+<script src="{{asset('drift/node_modules/ammap3/ammap/maps/js/continentsLow.js')}}"></script>
+<script src="{{asset('drift/node_modules/ammap3/ammap/themes/light.js')}}"></script>
+
+<script src="{{asset('drift/node_modules/amcharts3/amcharts/amcharts.js')}}"></script>
+<script src="{{asset('drift/node_modules/amcharts3/amcharts/gauge.js')}}"></script>
+
+<script src="{{asset('drift/default/assets/js/custom/charts/dashboard-default.js')}}"></script>
+<!-- Custom JavaScript -->
+<script src="{{asset('drift/default/assets/js/script.js')}}"></script>
+
 </body>
+
 </html>
