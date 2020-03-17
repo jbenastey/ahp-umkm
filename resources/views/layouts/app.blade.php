@@ -27,6 +27,7 @@
     <!-- /perfect scrollbar stylesheet -->
 
     <!-- Load Styles -->
+    <link href="{{asset('drift/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('drift/default/assets/css/light-style-1.min.css')}}">
     <!-- /load styles -->
 
@@ -95,6 +96,9 @@
 
 <script src="{{asset('drift/default/assets/js/custom/charts/dashboard-default.js')}}"></script>
 <!-- Custom JavaScript -->
+<script src="{{('drift/node_modules/datatables.net/js/jquery.dataTables.js')}}"></script>
+<script src="{{('drift/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{('drift/default/assets/js/custom/data-table.js')}}"></script>
 <script src="{{asset('drift/default/assets/js/script.js')}}"></script>
 
 </body>
