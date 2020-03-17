@@ -14,7 +14,7 @@ class KuesionerController extends Controller
     public function index()
     {
         //
-        return view('backend.kuesioner.index');
+        return view('kuesioner.index');
     }
 
     /**
@@ -25,6 +25,12 @@ class KuesionerController extends Controller
     public function create()
     {
         //
+    }
+
+    public function kuesioner()
+    {
+        //
+        return view('kuesioner.kuesioner');
     }
 
     /**

@@ -11,7 +11,7 @@
           content="Responsive, HTML5, admin theme, business, professional, jQuery, web design, CSS3, sass">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- /meta tags -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Kuesioner</title>
 
     <!-- Site favicon -->
     <link rel="shortcut icon" href="{{asset('drift/default/assets/images/favicon.ico')}}" type="image/x-icon">
