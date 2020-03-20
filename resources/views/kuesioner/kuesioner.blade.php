@@ -28,7 +28,7 @@
                     <!-- Card Body -->
                     <div class="dt-card__body">
 
-                        <form method="post" action="">
+                        <form method="post" action="{{route('simpan')}}">
                             @csrf
                             <!-- Form Group -->
                             <div class="form-group form-row">
@@ -37,7 +37,7 @@
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="email-2"
                                            aria-describedby="emailHelp2"
-                                           placeholder="Nama" name="kuesioner_nama" required>
+                                           placeholder="Nama" name="kuesioner_nama" >
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -48,7 +48,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="number" class="form-control" id="password-2"
-                                           placeholder="Umur" name="kuesioner_umur" required>
+                                           placeholder="Umur" name="kuesioner_umur" >
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -59,7 +59,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jurusan" name="kuesioner_jurusan" required>
+                                           placeholder="Jurusan" name="kuesioner_jurusan" >
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -70,7 +70,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jabatan" name="kuesioner_jabatan" required>
+                                           placeholder="Jabatan" name="kuesioner_jabatan" >
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -120,19 +120,19 @@
                                                 yang saya bagi dengan dosen lainnya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr1" required>
+                                                <input type="radio" name="hr1" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr1" required>
+                                                <input type="radio" name="hr1" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr1" required>
+                                                <input type="radio" name="hr1" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr1" required>
+                                                <input type="radio" name="hr1" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr1" required>
+                                                <input type="radio" name="hr1" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -141,19 +141,19 @@
                                                 pengetahuan dengan dosen lainnya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr2" required>
+                                                <input type="radio" name="hr2" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr2" required>
+                                                <input type="radio" name="hr2" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr2" required>
+                                                <input type="radio" name="hr2" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr2" required>
+                                                <input type="radio" name="hr2" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr2" required>
+                                                <input type="radio" name="hr2" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -162,19 +162,19 @@
                                                 berbagi pengetahuan dengan dosen lainnya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr3" required>
+                                                <input type="radio" name="hr3" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr3" required>
+                                                <input type="radio" name="hr3" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr3" required>
+                                                <input type="radio" name="hr3" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr3" required>
+                                                <input type="radio" name="hr3" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr3" required>
+                                                <input type="radio" name="hr3" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -183,19 +183,19 @@
                                                 dengan imbalan dari pengetahuan yang saya bagi dengan dosen lainnya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr4" required>
+                                                <input type="radio" name="hr4" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr4" required>
+                                                <input type="radio" name="hr4" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr4" required>
+                                                <input type="radio" name="hr4" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr4" required>
+                                                <input type="radio" name="hr4" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="hr4" required>
+                                                <input type="radio" name="hr4" value="ss">
                                             </td>
                                         </tr>
                                         </tbody>
@@ -222,19 +222,19 @@
                                                 lain.
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr1" required>
+                                                <input type="radio" name="sr1" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr1" required>
+                                                <input type="radio" name="sr1" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr1" required>
+                                                <input type="radio" name="sr1" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr1" required>
+                                                <input type="radio" name="sr1" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr1" required>
+                                                <input type="radio" name="sr1" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -243,38 +243,38 @@
                                                 saya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr2" required>
+                                                <input type="radio" name="sr2" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr2" required>
+                                                <input type="radio" name="sr2" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr2" required>
+                                                <input type="radio" name="sr2" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr2" required>
+                                                <input type="radio" name="sr2" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr2" required>
+                                                <input type="radio" name="sr2" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>SR3</td>
                                             <td>Berbagi pengetahuan akan membuat kerja sama dengan dosen lainnya.</td>
                                             <td>
-                                                <input type="radio" name="sr3" required>
+                                                <input type="radio" name="sr3" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr3" required>
+                                                <input type="radio" name="sr3" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr3" required>
+                                                <input type="radio" name="sr3" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr3" required>
+                                                <input type="radio" name="sr3" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="sr3" required>
+                                                <input type="radio" name="sr3" value="ss">
                                             </td>
                                         </tr>
                                         </tbody>
@@ -301,19 +301,19 @@
                                                 berpikiran terbuka.
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs1" required>
+                                                <input type="radio" name="cs1" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs1" required>
+                                                <input type="radio" name="cs1" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs1" required>
+                                                <input type="radio" name="cs1" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs1" required>
+                                                <input type="radio" name="cs1" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs1" required>
+                                                <input type="radio" name="cs1" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -321,19 +321,19 @@
                                             <td>Kemampuan komunikasi saya membantu saya dalam menyelesaikan pekerjaan.
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs2" required>
+                                                <input type="radio" name="cs2" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs2" required>
+                                                <input type="radio" name="cs2" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs2" required>
+                                                <input type="radio" name="cs2" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs2" required>
+                                                <input type="radio" name="cs2" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs2" required>
+                                                <input type="radio" name="cs2" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -342,19 +342,19 @@
                                                 dari orang lain.
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs3" required>
+                                                <input type="radio" name="cs3" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs3" required>
+                                                <input type="radio" name="cs3" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs3" required>
+                                                <input type="radio" name="cs3" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs3" required>
+                                                <input type="radio" name="cs3" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="cs3" required>
+                                                <input type="radio" name="cs3" value="ss">
                                             </td>
                                         </tr>
                                         </tbody>
@@ -379,19 +379,19 @@
                                             <td>EH1</td>
                                             <td>Saya senang berbagi pengetahuan dengan dosen lainnya.</td>
                                             <td>
-                                                <input type="radio" name="eh1" required>
+                                                <input type="radio" name="eh1" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh1" required>
+                                                <input type="radio" name="eh1" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh1" required>
+                                                <input type="radio" name="eh1" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh1" required>
+                                                <input type="radio" name="eh1" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh1" required>
+                                                <input type="radio" name="eh1" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -400,19 +400,19 @@
                                                 saya miliki.
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh2" required>
+                                                <input type="radio" name="eh2" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh2" required>
+                                                <input type="radio" name="eh2" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh2" required>
+                                                <input type="radio" name="eh2" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh2" required>
+                                                <input type="radio" name="eh2" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh2" required>
+                                                <input type="radio" name="eh2" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -421,19 +421,19 @@
                                                 pengetahuan.
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh3" required>
+                                                <input type="radio" name="eh3" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh3" required>
+                                                <input type="radio" name="eh3" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh3" required>
+                                                <input type="radio" name="eh3" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh3" required>
+                                                <input type="radio" name="eh3" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="eh3" required>
+                                                <input type="radio" name="eh3" value="ss">
                                             </td>
                                         </tr>
                                         </tbody>
@@ -460,57 +460,57 @@
                                                 pekerjaan saya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk1" required>
+                                                <input type="radio" name="qk1" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk1" required>
+                                                <input type="radio" name="qk1" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk1" required>
+                                                <input type="radio" name="qk1" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk1" required>
+                                                <input type="radio" name="qk1" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk1" required>
+                                                <input type="radio" name="qk1" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>QK2</td>
                                             <td>Pengetahuan yang saya bagi dengan dosen lainnya mudah di mengerti.</td>
                                             <td>
-                                                <input type="radio" name="qk2" required>
+                                                <input type="radio" name="qk2" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk2" required>
+                                                <input type="radio" name="qk2" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk2" required>
+                                                <input type="radio" name="qk2" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk2" required>
+                                                <input type="radio" name="qk2" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk2" required>
+                                                <input type="radio" name="qk2" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>QK3</td>
                                             <td>Pengetahuan yang saya bagi dengan dosen lainnya sangat akurat.</td>
                                             <td>
-                                                <input type="radio" name="qk3" required>
+                                                <input type="radio" name="qk3" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk3" required>
+                                                <input type="radio" name="qk3" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk3" required>
+                                                <input type="radio" name="qk3" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk3" required>
+                                                <input type="radio" name="qk3" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk3" required>
+                                                <input type="radio" name="qk3" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -519,19 +519,19 @@
                                                 lengkap.
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk4" required>
+                                                <input type="radio" name="qk4" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk4" required>
+                                                <input type="radio" name="qk4" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk4" required>
+                                                <input type="radio" name="qk4" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk4" required>
+                                                <input type="radio" name="qk4" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk4" required>
+                                                <input type="radio" name="qk4" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -540,19 +540,19 @@
                                                 terpercaya.
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk5" required>
+                                                <input type="radio" name="qk5" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk5" required>
+                                                <input type="radio" name="qk5" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk5" required>
+                                                <input type="radio" name="qk5" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk5" required>
+                                                <input type="radio" name="qk5" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk5" required>
+                                                <input type="radio" name="qk5" value="ss">
                                             </td>
                                         </tr>
                                         <tr>
@@ -561,19 +561,19 @@
                                                 waktu.
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk6" required>
+                                                <input type="radio" name="qk6" value="sts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk6" required>
+                                                <input type="radio" name="qk6" value="ts">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk6" required>
+                                                <input type="radio" name="qk6" value="ks">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk6" required>
+                                                <input type="radio" name="qk6" value="s">
                                             </td>
                                             <td>
-                                                <input type="radio" name="qk6" required>
+                                                <input type="radio" name="qk6" value="ss">
                                             </td>
                                         </tr>
                                         </tbody>
@@ -746,23 +746,23 @@
                                         <tr>
                                             <td>{{$i}}</td>
                                             <td><i>{{$a[$i-1]}}</i></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
-                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="9"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="8"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="7"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="6"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="5"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="4"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="3"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="2"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="1"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="2"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="3"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="4"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="5"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="6"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="7"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="8"></td>
+                                            <td><input type="radio" name="ks_{{$i}}" value="9"></td>
                                             <td><i>{{$b[$i-1]}}</i></td>
                                         </tr>
                                         @endfor
@@ -812,23 +812,23 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
-                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="9"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="1"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="hr_{{$i}}"  value="9"></td>
                                                 <td><i>{{$b[$i-1]}}</i></td>
                                             </tr>
                                         @endfor
@@ -878,23 +878,23 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
-                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="9"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="1"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="sr_{{$i}}"  value="9"></td>
                                                 <td><i>{{$b[$i-1]}}</i></td>
                                             </tr>
                                         @endfor
@@ -944,23 +944,23 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
-                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="9"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="1"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="cs_{{$i}}"  value="9"></td>
                                                 <td><i>{{$b[$i-1]}}</i></td>
                                             </tr>
                                         @endfor
@@ -1010,23 +1010,23 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
-                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="9"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="1"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="eh_{{$i}}"  value="9"></td>
                                                 <td><i>{{$b[$i-1]}}</i></td>
                                             </tr>
                                         @endfor
@@ -1076,23 +1076,23 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
-                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="9"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="1"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="2"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="3"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="4"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="5"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="6"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="7"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="8"></td>
+                                                <td><input type="radio" name="qk_{{$i}}"  value="9"></td>
                                                 <td><i>{{$b[$i-1]}}</i></td>
                                             </tr>
                                         @endfor
