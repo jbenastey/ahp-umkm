@@ -28,7 +28,8 @@
                     <!-- Card Body -->
                     <div class="dt-card__body">
 
-                        <form>
+                        <form method="post" action="">
+                            @csrf
                             <!-- Form Group -->
                             <div class="form-group form-row">
                                 <label class="col-xl-3 col-form-label text-sm-right" for="email-2">Nama</label>
@@ -36,7 +37,7 @@
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="email-2"
                                            aria-describedby="emailHelp2"
-                                           placeholder="Nama" name="kuesioner_nama">
+                                           placeholder="Nama" name="kuesioner_nama" required>
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -47,7 +48,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="number" class="form-control" id="password-2"
-                                           placeholder="Umur" name="kuesioner_umur">
+                                           placeholder="Umur" name="kuesioner_umur" required>
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -58,7 +59,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jurusan" name="kuesioner_jurusan">
+                                           placeholder="Jurusan" name="kuesioner_jurusan" required>
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -69,7 +70,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jabatan" name="kuesioner_jabatan">
+                                           placeholder="Jabatan" name="kuesioner_jabatan" required>
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -699,9 +700,422 @@
                                         <p>Artinya : untuk pertanyaan pertama pada baris pertama yang diisi pada kolom Kriteria B pada skala nilai 7 yang berarti bahwa “indikator Communication Skilss jelas lebih mutlak penting dari pada indikator Hard Rewards dengan nilai kepentingan 7”.</p>
                                     </ol>
 
+                                    <h4>B. LEMBAR PERNYATAAN PENENTUAN BOBOT KNOWLEDGE SHARING</h4>
+                                    <ol type="1">
+                                        <li><p>Berkaitan dengan pengukuran kinerja knowledge sharing Akademisi di Fakultas Sains dan Teknologi, maka kriteria manakah yang dianggap paling penting untuk di prioritaskan?</p></li>
+                                    </ol>
+
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Kriteria A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Kriteria B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                        $a = [
+                                            'Hard Rewards','Hard Rewards','Hard Rewards','Hard Rewards','Communication Skills','Communication Skills','Communication Skills','Enjoyment to Help Others','Enjoyment to Help Others','Soft Rewards'
+                                        ];
+                                        $b = [
+                                            'Communication Skills','Enjoyment to Help Others','Soft Rewards','Communication Skills','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Soft Rewards','Quality of Knowledge Shared','Quality of Knowledge Shared'
+                                        ];
+                                        @endphp
+                                        @for($i = 1; $i <= 10 ; $i++)
+                                        <tr>
+                                            <td>{{$i}}</td>
+                                            <td><i>{{$a[$i-1]}}</i></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><input type="radio" name="ks_{{$i}}" required></td>
+                                            <td><i>{{$b[$i-1]}}</i></td>
+                                        </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <p>Kriteria <i>Hard Rewards</i> (Imbalan Keras)</p>
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pernyataan A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Pernyataan B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $a = [
+                                                'HR1','HR1','HR1','HR2','HR2','HR3',
+                                            ];
+                                            $b = [
+                                                'HR2','HR3','HR4','HR3','HR4','HR4',
+                                                ];
+                                        @endphp
+                                        @for($i = 1; $i <= 6 ; $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td><i>{{$a[$i-1]}}</i></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><input type="radio" name="hr_{{$i}}" required></td>
+                                                <td><i>{{$b[$i-1]}}</i></td>
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <p>Kriteria <i>Soft Rewards</i> (Imbalan Lembut)</p>
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pernyataan A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Pernyataan B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $a = [
+                                                'SR1','SR1','SR2'
+                                            ];
+                                            $b = [
+                                                'SR2','SR3','SR3'
+                                                ];
+                                        @endphp
+                                        @for($i = 1; $i <= 3 ; $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td><i>{{$a[$i-1]}}</i></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><input type="radio" name="sr_{{$i}}" required></td>
+                                                <td><i>{{$b[$i-1]}}</i></td>
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <p>Kriteria <i>Communications Skills</i> (Kemampuan Berkomunikasi)</p>
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pernyataan A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Pernyataan B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $a = [
+                                                'CS1','CS1','CS2'
+                                            ];
+                                            $b = [
+                                                'CS2','CS3','CS3'
+                                                ];
+                                        @endphp
+                                        @for($i = 1; $i <= 3 ; $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td><i>{{$a[$i-1]}}</i></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><input type="radio" name="cs_{{$i}}" required></td>
+                                                <td><i>{{$b[$i-1]}}</i></td>
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <p>Kriteria <i>Enjoyment to Help Others</i> (Kesenangan Membantu Orang Lain)</p>
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pernyataan A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Pernyataan B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $a = [
+                                                'EH1','EH1','EH2'
+                                            ];
+                                            $b = [
+                                                'EH2','EH3','EH3'
+                                                ];
+                                        @endphp
+                                        @for($i = 1; $i <= 3 ; $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td><i>{{$a[$i-1]}}</i></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><input type="radio" name="eh_{{$i}}" required></td>
+                                                <td><i>{{$b[$i-1]}}</i></td>
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <p>Kriteria <i>Quality of Knowledge< Shared</i> (Kualitas dari Berbagai Pengetahuan)</p>
+                                    <table class="table table-bordered" width="100">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pernyataan A</th>
+                                            <th colspan="17">Skala</th>
+                                            <th rowspan="2">Pernyataan B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>8</td>
+                                            <td>7</td>
+                                            <td>6</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $a = [
+                                                'QK1','QK1','QK1','QK1','QK1','QK2','QK2','QK2','QK2','QK3','QK3','QK3','QK4','QK4','QK5',
+                                            ];
+                                            $b = [
+                                                'QK2','QK3','QK4','QK5','QK6','QK3','QK4','QK5','QK6','QK4','QK5','QK6','QK5','QK6','QK6',
+                                                ];
+                                        @endphp
+                                        @for($i = 1; $i <= 15 ; $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td><i>{{$a[$i-1]}}</i></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><input type="radio" name="qk_{{$i}}" required></td>
+                                                <td><i>{{$b[$i-1]}}</i></td>
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <!-- /form group -->
+
+                                <div class="row">
+
+                                    <!-- Form Group -->
+                                    <div class="form-group  col-xl-6">
+                                        <button type="button" onclick="window.history.back()" class="btn btn-outline-primary btn-block text-uppercase">Kembali</button>
+                                    </div>
+                                    <!-- /form group -->
+
+                                    <!-- Form Group -->
+                                    <div class="form-group  col-xl-6">
+                                        <button type="submit" class="btn btn-primary btn-block text-uppercase">Simpan</button>
+                                    </div>
+                                    <!-- /form group -->
+                                </div>
 
                         </form>
                         <!-- /form -->
