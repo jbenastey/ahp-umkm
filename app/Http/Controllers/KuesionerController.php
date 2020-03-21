@@ -143,7 +143,7 @@ class KuesionerController extends Controller
         ];
 
         DB::table('kuesioner')->insert($data);
-
+        alert()->success('Terima kasih telah mengisi kuesioner','Sukses');
         return redirect('/');
     }
 

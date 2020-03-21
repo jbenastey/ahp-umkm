@@ -33,7 +33,6 @@
 
 </head>
 <body class="dt-sidebar--fixed dt-header--fixed">
-
 <!-- Loader -->
 <div class="dt-loader-container">
     <div class="dt-loader">
@@ -81,9 +80,10 @@
 
 <!-- masonry script -->
 <script src="{{asset('drift/node_modules/masonry-layout/dist/masonry.pkgd.min.js')}}"></script>
-<script src="{{asset('drift/node_modules/sweetalert2/dist/sweetalert2.js')}}"></script>
+<script src="{{asset('drift/node_modules/sweetalert2/dist/sweetalert.min.js')}}"></script>
 <script src="{{asset('drift/default/assets/js/functions.js')}}"></script>
 <script src="{{asset('drift/default/assets/js/customizer.js')}}"></script>
+{{--<script src="{{asset('drift/node_modules/sweetalert2/dist/sweetalert2.js')}}"></script>--}}
 <script src="{{asset('drift/node_modules/chart.js/dist/Chart.min.js')}}"></script>
 
 <!-- Resources -->
@@ -99,8 +99,10 @@
 <script src="{{('drift/node_modules/datatables.net/js/jquery.dataTables.js')}}"></script>
 <script src="{{('drift/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{('drift/default/assets/js/custom/data-table.js')}}"></script>
+{{--<script src="{{asset('drift/default/assets/js/custom/sweet-alert.js')}}"></script>--}}
 <script src="{{asset('drift/default/assets/js/script.js')}}"></script>
 
+@include('sweet::alert')
 </body>
 
 </html>
