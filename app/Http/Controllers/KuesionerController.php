@@ -15,7 +15,8 @@ class KuesionerController extends Controller
     public function index()
     {
         //
-        return view('kuesioner.index');
+        $data['kuesioner'] = DB::table('kuesioner')->get();
+        return view('kuesioner.index',$data);
     }
 
     /**
@@ -166,6 +167,10 @@ class KuesionerController extends Controller
     public function show($id)
     {
         //
+        $data['kuesioner'] = DB::table('kuesioner')
+            ->where('kuesioner_id',$id)
+            ->first();
+        return view('kuesioner.lihat',$data);
     }
 
     /**

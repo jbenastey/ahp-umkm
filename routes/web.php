@@ -23,5 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/kuesioner','KuesionerController')->middleware('auth');
 Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
+Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
 Route::get('/kuesioner/isi', 'KuesionerController@kuesioner')->name('isi');
 Route::post('/kuesioner/simpan', 'KuesionerController@simpanKuesioner')->name('simpan');
+
+Route::get('/kuesioner/{id}/lihat','KuesionerController@show')->middleware('auth');
