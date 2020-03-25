@@ -432,7 +432,7 @@
                                                 'Hard Rewards','Hard Rewards','Hard Rewards','Hard Rewards','Communication Skills','Communication Skills','Communication Skills','Enjoyment to Help Others','Enjoyment to Help Others','Soft Rewards'
                                             ];
                                             $b = [
-                                                'Communication Skills','Enjoyment to Help Others','Soft Rewards','Communication Skills','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Soft Rewards','Quality of Knowledge Shared','Quality of Knowledge Shared'
+                                                'Communication Skills','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Soft Rewards','Quality of Knowledge Shared','Quality of Knowledge Shared'
                                             ];
                                             $ks = json_decode($kuesioner->kuesioner_ks,true);
                                         @endphp
