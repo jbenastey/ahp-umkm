@@ -104,74 +104,74 @@ class AhpController extends Controller
 //            var_dump($skala['ks'.$i]);
             if ($skala['ks1'] > 0){
                 $matriks['HR']['CS'] = abs($skala['ks1']);
-                $matriks['CS']['HR'] = (1/$skala['ks1']);
+                $matriks['CS']['HR'] = abs(1/$skala['ks1']);
             } else {
-                $matriks['HR']['CS'] = (1/$skala['ks1']);
-                $matriks['CS']['HR'] = ($skala['ks1']);
+                $matriks['HR']['CS'] = abs(1/$skala['ks1']);
+                $matriks['CS']['HR'] = abs($skala['ks1']);
             }
 
             if ($skala['ks2'] > 0){
-                $matriks['HR']['EH'] = ($skala['ks2']);
-                $matriks['EH']['HR'] = (1/$skala['ks2']);
+                $matriks['HR']['EH'] = abs($skala['ks2']);
+                $matriks['EH']['HR'] = abs(1/$skala['ks2']);
             } else {
-                $matriks['HR']['EH'] = 1/$skala['ks2'];
-                $matriks['EH']['HR'] = $skala['ks2'];
+                $matriks['HR']['EH'] = abs(1/$skala['ks2']);
+                $matriks['EH']['HR'] = abs($skala['ks2']);
             }
 
             if ($skala['ks3'] > 0){
-                $matriks['HR']['SR'] = $skala['ks3'];
-                $matriks['SR']['HR'] = 1/$skala['ks3'];
+                $matriks['HR']['SR'] = abs($skala['ks3']);
+                $matriks['SR']['HR'] = abs(1/$skala['ks3']);
             } else {
-                $matriks['HR']['SR'] = 1/$skala['ks3'];
-                $matriks['SR']['HR'] = $skala['ks3'];
+                $matriks['HR']['SR'] = abs(1/$skala['ks3']);
+                $matriks['SR']['HR'] = abs($skala['ks3']);
             }
 
             if ($skala['ks4'] > 0){
-                $matriks['HR']['QK'] = $skala['ks4'];
-                $matriks['QK']['HR'] = 1/$skala['ks4'];
+                $matriks['HR']['QK'] = abs($skala['ks4']);
+                $matriks['QK']['HR'] = abs(1/$skala['ks4']);
             } else {
-                $matriks['HR']['QK'] = 1/$skala['ks4'];
-                $matriks['QK']['HR'] = $skala['ks4'];
+                $matriks['HR']['QK'] = abs(1/$skala['ks4']);
+                $matriks['QK']['HR'] = abs($skala['ks4']);
             }
 
             if ($skala['ks5'] > 0){
-                $matriks['CS']['EH'] = $skala['ks5'];
-                $matriks['EH']['CS'] = 1/$skala['ks5'];
+                $matriks['CS']['EH'] = abs($skala['ks5']);
+                $matriks['EH']['CS'] = abs(1/$skala['ks5']);
             } else {
-                $matriks['CS']['EH'] = 1/$skala['ks5'];
-                $matriks['EH']['CS'] = $skala['ks5'];
+                $matriks['CS']['EH'] = abs(1/$skala['ks5']);
+                $matriks['EH']['CS'] = abs($skala['ks5']);
             }
 
             if ($skala['ks6'] > 0){
-                $matriks['CS']['SR'] = $skala['ks6'];
-                $matriks['SR']['CS'] = 1/$skala['ks6'];
+                $matriks['CS']['SR'] = abs($skala['ks6']);
+                $matriks['SR']['CS'] = abs(1/$skala['ks6']);
             } else {
-                $matriks['CS']['SR'] = 1/$skala['ks6'];
-                $matriks['SR']['CS'] = $skala['ks6'];
+                $matriks['CS']['SR'] = abs(1/$skala['ks6']);
+                $matriks['SR']['CS'] = abs($skala['ks6']);
             }
 
             if ($skala['ks7'] > 0){
-                $matriks['CS']['QK'] = $skala['ks7'];
-                $matriks['QK']['CS'] = 1/$skala['ks7'];
+                $matriks['CS']['QK'] = abs($skala['ks7']);
+                $matriks['QK']['CS'] = abs(1/$skala['ks7']);
             } else {
-                $matriks['CS']['QK'] = 1/$skala['ks7'];
-                $matriks['QK']['CS'] = $skala['ks7'];
+                $matriks['CS']['QK'] = abs(1/$skala['ks7']);
+                $matriks['QK']['CS'] = abs($skala['ks7']);
             }
 
             if ($skala['ks8'] > 0){
-                $matriks['EH']['SR'] = $skala['ks8'];
-                $matriks['SR']['EH'] = 1/$skala['ks8'];
+                $matriks['EH']['SR'] = abs($skala['ks8']);
+                $matriks['SR']['EH'] = abs(1/$skala['ks8']);
             } else {
-                $matriks['EH']['SR'] = 1/$skala['ks8'];
-                $matriks['SR']['EH'] = $skala['ks8'];
+                $matriks['EH']['SR'] = abs(1/$skala['ks8']);
+                $matriks['SR']['EH'] = abs($skala['ks8']);
             }
 
             if ($skala['ks9'] > 0){
-                $matriks['EH']['QK'] = $skala['ks9'];
-                $matriks['QK']['EH'] = 1/$skala['ks9'];
+                $matriks['EH']['QK'] = abs($skala['ks9']);
+                $matriks['QK']['EH'] = abs(1/$skala['ks9']);
             } else {
-                $matriks['EH']['QK'] = 1/$skala['ks9'];
-                $matriks['QK']['EH'] = $skala['ks9'];
+                $matriks['EH']['QK'] = abs(1/$skala['ks9']);
+                $matriks['QK']['EH'] = abs($skala['ks9']);
             }
 
             if ($skala['ks10'] > 0){
