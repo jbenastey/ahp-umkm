@@ -28,3 +28,8 @@ Route::get('/kuesioner/isi', 'KuesionerController@kuesioner')->name('isi');
 Route::post('/kuesioner/simpan', 'KuesionerController@simpanKuesioner')->name('simpan');
 
 Route::get('/kuesioner/{id}/lihat','KuesionerController@show')->middleware('auth');
+
+Route::get('/ahp','AhpController@index')->middleware('auth');
+Route::get('/ahp/{id}/lihat','AhpController@show')->middleware('auth');
+Route::get('/ahp/{id}/matriks-kriteria','AhpController@matriksKriteria')->middleware('auth');
+

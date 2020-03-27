@@ -22,7 +22,7 @@
                     <span class="dt-side-nav__text">Data Kuesioner</span> </a>
             </li>
             <li class="dt-side-nav__item">
-                <a href="task-manager.html" class="dt-side-nav__link" title="Task Manager"> <i
+                <a href="{{url('ahp')}}" class="dt-side-nav__link" title="Task Manager"> <i
                         class="icon icon-chart-line icon-fw icon-lg"></i>
                     <span class="dt-side-nav__text">Analisa AHP</span> </a>
             </li>
