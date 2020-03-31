@@ -106,83 +106,83 @@ class AhpController extends Controller
             ],
         ];
         if ($skala['ks1'] > 0) {
-            $matriks['HR']['CS'] = abs($skala['ks1']);
-            $matriks['CS']['HR'] = abs(1 / $skala['ks1']);
+            $matriks['HR']['CS'] = round(abs($skala['ks1']),2);
+            $matriks['CS']['HR'] = round(abs(1 / $skala['ks1']),2);
         } else {
-            $matriks['HR']['CS'] = abs(1 / $skala['ks1']);
-            $matriks['CS']['HR'] = abs($skala['ks1']);
+            $matriks['HR']['CS'] = round(abs(1 / $skala['ks1']),2);
+            $matriks['CS']['HR'] = round(abs($skala['ks1']),2);
         }
 
         if ($skala['ks2'] > 0) {
-            $matriks['HR']['EH'] = abs($skala['ks2']);
-            $matriks['EH']['HR'] = abs(1 / $skala['ks2']);
+            $matriks['HR']['EH'] = round(abs($skala['ks2']),2);
+            $matriks['EH']['HR'] = round(abs(1 / $skala['ks2']),2);
         } else {
-            $matriks['HR']['EH'] = abs(1 / $skala['ks2']);
-            $matriks['EH']['HR'] = abs($skala['ks2']);
+            $matriks['HR']['EH'] = round(abs(1 / $skala['ks2']),2);
+            $matriks['EH']['HR'] = round(abs($skala['ks2']),2);
         }
 
         if ($skala['ks3'] > 0) {
-            $matriks['HR']['SR'] = abs($skala['ks3']);
-            $matriks['SR']['HR'] = abs(1 / $skala['ks3']);
+            $matriks['HR']['SR'] = round(abs($skala['ks3']),2);
+            $matriks['SR']['HR'] = round(abs(1 / $skala['ks3']),2);
         } else {
-            $matriks['HR']['SR'] = abs(1 / $skala['ks3']);
-            $matriks['SR']['HR'] = abs($skala['ks3']);
+            $matriks['HR']['SR'] = round(abs(1 / $skala['ks3']),2);
+            $matriks['SR']['HR'] = round(abs($skala['ks3']),2);
         }
 
         if ($skala['ks4'] > 0) {
-            $matriks['HR']['QK'] = abs($skala['ks4']);
-            $matriks['QK']['HR'] = abs(1 / $skala['ks4']);
+            $matriks['HR']['QK'] = round(abs($skala['ks4']),2);
+            $matriks['QK']['HR'] = round(abs(1 / $skala['ks4']),2);
         } else {
-            $matriks['HR']['QK'] = abs(1 / $skala['ks4']);
-            $matriks['QK']['HR'] = abs($skala['ks4']);
+            $matriks['HR']['QK'] = round(abs(1 / $skala['ks4']),2);
+            $matriks['QK']['HR'] = round(abs($skala['ks4']),2);
         }
 
         if ($skala['ks5'] > 0) {
-            $matriks['CS']['EH'] = abs($skala['ks5']);
-            $matriks['EH']['CS'] = abs(1 / $skala['ks5']);
+            $matriks['CS']['EH'] = round(abs($skala['ks5']),2);
+            $matriks['EH']['CS'] = round(abs(1 / $skala['ks5']),2);
         } else {
-            $matriks['CS']['EH'] = abs(1 / $skala['ks5']);
-            $matriks['EH']['CS'] = abs($skala['ks5']);
+            $matriks['CS']['EH'] = round(abs(1 / $skala['ks5']),2);
+            $matriks['EH']['CS'] = round(abs($skala['ks5']),2);
         }
 
         if ($skala['ks6'] > 0) {
-            $matriks['CS']['SR'] = abs($skala['ks6']);
-            $matriks['SR']['CS'] = abs(1 / $skala['ks6']);
+            $matriks['CS']['SR'] = round(abs($skala['ks6']),2);
+            $matriks['SR']['CS'] = round(abs(1 / $skala['ks6']),2);
         } else {
-            $matriks['CS']['SR'] = abs(1 / $skala['ks6']);
-            $matriks['SR']['CS'] = abs($skala['ks6']);
+            $matriks['CS']['SR'] = round(abs(1 / $skala['ks6']),2);
+            $matriks['SR']['CS'] = round(abs($skala['ks6']),2);
         }
 
         if ($skala['ks7'] > 0) {
-            $matriks['CS']['QK'] = abs($skala['ks7']);
-            $matriks['QK']['CS'] = abs(1 / $skala['ks7']);
+            $matriks['CS']['QK'] = round(abs($skala['ks7']),2);
+            $matriks['QK']['CS'] = round(abs(1 / $skala['ks7']),2);
         } else {
-            $matriks['CS']['QK'] = abs(1 / $skala['ks7']);
-            $matriks['QK']['CS'] = abs($skala['ks7']);
+            $matriks['CS']['QK'] = round(abs(1 / $skala['ks7']),2);
+            $matriks['QK']['CS'] = round(abs($skala['ks7']),2);
         }
 
         if ($skala['ks8'] > 0) {
-            $matriks['EH']['SR'] = abs($skala['ks8']);
-            $matriks['SR']['EH'] = abs(1 / $skala['ks8']);
+            $matriks['EH']['SR'] = round(abs($skala['ks8']),2);
+            $matriks['SR']['EH'] = round(abs(1 / $skala['ks8']),2);
         } else {
-            $matriks['EH']['SR'] = abs(1 / $skala['ks8']);
-            $matriks['SR']['EH'] = abs($skala['ks8']);
+            $matriks['EH']['SR'] = round(abs(1 / $skala['ks8']),2);
+            $matriks['SR']['EH'] = round(abs($skala['ks8']),2);
         }
 
         if ($skala['ks9'] > 0) {
-            $matriks['EH']['QK'] = abs($skala['ks9']);
-            $matriks['QK']['EH'] = abs(1 / $skala['ks9']);
+            $matriks['EH']['QK'] = round(abs($skala['ks9']),2);
+            $matriks['QK']['EH'] = round(abs(1 / $skala['ks9']),2);
         } else {
-            $matriks['EH']['QK'] = abs(1 / $skala['ks9']);
-            $matriks['QK']['EH'] = abs($skala['ks9']);
+            $matriks['EH']['QK'] = round(abs(1 / $skala['ks9']),2);
+            $matriks['QK']['EH'] = round(abs($skala['ks9']),2);
         }
 
         if ($skala['ks10'] > 0) {
-            $matriks['SR']['QK'] = abs($skala['ks10']);
-            $matriks['QK']['SR'] = abs(1 / $skala['ks10']);
+            $matriks['SR']['QK'] = round(abs($skala['ks10'],2));
+            $matriks['QK']['SR'] = round(abs(1 / $skala['ks10']),2);
         } else {
-            $matriks['SR']['QK'] = abs(1 / $skala['ks10']);
-            $matriks['QK']['SR'] = abs($skala['ks10']);
+            $matriks['SR']['QK'] = round(abs(1 / $skala['ks10']),2);
+            $matriks['QK']['SR'] = round(abs($skala['ks10']),2);
         }
 
         $data = [
@@ -199,6 +199,60 @@ class AhpController extends Controller
         DB::table('matriks_kriteria')->insert($data);
         alert()->success('Matriks kriteria sudah dibuat', 'Sukses');
         return redirect('/ahp/'.$id.'/lihat');
+    }
+
+    public function bagiKriteria($id){
+        $kriteria = DB::table('matriks_kriteria')
+            ->where('kriteria_kuesioner_id', $id)
+            ->first();
+        $hr = json_decode($kriteria->kriteria_hr);
+        $sr = json_decode($kriteria->kriteria_sr);
+        $cs = json_decode($kriteria->kriteria_cs);
+        $eh = json_decode($kriteria->kriteria_eh);
+        $qk = json_decode($kriteria->kriteria_qk);
+
+        $jumlahHR = $hr->HR +$cs->HR +$eh->HR +$sr->HR +$qk->HR;
+        $jumlahCS = $hr->CS +$cs->CS +$eh->CS +$sr->CS +$qk->CS;
+        $jumlahEH = $hr->EH +$cs->EH +$eh->EH +$sr->EH +$qk->EH;
+        $jumlahSR = $hr->SR +$cs->SR +$eh->SR +$sr->SR +$qk->SR;
+        $jumlahQK = $hr->QK +$cs->QK +$eh->QK +$sr->QK +$qk->QK;
+
+        //kolom HR
+        $k_hr['HR'] = round($hr->HR / round($jumlahHR,2),4);
+        $k_hr['CS'] = round($cs->HR / round($jumlahHR,2),4);
+        $k_hr['EH'] = round($eh->HR / round($jumlahHR,2),4);
+        $k_hr['SR'] = round($sr->HR / round($jumlahHR,2),4);
+        $k_hr['QK'] = round($qk->HR / round($jumlahHR,2),4);
+        //kolom CS
+        $k_cs['HR'] = round($hr->CS / round($jumlahCS,2),4);
+        $k_cs['CS'] = round($cs->CS / round($jumlahCS,2),4);
+        $k_cs['EH'] = round($eh->CS / round($jumlahCS,2),4);
+        $k_cs['SR'] = round($sr->CS / round($jumlahCS,2),4);
+        $k_cs['QK'] = round($qk->CS / round($jumlahCS,2),4);
+        //kolom HR
+        $k_eh['HR'] = round($hr->EH / round($jumlahEH,2),4);
+        $k_eh['CS'] = round($cs->EH / round($jumlahEH,2),4);
+        $k_eh['EH'] = round($eh->EH / round($jumlahEH,2),4);
+        $k_eh['SR'] = round($sr->EH / round($jumlahEH,2),4);
+        $k_eh['QK'] = round($qk->EH / round($jumlahEH,2),4);
+        //kolom HR
+        $k_sr['HR'] = round($hr->SR / round($jumlahSR,2),4);
+        $k_sr['CS'] = round($cs->SR / round($jumlahSR,2),4);
+        $k_sr['EH'] = round($eh->SR / round($jumlahSR,2),4);
+        $k_sr['SR'] = round($sr->SR / round($jumlahSR,2),4);
+        $k_sr['QK'] = round($qk->SR / round($jumlahSR,2),4);
+        //kolom HR
+        $k_qk['HR'] = round($hr->QK / round($jumlahQK,2),4);
+        $k_qk['CS'] = round($cs->QK / round($jumlahQK,2),4);
+        $k_qk['EH'] = round($eh->QK / round($jumlahQK,2),4);
+        $k_qk['SR'] = round($sr->QK / round($jumlahQK,2),4);
+        $k_qk['QK'] = round($qk->QK / round($jumlahQK,2),4);
+
+        var_dump($k_hr);
+        var_dump($k_cs);
+        var_dump($k_eh);
+        var_dump($k_sr);
+        var_dump($k_qk);
     }
 
     /**
