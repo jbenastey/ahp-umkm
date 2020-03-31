@@ -29,7 +29,8 @@
                     <div class="dt-card__body">
                         <h4>Matriks Perbandingan Kriteria</h4>
                         @if($kriteria == null)
-                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/matriks-kriteria')}}" class="btn btn-primary btn-sm">Hitung</a>
+                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/matriks-kriteria')}}"
+                               class="btn btn-primary btn-sm">Hitung</a>
                         @else
                             <table class="table table-bordered">
                                 <thead>
@@ -52,49 +53,114 @@
                                 <tbody>
                                 <tr>
                                     <td>HR</td>
-                                    <td>{{$hr->HR}}</td>
-                                    <td>{{$hr->CS}}</td>
-                                    <td>{{$hr->EH}}</td>
-                                    <td>{{$hr->SR}}</td>
-                                    <td>{{$hr->QK}}</td>
+                                    <td>{{round($hr->HR,2)}}</td>
+                                    <td>{{round($hr->CS,2)}}</td>
+                                    <td>{{round($hr->EH,2)}}</td>
+                                    <td>{{round($hr->SR,2)}}</td>
+                                    <td>{{round($hr->QK,2)}}</td>
                                 </tr>
                                 <tr>
                                     <td>CS</td>
-                                    <td>{{$cs->HR}}</td>
-                                    <td>{{$cs->CS}}</td>
-                                    <td>{{$cs->EH}}</td>
-                                    <td>{{$cs->SR}}</td>
-                                    <td>{{$cs->QK}}</td>
+                                    <td>{{round($cs->HR,2)}}</td>
+                                    <td>{{round($cs->CS,2)}}</td>
+                                    <td>{{round($cs->EH,2)}}</td>
+                                    <td>{{round($cs->SR,2)}}</td>
+                                    <td>{{round($cs->QK,2)}}</td>
                                 </tr>
                                 <tr>
                                     <td>EH</td>
-                                    <td>{{$eh->HR}}</td>
-                                    <td>{{$eh->CS}}</td>
-                                    <td>{{$eh->EH}}</td>
-                                    <td>{{$eh->SR}}</td>
-                                    <td>{{$eh->QK}}</td>
+                                    <td>{{round($eh->HR,2)}}</td>
+                                    <td>{{round($eh->CS,2)}}</td>
+                                    <td>{{round($eh->EH,2)}}</td>
+                                    <td>{{round($eh->SR,2)}}</td>
+                                    <td>{{round($eh->QK,2)}}</td>
                                 </tr>
                                 <tr>
                                     <td>SR</td>
-                                    <td>{{$sr->HR}}</td>
-                                    <td>{{$sr->CS}}</td>
-                                    <td>{{$sr->EH}}</td>
-                                    <td>{{$sr->SR}}</td>
-                                    <td>{{$sr->QK}}</td>
+                                    <td>{{round($sr->HR,2)}}</td>
+                                    <td>{{round($sr->CS,2)}}</td>
+                                    <td>{{round($sr->EH,2)}}</td>
+                                    <td>{{round($sr->SR,2)}}</td>
+                                    <td>{{round($sr->QK,2)}}</td>
                                 </tr>
                                 <tr>
                                     <td>QK</td>
-                                    <td>{{$qk->HR}}</td>
-                                    <td>{{$qk->CS}}</td>
-                                    <td>{{$qk->EH}}</td>
-                                    <td>{{$qk->SR}}</td>
-                                    <td>{{$qk->QK}}</td>
+                                    <td>{{round($qk->HR,2)}}</td>
+                                    <td>{{round($qk->CS,2)}}</td>
+                                    <td>{{round($qk->EH,2)}}</td>
+                                    <td>{{round($qk->SR,2)}}</td>
+                                    <td>{{round($qk->QK,2)}}</td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <hr>
+                            <h4>Penjumlahan Nilai Setiap Kolom</h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Kriteria</th>
+                                    <th>HR</th>
+                                    <th>CS</th>
+                                    <th>EH</th>
+                                    <th>SR</th>
+                                    <th>QK</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>HR</td>
+                                    <td>{{round($hr->HR,2)}}</td>
+                                    <td>{{round($hr->CS,2)}}</td>
+                                    <td>{{round($hr->EH,2)}}</td>
+                                    <td>{{round($hr->SR,2)}}</td>
+                                    <td>{{round($hr->QK,2)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>CS</td>
+                                    <td>{{round($cs->HR,2)}}</td>
+                                    <td>{{round($cs->CS,2)}}</td>
+                                    <td>{{round($cs->EH,2)}}</td>
+                                    <td>{{round($cs->SR,2)}}</td>
+                                    <td>{{round($cs->QK,2)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>EH</td>
+                                    <td>{{round($eh->HR,2)}}</td>
+                                    <td>{{round($eh->CS,2)}}</td>
+                                    <td>{{round($eh->EH,2)}}</td>
+                                    <td>{{round($eh->SR,2)}}</td>
+                                    <td>{{round($eh->QK,2)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>SR</td>
+                                    <td>{{round($sr->HR,2)}}</td>
+                                    <td>{{round($sr->CS,2)}}</td>
+                                    <td>{{round($sr->EH,2)}}</td>
+                                    <td>{{round($sr->SR,2)}}</td>
+                                    <td>{{round($sr->QK,2)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>QK</td>
+                                    <td>{{round($qk->HR,2)}}</td>
+                                    <td>{{round($qk->CS,2)}}</td>
+                                    <td>{{round($qk->EH,2)}}</td>
+                                    <td>{{round($qk->SR,2)}}</td>
+                                    <td>{{round($qk->QK,2)}}</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td><b>Jumlah</b></td>
+                                    <td>{{round($hr->HR +$cs->HR +$eh->HR +$sr->HR +$qk->HR,2)  }}</td>
+                                    <td>{{round($hr->CS +$cs->CS +$eh->CS +$sr->CS +$qk->CS,2)  }}</td>
+                                    <td>{{round($hr->EH +$cs->EH +$eh->EH +$sr->EH +$qk->EH,2)  }}</td>
+                                    <td>{{round($hr->SR +$cs->SR +$eh->SR +$sr->SR +$qk->SR,2)  }}</td>
+                                    <td>{{round($hr->QK +$cs->QK +$eh->QK +$sr->QK +$qk->QK,2)  }}</td>
+                                </tr>
+                                </tfoot>
+                            </table>
                         @endif
-                        <!-- /form -->
-                        <hr>
+                    <!-- /form -->
                     </div>
                 </div>
 
