@@ -57,6 +57,10 @@ class AhpController extends Controller
             ->where('kriteria_kuesioner_id', $id)
             ->first();
 
+        $data['bagi'] = DB::table('pembagian_kriteria')
+            ->where('pembagian_kuesioner_id', $id)
+            ->first();
+
         return view('ahp.lihat', $data);
     }
 

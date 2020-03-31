@@ -161,8 +161,73 @@
                             </table>
                             <hr>
                             <h4>Pembagian Nilai Kolom dengan Jumlah Kolom</h4>
-                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/bagi-kriteria')}}"
-                               class="btn btn-primary btn-sm">Hitung</a>
+                            @if($bagi == null)
+                                <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/bagi-kriteria')}}"
+                                   class="btn btn-primary btn-sm">Hitung</a>
+                            @else
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Kriteria</th>
+                                        <th>HR</th>
+                                        <th>CS</th>
+                                        <th>EH</th>
+                                        <th>SR</th>
+                                        <th>QK</th>
+                                    </tr>
+                                    </thead>
+                                    @php
+                                        $hr = json_decode($bagi->pembagian_hr);
+                                        $sr = json_decode($bagi->pembagian_sr);
+                                        $cs = json_decode($bagi->pembagian_cs);
+                                        $eh = json_decode($bagi->pembagian_eh);
+                                        $qk = json_decode($bagi->pembagian_qk);
+                                    @endphp
+                                    <tbody>
+                                    <tr>
+                                        <td>HR</td>
+                                        <td>{{round($hr->HR,4)}}</td>
+                                        <td>{{round($cs->HR,4)}}</td>
+                                        <td>{{round($eh->HR,4)}}</td>
+                                        <td>{{round($sr->HR,4)}}</td>
+                                        <td>{{round($qk->HR,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CS</td>
+                                        <td>{{round($hr->CS,4)}}</td>
+                                        <td>{{round($cs->CS,4)}}</td>
+                                        <td>{{round($eh->CS,4)}}</td>
+                                        <td>{{round($sr->CS,4)}}</td>
+                                        <td>{{round($qk->CS,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EH</td>
+                                        <td>{{round($hr->EH,4)}}</td>
+                                        <td>{{round($cs->EH,4)}}</td>
+                                        <td>{{round($eh->EH,4)}}</td>
+                                        <td>{{round($sr->EH,4)}}</td>
+                                        <td>{{round($qk->EH,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SR</td>
+                                        <td>{{round($hr->SR,4)}}</td>
+                                        <td>{{round($cs->SR,4)}}</td>
+                                        <td>{{round($eh->SR,4)}}</td>
+                                        <td>{{round($sr->SR,4)}}</td>
+                                        <td>{{round($qk->SR,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>QK</td>
+                                        <td>{{round($hr->QK,4)}}</td>
+                                        <td>{{round($cs->QK,4)}}</td>
+                                        <td>{{round($eh->QK,4)}}</td>
+                                        <td>{{round($sr->QK,4)}}</td>
+                                        <td>{{round($qk->QK,4)}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <hr>
+                        @endif
                     @endif
                     <!-- /form -->
                     </div>
