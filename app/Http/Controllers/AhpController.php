@@ -248,11 +248,25 @@ class AhpController extends Controller
         $k_qk['SR'] = round($sr->QK / round($jumlahQK,2),4);
         $k_qk['QK'] = round($qk->QK / round($jumlahQK,2),4);
 
-        var_dump($k_hr);
-        var_dump($k_cs);
-        var_dump($k_eh);
-        var_dump($k_sr);
-        var_dump($k_qk);
+//        var_dump($k_hr);
+//        var_dump($k_cs);
+//        var_dump($k_eh);
+//        var_dump($k_sr);
+//        var_dump($k_qk);
+        $data = [
+            'pembagian_kuesioner_id' => $id,
+            'pembagian_hr' => json_encode($k_hr),
+            'pembagian_sr' => json_encode($k_sr),
+            'pembagian_cs' => json_encode($k_cs),
+            'pembagian_eh' => json_encode($k_eh),
+            'pembagian_qk' => json_encode($k_qk),
+        ];
+
+        var_dump($data);
+
+        DB::table('pembagian_kriteria')->insert($data);
+        alert()->success(' ', 'Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
     }
 
     /**

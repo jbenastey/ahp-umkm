@@ -159,7 +159,11 @@
                                 </tr>
                                 </tfoot>
                             </table>
-                        @endif
+                            <hr>
+                            <h4>Pembagian Nilai Kolom dengan Jumlah Kolom</h4>
+                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/bagi-kriteria')}}"
+                               class="btn btn-primary btn-sm">Hitung</a>
+                    @endif
                     <!-- /form -->
                     </div>
                 </div>
