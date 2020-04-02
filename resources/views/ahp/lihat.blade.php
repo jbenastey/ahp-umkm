@@ -242,6 +242,18 @@
                                         $cs = json_decode($bagi->pembagian_cs);
                                         $eh = json_decode($bagi->pembagian_eh);
                                         $qk = json_decode($bagi->pembagian_qk);
+
+                                            $jumlah_hr = round($qk->HR +$hr->HR +$cs->HR +$eh->HR +$sr->HR ,4);
+                                            $jumlah_sr = round($qk->SR +$hr->SR +$cs->SR +$eh->SR +$sr->SR ,4);
+                                            $jumlah_cs = round($qk->CS +$hr->CS +$cs->CS +$eh->CS +$sr->CS ,4);
+                                            $jumlah_eh = round($qk->EH +$hr->EH +$cs->EH +$eh->EH +$sr->EH ,4);
+                                            $jumlah_qk = round($qk->QK +$hr->QK +$cs->QK +$eh->QK +$sr->QK ,4);
+
+                                            $rata_hr = round($jumlah_hr/5,4);
+                                            $rata_sr = round($jumlah_sr/5,4);
+                                            $rata_cs = round($jumlah_cs/5,4);
+                                            $rata_eh = round($jumlah_eh/5,4);
+                                            $rata_qk = round($jumlah_qk/5,4);
                                     @endphp
                                     <tbody>
                                     <tr>
@@ -339,6 +351,119 @@
                                         </tbody>
                                     </table>
                                     <hr>
+                                <h4>Jumlah Nilai Setiap Baris</h4>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Kriteria</th>
+                                            <th>HR</th>
+                                            <th>CS</th>
+                                            <th>EH</th>
+                                            <th>SR</th>
+                                            <th>QK</th>
+                                            <th><b>Jumlah</b></th>
+                                        </tr>
+                                        </thead>
+                                        @php
+                                            $hr = json_decode($kali->perkalian_hr);
+                                            $sr = json_decode($kali->perkalian_sr);
+                                            $cs = json_decode($kali->perkalian_cs);
+                                            $eh = json_decode($kali->perkalian_eh);
+                                            $qk = json_decode($kali->perkalian_qk);
+                                        @endphp
+                                        <tbody>
+                                        <tr>
+                                            <td>HR</td>
+                                            <td>{{round($hr->HR,4)}}</td>
+                                            <td>{{round($cs->HR,4)}}</td>
+                                            <td>{{round($eh->HR,4)}}</td>
+                                            <td>{{round($sr->HR,4)}}</td>
+                                            <td>{{round($qk->HR,4)}}</td>
+                                            <td><b>{{round($qk->HR +$hr->HR +$cs->HR +$eh->HR +$sr->HR ,4)}}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS</td>
+                                            <td>{{round($hr->CS,4)}}</td>
+                                            <td>{{round($cs->CS,4)}}</td>
+                                            <td>{{round($eh->CS,4)}}</td>
+                                            <td>{{round($sr->CS,4)}}</td>
+                                            <td>{{round($qk->CS,4)}}</td>
+                                            <td><b>{{round($qk->CS +$hr->CS +$cs->CS +$eh->CS +$sr->CS ,4)}}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>EH</td>
+                                            <td>{{round($hr->EH,4)}}</td>
+                                            <td>{{round($cs->EH,4)}}</td>
+                                            <td>{{round($eh->EH,4)}}</td>
+                                            <td>{{round($sr->EH,4)}}</td>
+                                            <td>{{round($qk->EH,4)}}</td>
+                                            <td><b>{{round($qk->EH +$hr->EH +$cs->EH +$eh->EH +$sr->EH ,4)}}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SR</td>
+                                            <td>{{round($hr->SR,4)}}</td>
+                                            <td>{{round($cs->SR,4)}}</td>
+                                            <td>{{round($eh->SR,4)}}</td>
+                                            <td>{{round($sr->SR,4)}}</td>
+                                            <td>{{round($qk->SR,4)}}</td>
+                                            <td><b>{{round($qk->SR +$hr->SR +$cs->SR +$eh->SR +$sr->SR ,4)}}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>QK</td>
+                                            <td>{{round($hr->QK,4)}}</td>
+                                            <td>{{round($cs->QK,4)}}</td>
+                                            <td>{{round($eh->QK,4)}}</td>
+                                            <td>{{round($sr->QK,4)}}</td>
+                                            <td>{{round($qk->QK,4)}}</td>
+                                            <td><b>{{round($qk->QK +$hr->QK +$cs->QK +$eh->QK +$sr->QK ,4)}}</b></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr>
+                                <h4>Hasil Jumlah Baris di Bagi dengan Rata-rata</h4>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Kriteria</th>
+                                            <th>Jumlah / Rata-rata</th>
+                                            <th>Hasil</th>
+                                        </tr>
+                                        </thead>
+                                        @php
+                                            $jumlah_hr = round($qk->HR +$hr->HR +$cs->HR +$eh->HR +$sr->HR ,4);
+                                            $jumlah_sr = round($qk->SR +$hr->SR +$cs->SR +$eh->SR +$sr->SR ,4);
+                                            $jumlah_cs = round($qk->CS +$hr->CS +$cs->CS +$eh->CS +$sr->CS ,4);
+                                            $jumlah_eh = round($qk->EH +$hr->EH +$cs->EH +$eh->EH +$sr->EH ,4);
+                                            $jumlah_qk = round($qk->QK +$hr->QK +$cs->QK +$eh->QK +$sr->QK ,4);
+                                        @endphp
+                                        <tbody>
+                                        <tr>
+                                            <td>HR</td>
+                                            <td>{{$jumlah_hr}} / {{$rata_hr}}</td>
+                                            <td>{{round($jumlah_hr/$rata_hr,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS</td>
+                                            <td>{{$jumlah_cs}} / {{$rata_cs}}</td>
+                                            <td>{{round($jumlah_cs/$rata_cs,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EH</td>
+                                            <td>{{$jumlah_eh}} / {{$rata_eh}}</td>
+                                            <td>{{round($jumlah_eh/$rata_eh,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SR</td>
+                                            <td>{{$jumlah_sr}} / {{$rata_sr}}</td>
+                                            <td>{{round($jumlah_sr/$rata_sr,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>QK</td>
+                                            <td>{{$jumlah_qk}} / {{$rata_qk}}</td>
+                                            <td>{{round($jumlah_qk/$rata_qk,4)}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                             @endif
                         @endif
                     @endif
