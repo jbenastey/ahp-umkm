@@ -227,6 +227,119 @@
                                     </tbody>
                                 </table>
                                 <hr>
+                                <h4>Nilai Rata" Matriks Perbandingan</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Kriteria</th>
+                                        <th>Jumlah Nilai Tiap Baris</th>
+                                        <th>Rata-Rata</th>
+                                    </tr>
+                                    </thead>
+                                    @php
+                                        $hr = json_decode($bagi->pembagian_hr);
+                                        $sr = json_decode($bagi->pembagian_sr);
+                                        $cs = json_decode($bagi->pembagian_cs);
+                                        $eh = json_decode($bagi->pembagian_eh);
+                                        $qk = json_decode($bagi->pembagian_qk);
+                                    @endphp
+                                    <tbody>
+                                    <tr>
+                                        <td>HR</td>
+                                        <td>{{round($qk->HR + $sr->HR + $eh->HR + $cs->HR + $hr->HR,4)}}</td>
+                                        <td>{{round(($qk->HR + $sr->HR + $eh->HR + $cs->HR + $hr->HR)/5,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CS</td>
+                                        <td>{{round($qk->CS + $sr->CS + $eh->CS + $cs->CS + $hr->CS,4)}}</td>
+                                        <td>{{round(($qk->CS + $sr->CS + $eh->CS + $cs->CS + $hr->CS)/5,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EH</td>
+                                        <td>{{round($qk->EH + $sr->EH + $eh->EH + $cs->EH + $hr->EH,4)}}</td>
+                                        <td>{{round(($qk->EH + $sr->EH + $eh->EH + $cs->EH + $hr->EH)/5,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SR</td>
+                                        <td>{{round($qk->SR + $sr->SR + $eh->SR + $cs->SR + $hr->SR,4)}}</td>
+                                        <td>{{round(($qk->SR + $sr->SR + $eh->SR + $cs->SR + $hr->SR)/5,4)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>QK</td>
+                                        <td>{{round($qk->QK + $sr->QK + $eh->QK + $cs->QK + $hr->QK,4)}}</td>
+                                        <td>{{round(($qk->QK + $sr->QK + $eh->QK + $cs->QK + $hr->QK)/5,4)}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <h4>Perkalian Nilai Matriks Perbandingan dengan Rata-rata</h4>
+                            @if($kali == null)
+                                    <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/kali-kriteria')}}"
+                                       class="btn btn-primary btn-sm">Hitung</a>
+                            @else
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Kriteria</th>
+                                            <th>HR</th>
+                                            <th>CS</th>
+                                            <th>EH</th>
+                                            <th>SR</th>
+                                            <th>QK</th>
+                                        </tr>
+                                        </thead>
+                                        @php
+                                            $hr = json_decode($kali->perkalian_hr);
+                                            $sr = json_decode($kali->perkalian_sr);
+                                            $cs = json_decode($kali->perkalian_cs);
+                                            $eh = json_decode($kali->perkalian_eh);
+                                            $qk = json_decode($kali->perkalian_qk);
+                                        @endphp
+                                        <tbody>
+                                        <tr>
+                                            <td>HR</td>
+                                            <td>{{round($hr->HR,4)}}</td>
+                                            <td>{{round($cs->HR,4)}}</td>
+                                            <td>{{round($eh->HR,4)}}</td>
+                                            <td>{{round($sr->HR,4)}}</td>
+                                            <td>{{round($qk->HR,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS</td>
+                                            <td>{{round($hr->CS,4)}}</td>
+                                            <td>{{round($cs->CS,4)}}</td>
+                                            <td>{{round($eh->CS,4)}}</td>
+                                            <td>{{round($sr->CS,4)}}</td>
+                                            <td>{{round($qk->CS,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EH</td>
+                                            <td>{{round($hr->EH,4)}}</td>
+                                            <td>{{round($cs->EH,4)}}</td>
+                                            <td>{{round($eh->EH,4)}}</td>
+                                            <td>{{round($sr->EH,4)}}</td>
+                                            <td>{{round($qk->EH,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SR</td>
+                                            <td>{{round($hr->SR,4)}}</td>
+                                            <td>{{round($cs->SR,4)}}</td>
+                                            <td>{{round($eh->SR,4)}}</td>
+                                            <td>{{round($sr->SR,4)}}</td>
+                                            <td>{{round($qk->SR,4)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>QK</td>
+                                            <td>{{round($hr->QK,4)}}</td>
+                                            <td>{{round($cs->QK,4)}}</td>
+                                            <td>{{round($eh->QK,4)}}</td>
+                                            <td>{{round($sr->QK,4)}}</td>
+                                            <td>{{round($qk->QK,4)}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr>
+                            @endif
                         @endif
                     @endif
                     <!-- /form -->
