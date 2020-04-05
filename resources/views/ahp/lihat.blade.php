@@ -473,7 +473,13 @@
                                 Jumlah = {{round($jumlahSemua,4)}} <br>
                                 Rata-Rata = {{round($rata,4)}} <br>
                                 CI = {{round($ci,4)}} <br>
-                                CR = {{round($cr,4)}}
+                                CR = {{round($cr,4)}} <br><br>
+                                @if($cr <= 0.1)
+                                    <p>Nilai CR <= 0,1</p>
+                                @else
+                                    <p>Nilai CR > 0,1</p>
+                                    <a href="{{url('/kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}" class="btn btn-success btn-sm">Ubah Nilai Kuesioner</a>
+                                @endif
                             @endif
                         @endif
                     @endif
