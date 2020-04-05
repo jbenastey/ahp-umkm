@@ -73,6 +73,10 @@ class AhpController extends Controller
             ->where('pembagian_kuesioner_id', $id)
             ->first();
 
+        $data['kali_hr'] = DB::table('perkalian_kriteria_hr')
+            ->where('perkalian_kuesioner_id', $id)
+            ->first();
+
         return view('ahp.lihat', $data);
     }
 
@@ -518,6 +522,77 @@ class AhpController extends Controller
         var_dump($data);
 
         DB::table('pembagian_kriteria_hr')->insert($data);
+        alert()->success(' ', 'Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
+    }
+
+    public function kaliKriteriaHr($id){
+        $bagi = DB::table('pembagian_kriteria_hr')
+            ->where('pembagian_kuesioner_id', $id)
+            ->first();
+        $hr1 = json_decode($bagi->pembagian_hr1);
+        $hr2 = json_decode($bagi->pembagian_hr2);
+        $hr3 = json_decode($bagi->pembagian_hr3);
+        $hr4 = json_decode($bagi->pembagian_hr4);
+
+        $kriteria = DB::table('matriks_kriteria_hr')
+            ->where('kriteria_kuesioner_id', $id)
+            ->first();
+        $hr1_k = json_decode($kriteria->kriteria_hr1);
+        $hr2_k = json_decode($kriteria->kriteria_hr2);
+        $hr3_k = json_decode($kriteria->kriteria_hr3);
+        $hr4_k = json_decode($kriteria->kriteria_hr4);
+
+
+        $jumlahHR1 = $hr1->HR1 +$hr2->HR1 +$hr3->HR1 +$hr4->HR1 ;
+        $jumlahHR2 = $hr1->HR2 +$hr2->HR2 +$hr3->HR2 +$hr4->HR2 ;
+        $jumlahHR3 = $hr1->HR3 +$hr2->HR3 +$hr3->HR3 +$hr4->HR3 ;
+        $jumlahHR4 = $hr1->HR4 +$hr2->HR4 +$hr3->HR4 +$hr4->HR4 ;
+
+        $rataHR1 = round($jumlahHR1/4,4);
+        $rataHR2 = round($jumlahHR2/4,4);
+        $rataHR3 = round($jumlahHR3/4,4);
+        $rataHR4 = round($jumlahHR4/4,4);
+
+        //kolom HR
+        $k_hr1['HR1'] = round($hr1_k->HR1 * $rataHR1,4);
+        $k_hr1['HR2'] = round($hr2_k->HR1 * $rataHR1,4);
+        $k_hr1['HR3'] = round($hr3_k->HR1 * $rataHR1,4);
+        $k_hr1['HR4'] = round($hr4_k->HR1 * $rataHR1,4);
+        //kolom HR
+        $k_hr2['HR1'] = round($hr1_k->HR2 * $rataHR2,4);
+        $k_hr2['HR2'] = round($hr2_k->HR2 * $rataHR2,4);
+        $k_hr2['HR3'] = round($hr3_k->HR2 * $rataHR2,4);
+        $k_hr2['HR4'] = round($hr4_k->HR2 * $rataHR2,4);
+        //kolom HR
+        $k_hr3['HR1'] = round($hr1_k->HR3 * $rataHR3,4);
+        $k_hr3['HR2'] = round($hr2_k->HR3 * $rataHR3,4);
+        $k_hr3['HR3'] = round($hr3_k->HR3 * $rataHR3,4);
+        $k_hr3['HR4'] = round($hr4_k->HR3 * $rataHR3,4);
+        //kolom HR
+        $k_hr4['HR1'] = round($hr1_k->HR4 * $rataHR4,4);
+        $k_hr4['HR2'] = round($hr2_k->HR4 * $rataHR4,4);
+        $k_hr4['HR3'] = round($hr3_k->HR4 * $rataHR4,4);
+        $k_hr4['HR4'] = round($hr4_k->HR4 * $rataHR4,4);
+
+
+//        var_dump($k_hr);
+//        var_dump($k_cs);
+//        var_dump($k_eh);
+//        var_dump($k_sr);
+//        var_dump($k_qk);
+
+        $data = [
+            'perkalian_kuesioner_id' => $id,
+            'perkalian_hr1' => json_encode($k_hr1),
+            'perkalian_hr2' => json_encode($k_hr2),
+            'perkalian_hr3' => json_encode($k_hr3),
+            'perkalian_hr4' => json_encode($k_hr4),
+        ];
+
+        var_dump($data);
+
+        DB::table('perkalian_kriteria_hr')->insert($data);
         alert()->success(' ', 'Sukses');
         return redirect('/ahp/'.$id.'/lihat');
     }
