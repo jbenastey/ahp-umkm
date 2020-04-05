@@ -464,6 +464,16 @@
                                         </tr>
                                         </tbody>
                                     </table>
+                                @php
+                                $jumlahSemua = ($jumlah_qk/$rata_qk) +($jumlah_sr/$rata_sr) +($jumlah_eh/$rata_eh) +($jumlah_cs/$rata_cs) +($jumlah_hr/$rata_hr);
+                                $rata = $jumlahSemua/5;
+                                $ci = ($rata-5)/(5-1);
+                                $cr = $ci / ri(5);
+                                @endphp
+                                Jumlah = {{round($jumlahSemua,4)}} <br>
+                                Rata-Rata = {{round($rata,4)}} <br>
+                                CI = {{round($ci,4)}} <br>
+                                CR = {{round($cr,4)}}
                             @endif
                         @endif
                     @endif
