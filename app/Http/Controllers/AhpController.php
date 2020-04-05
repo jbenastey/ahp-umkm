@@ -65,6 +65,10 @@ class AhpController extends Controller
             ->where('perkalian_kuesioner_id', $id)
             ->first();
 
+        $data['kriteria_hr'] = DB::table('matriks_kriteria_hr')
+            ->where('kriteria_kuesioner_id', $id)
+            ->first();
+
         return view('ahp.lihat', $data);
     }
 
@@ -359,6 +363,103 @@ class AhpController extends Controller
 
         DB::table('perkalian_kriteria')->insert($data);
         alert()->success(' ', 'Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
+    }
+
+    public function matriksKriteriaHr($id){
+        //
+//        var_dump($id);die;
+        $kuesioner = DB::table('kuesioner')
+            ->where('kuesioner_id', $id)
+            ->first();
+        $skala = json_decode($kuesioner->kuesioner_ks_hr, true);
+        $matriks = [
+            'HR1' => [
+                'HR1' => 1,
+                'HR2' => 0,
+                'HR3' => 0,
+                'HR4' => 0,
+            ],
+            'HR2' => [
+                'HR1' => 0,
+                'HR2' => 1,
+                'HR3' => 0,
+                'HR4' => 0,
+            ],
+            'HR3' => [
+                'HR1' => 0,
+                'HR2' => 0,
+                'HR3' => 1,
+                'HR4' => 0,
+            ],
+            'HR4' => [
+                'HR1' => 0,
+                'HR2' => 0,
+                'HR3' => 0,
+                'HR4' => 1,
+            ]
+        ];
+        var_dump($skala);
+        if ($skala['hr_1'] > 0) {
+            $matriks['HR1']['HR2'] = round(abs($skala['hr_1']),3);
+            $matriks['HR2']['HR1'] = round(abs(1 / $skala['hr_1']),3);
+        } else {
+            $matriks['HR1']['HR2'] = round(abs(1 / $skala['hr_1']),3);
+            $matriks['HR2']['HR1'] = round(abs($skala['hr_1']),3);
+        }
+
+        if ($skala['hr_2'] > 0) {
+            $matriks['HR1']['HR3'] = round(abs($skala['hr_2']),3);
+            $matriks['HR3']['HR1'] = round(abs(1 / $skala['hr_2']),3);
+        } else {
+            $matriks['HR1']['HR3'] = round(abs(1 / $skala['hr_2']),3);
+            $matriks['HR3']['HR1'] = round(abs($skala['hr_2']),3);
+        }
+
+        if ($skala['hr_3'] > 0) {
+            $matriks['HR1']['HR4'] = round(abs($skala['hr_3']),3);
+            $matriks['HR4']['HR1'] = round(abs(1 / $skala['hr_3']),3);
+        } else {
+            $matriks['HR1']['HR4'] = round(abs(1 / $skala['hr_3']),3);
+            $matriks['HR4']['HR1'] = round(abs($skala['hr_3']),3);
+        }
+
+        if ($skala['hr_4'] > 0) {
+            $matriks['HR2']['HR3'] = round(abs($skala['hr_4']),3);
+            $matriks['HR3']['HR2'] = round(abs(1 / $skala['hr_4']),3);
+        } else {
+            $matriks['HR2']['HR3'] = round(abs(1 / $skala['hr_4']),3);
+            $matriks['HR3']['HR2'] = round(abs($skala['hr_4']),3);
+        }
+
+        if ($skala['hr_5'] > 0) {
+            $matriks['HR2']['HR4'] = round(abs($skala['hr_5']),3);
+            $matriks['HR4']['HR2'] = round(abs(1 / $skala['hr_5']),3);
+        } else {
+            $matriks['HR2']['HR4'] = round(abs(1 / $skala['hr_5']),3);
+            $matriks['HR4']['HR2'] = round(abs($skala['hr_5']),3);
+        }
+
+        if ($skala['hr_6'] > 0) {
+            $matriks['HR3']['HR4'] = round(abs($skala['hr_6']),3);
+            $matriks['HR4']['HR3'] = round(abs(1 / $skala['hr_6']),3);
+        } else {
+            $matriks['HR3']['HR4'] = round(abs(1 / $skala['hr_6']),3);
+            $matriks['HR4']['HR3'] = round(abs($skala['hr_6']),3);
+        }
+
+        $data = [
+            'kriteria_kuesioner_id' => $id,
+            'kriteria_hr1' => json_encode($matriks['HR1']),
+            'kriteria_hr2' => json_encode($matriks['HR2']),
+            'kriteria_hr3' => json_encode($matriks['HR3']),
+            'kriteria_hr4' => json_encode($matriks['HR4']),
+        ];
+
+        var_dump($data);
+
+        DB::table('matriks_kriteria_hr')->insert($data);
+        alert()->success('Matriks subkriteria sudah dibuat', 'Sukses');
         return redirect('/ahp/'.$id.'/lihat');
     }
 

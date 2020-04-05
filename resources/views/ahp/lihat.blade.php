@@ -285,10 +285,10 @@
                                 </table>
                                 <hr>
                                 <h4>Perkalian Nilai Matriks Perbandingan dengan Rata-rata</h4>
-                            @if($kali == null)
+                                @if($kali == null)
                                     <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/kali-kriteria')}}"
                                        class="btn btn-primary btn-sm">Hitung</a>
-                            @else
+                                @else
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
@@ -351,7 +351,7 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                <h4>Jumlah Nilai Setiap Baris</h4>
+                                    <h4>Jumlah Nilai Setiap Baris</h4>
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
@@ -420,7 +420,7 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                <h4>Hasil Jumlah Baris di Bagi dengan Rata-rata</h4>
+                                    <h4>Hasil Jumlah Baris di Bagi dengan Rata-rata</h4>
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
@@ -464,21 +464,130 @@
                                         </tr>
                                         </tbody>
                                     </table>
-                                @php
-                                $jumlahSemua = ($jumlah_qk/$rata_qk) +($jumlah_sr/$rata_sr) +($jumlah_eh/$rata_eh) +($jumlah_cs/$rata_cs) +($jumlah_hr/$rata_hr);
-                                $rata = $jumlahSemua/5;
-                                $ci = ($rata-5)/(5-1);
-                                $cr = $ci / ri(5);
-                                @endphp
-                                Jumlah = {{round($jumlahSemua,4)}} <br>
-                                Rata-Rata = {{round($rata,4)}} <br>
-                                CI = {{round($ci,4)}} <br>
-                                CR = {{round($cr,4)}} <br><br>
-                                @if($cr <= 0.1)
-                                    <p>Nilai CR <= 0,1</p>
-                                @else
-                                    <p>Nilai CR > 0,1</p>
-                                    <a href="{{url('/kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}" class="btn btn-success btn-sm">Ubah Nilai Kuesioner</a>
+                                    @php
+                                        $jumlahSemua = ($jumlah_qk/$rata_qk) +($jumlah_sr/$rata_sr) +($jumlah_eh/$rata_eh) +($jumlah_cs/$rata_cs) +($jumlah_hr/$rata_hr);
+                                        $rata = $jumlahSemua/5;
+                                        $ci = ($rata-5)/(5-1);
+                                        $cr = $ci / ri(5);
+                                    @endphp
+                                    <p>Jumlah = {{round($jumlahSemua,4)}} </p>
+                                    <p>Rata-Rata = {{round($rata,4)}} </p>
+                                    <p>CI = {{round($ci,4)}} </p>
+                                    <p>CR = {{round($cr,4)}} </p>
+                                    @if($cr <= 0.1)
+                                        <p>Nilai CR <= 0,1</p>
+                                        <hr>
+                                        <h4>Matriks Perbandingan Subkriteria <i>Hard Rewards</i></h4>
+
+                                        @if($kriteria_hr == null)
+                                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/matriks-kriteria-hr')}}"
+                                               class="btn btn-primary btn-sm">Hitung</a>
+                                        @else
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>Sub Kriteria</th>
+                                                    <th>HR1</th>
+                                                    <th>HR2</th>
+                                                    <th>HR3</th>
+                                                    <th>HR4</th>
+                                                </tr>
+                                                </thead>
+                                                @php
+                                                    $hr1 = json_decode($kriteria_hr->kriteria_hr1);
+                                                    $hr2 = json_decode($kriteria_hr->kriteria_hr2);
+                                                    $hr3 = json_decode($kriteria_hr->kriteria_hr3);
+                                                    $hr4 = json_decode($kriteria_hr->kriteria_hr4);
+                                                @endphp
+                                                <tbody>
+                                                <tr>
+                                                    <td>HR1</td>
+                                                    <td>{{round($hr1->HR1,3)}}</td>
+                                                    <td>{{round($hr1->HR2,3)}}</td>
+                                                    <td>{{round($hr1->HR3,3)}}</td>
+                                                    <td>{{round($hr1->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR2</td>
+                                                    <td>{{round($hr2->HR1,3)}}</td>
+                                                    <td>{{round($hr2->HR2,3)}}</td>
+                                                    <td>{{round($hr2->HR3,3)}}</td>
+                                                    <td>{{round($hr2->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR3</td>
+                                                    <td>{{round($hr3->HR1,3)}}</td>
+                                                    <td>{{round($hr3->HR2,3)}}</td>
+                                                    <td>{{round($hr3->HR3,3)}}</td>
+                                                    <td>{{round($hr3->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR4</td>
+                                                    <td>{{round($hr4->HR1,3)}}</td>
+                                                    <td>{{round($hr4->HR2,3)}}</td>
+                                                    <td>{{round($hr4->HR3,3)}}</td>
+                                                    <td>{{round($hr4->HR4,3)}}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr>
+                                            <h4>Penjumlahan Nilai Setiap Kolom</h4>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>Kriteria</th>
+                                                    <th>HR1</th>
+                                                    <th>HR2</th>
+                                                    <th>HR3</th>
+                                                    <th>HR4</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>HR1</td>
+                                                    <td>{{round($hr1->HR1,3)}}</td>
+                                                    <td>{{round($hr1->HR2,3)}}</td>
+                                                    <td>{{round($hr1->HR3,3)}}</td>
+                                                    <td>{{round($hr1->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR2</td>
+                                                    <td>{{round($hr2->HR1,3)}}</td>
+                                                    <td>{{round($hr2->HR2,3)}}</td>
+                                                    <td>{{round($hr2->HR3,3)}}</td>
+                                                    <td>{{round($hr2->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR3</td>
+                                                    <td>{{round($hr3->HR1,3)}}</td>
+                                                    <td>{{round($hr3->HR2,3)}}</td>
+                                                    <td>{{round($hr3->HR3,3)}}</td>
+                                                    <td>{{round($hr3->HR4,3)}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HR4</td>
+                                                    <td>{{round($hr4->HR1,3)}}</td>
+                                                    <td>{{round($hr4->HR2,3)}}</td>
+                                                    <td>{{round($hr4->HR3,3)}}</td>
+                                                    <td>{{round($hr4->HR4,3)}}</td>
+                                                </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <td><b>Jumlah</b></td>
+                                                    <td>{{round($hr1->HR1 +$hr2->HR1 +$hr3->HR1 +$hr4->HR1 ,3)  }}</td>
+                                                    <td>{{round($hr1->HR2 +$hr2->HR2 +$hr3->HR2 +$hr4->HR2 ,3)  }}</td>
+                                                    <td>{{round($hr1->HR3 +$hr2->HR3 +$hr3->HR3 +$hr4->HR3 ,3)  }}</td>
+                                                    <td>{{round($hr1->HR4 +$hr2->HR4 +$hr3->HR4 +$hr4->HR4 ,3)  }}</td>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                            <hr>
+                                        @endif
+                                    @else
+                                        <p>Nilai CR > 0,1</p>
+                                        <a href="{{url('/kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}"
+                                           class="btn btn-success btn-sm">Ubah Nilai Kuesioner</a>
                                 @endif
                             @endif
                         @endif

@@ -38,3 +38,6 @@ Route::get('/ahp/{id}/kali-kriteria','AhpController@kaliKriteria')->middleware('
 Route::get('/kuesioner/{id}/ubah-kriteria','KuesionerController@ubahKriteria')->middleware('auth');
 Route::post('/kuesioner/{id}/update-kriteria','KuesionerController@updateKriteria')->middleware('auth');
 
+Route::get('/ahp/{id}/matriks-kriteria-hr','AhpController@matriksKriteriaHr')->middleware('auth');
+
+
