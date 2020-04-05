@@ -69,6 +69,10 @@ class AhpController extends Controller
             ->where('kriteria_kuesioner_id', $id)
             ->first();
 
+        $data['bagi_hr'] = DB::table('pembagian_kriteria_hr')
+            ->where('pembagian_kuesioner_id', $id)
+            ->first();
+
         return view('ahp.lihat', $data);
     }
 
@@ -463,6 +467,60 @@ class AhpController extends Controller
         return redirect('/ahp/'.$id.'/lihat');
     }
 
+    public function bagiKriteriaHr($id){
+        $kriteria = DB::table('matriks_kriteria_hr')
+            ->where('kriteria_kuesioner_id', $id)
+            ->first();
+        $hr1 = json_decode($kriteria->kriteria_hr1);
+        $hr2 = json_decode($kriteria->kriteria_hr2);
+        $hr3 = json_decode($kriteria->kriteria_hr3);
+        $hr4 = json_decode($kriteria->kriteria_hr4);
+
+        $jumlahHR1 = $hr1->HR1 +$hr2->HR1 +$hr3->HR1 +$hr4->HR1;
+        $jumlahHR2 = $hr1->HR2 +$hr2->HR2 +$hr3->HR2 +$hr4->HR2;
+        $jumlahHR3 = $hr1->HR3 +$hr2->HR3 +$hr3->HR3 +$hr4->HR3;
+        $jumlahHR4 = $hr1->HR4 +$hr2->HR4 +$hr3->HR4 +$hr4->HR4;
+
+        //kolom HR
+        $k_hr1['HR1'] = round($hr1->HR1 / round($jumlahHR1,3),4);
+        $k_hr1['HR2'] = round($hr2->HR1 / round($jumlahHR1,3),4);
+        $k_hr1['HR3'] = round($hr3->HR1 / round($jumlahHR1,3),4);
+        $k_hr1['HR4'] = round($hr4->HR1 / round($jumlahHR1,3),4);
+        //kolom HR
+        $k_hr2['HR1'] = round($hr1->HR2 / round($jumlahHR2,3),4);
+        $k_hr2['HR2'] = round($hr2->HR2 / round($jumlahHR2,3),4);
+        $k_hr2['HR3'] = round($hr3->HR2 / round($jumlahHR2,3),4);
+        $k_hr2['HR4'] = round($hr4->HR2 / round($jumlahHR2,3),4);
+        //kolom HR
+        $k_hr3['HR1'] = round($hr1->HR3 / round($jumlahHR3,3),4);
+        $k_hr3['HR2'] = round($hr2->HR3 / round($jumlahHR3,3),4);
+        $k_hr3['HR3'] = round($hr3->HR3 / round($jumlahHR3,3),4);
+        $k_hr3['HR4'] = round($hr4->HR3 / round($jumlahHR3,3),4);
+        //kolom HR
+        $k_hr4['HR1'] = round($hr1->HR4 / round($jumlahHR4,3),4);
+        $k_hr4['HR2'] = round($hr2->HR4 / round($jumlahHR4,3),4);
+        $k_hr4['HR3'] = round($hr3->HR4 / round($jumlahHR4,3),4);
+        $k_hr4['HR4'] = round($hr4->HR4 / round($jumlahHR4,3),4);
+
+//        var_dump($k_hr);
+//        var_dump($k_cs);
+//        var_dump($k_eh);
+//        var_dump($k_sr);
+//        var_dump($k_qk);
+        $data = [
+            'pembagian_kuesioner_id' => $id,
+            'pembagian_hr1' => json_encode($k_hr1),
+            'pembagian_hr2' => json_encode($k_hr2),
+            'pembagian_hr3' => json_encode($k_hr3),
+            'pembagian_hr4' => json_encode($k_hr4),
+        ];
+
+        var_dump($data);
+
+        DB::table('pembagian_kriteria_hr')->insert($data);
+        alert()->success(' ', 'Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
+    }
     /**
      * Show the form for editing the specified resource.
      *
