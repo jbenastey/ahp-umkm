@@ -186,7 +186,7 @@ class AhpController extends Controller
         }
 
         if ($skala['ks10'] > 0) {
-            $matriks['SR']['QK'] = round(abs($skala['ks10'],2));
+            $matriks['SR']['QK'] = round(abs($skala['ks10']),2);
             $matriks['QK']['SR'] = round(abs(1 / $skala['ks10']),2);
         } else {
             $matriks['SR']['QK'] = round(abs(1 / $skala['ks10']),2);
