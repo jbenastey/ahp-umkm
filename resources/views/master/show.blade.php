@@ -47,7 +47,7 @@
                                         <td>{{$value->pernyataan_isi}}</td>
                                         <td>
                                             <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/edit')}}" class="btn btn-sm btn-success"><i class="icon icon-editors"></i> </a>
-                                            <a href="" class="btn btn-sm btn-danger"><i class="icon icon-trash-filled"></i> </a>
+                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/delete/'.$value->pernyataan_kriteria_id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus Data ?')"><i class="icon icon-trash-filled"></i> </a>
                                         </td>
                                     </tr>
                                 @endforeach

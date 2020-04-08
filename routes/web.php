@@ -26,6 +26,7 @@ Route::get('/pernyataan/{id}/create','MasterController@createPernyataan')->middl
 Route::post('/pernyataan/store', 'MasterController@storePernyataan');
 Route::get('/pernyataan/{id}/edit','MasterController@editPernyataan')->middleware('auth');
 Route::post('/pernyataan/update', 'MasterController@updatePernyataan');
+Route::get('/pernyataan/{id}/delete/{idKriteria}','MasterController@destroyPernyataan')->middleware('auth');
 
 
 //Route::resource('/kuesioner','KuesionerController')->middleware('auth');

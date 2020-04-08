@@ -136,4 +136,12 @@ class MasterController extends Controller
         alert()->success('Berhasil Memperbaharui Data','Sukses');
         return redirect('master/'.$request->id_kriteria);
     }
+
+    public function destroyPernyataan($id,$idKriteria){
+        DB::table('master_pernyataan')
+            ->where('pernyataan_id',$id)
+            ->delete();
+        alert()->success('Berhasil Menghapus Data','Sukses');
+        return redirect('master/'.$idKriteria);
+    }
 }
