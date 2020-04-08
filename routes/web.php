@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('master','MasterController')->middleware('auth');
+Route::get('/pernyataan/{id}/create','MasterController@createPernyataan')->middleware('auth');
+Route::post('/pernyataan/store', 'MasterController@storePernyataan')->name('simpan');
+
 
 //Route::resource('/kuesioner','KuesionerController')->middleware('auth');
 Route::get('/kuesioner','KuesionerController@index')->middleware('auth');

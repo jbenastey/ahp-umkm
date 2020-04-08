@@ -56,6 +56,13 @@ class MasterController extends Controller
     public function show($id)
     {
         //
+        $data['kriteria'] = DB::table('master_kriteria')
+            ->where('kriteria_id',$id)
+            ->first();
+        $data['pernyataan'] = DB::table('master_pernyataan')
+            ->where('pernyataan_kriteria_id',$id)
+            ->get();
+        return view('master.show',$data);
     }
 
     /**
@@ -90,5 +97,22 @@ class MasterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createPernyataan($id){
+        $data['id'] = $id;
+        return view('master.pernyataan.create',$data);
+    }
+
+    public function storePernyataan(Request $request){
+        $data = [
+            'pernyataan_kriteria_id' => $request->id,
+            'pernyataan_item' => $request->item,
+            'pernyataan_isi' => $request->pernyataan,
+        ];
+
+        DB::table('master_pernyataan')->insert($data);
+        alert()->success('Berhasil Menyimpan Data','Sukses');
+        return redirect('master/'.$request->id);
     }
 }

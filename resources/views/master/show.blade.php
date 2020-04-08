@@ -15,7 +15,7 @@
 
                     <!-- Entry Heading -->
                     <div class="dt-entry__heading">
-                        <h3 class="dt-entry__title">Data Kriteria</h3>
+                        <h3 class="dt-entry__title">Data Kriteria {{$kriteria->kriteria_nama}}</h3>
                     </div>
                     <!-- /entry heading -->
 
@@ -27,24 +27,27 @@
 
                     <!-- Card Body -->
                     <div class="dt-card__body">
-                        <a href="{{url('master/create')}}" class="btn btn-sm btn-primary mb-5"><i class="icon icon-plus"></i> Tambah Kriteria</a>
+                        <a href="{{url('pernyataan/'.$kriteria->kriteria_id.'/create')}}" class="btn btn-sm btn-primary mb-5"><i class="icon icon-plus"></i> Tambah Pernyataan</a>
                         <!-- Tables -->
                         <div class="table-responsive">
                             <table id="data-table" class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kriteria</th>
+                                    <th>Item</th>
+                                    <th>Pernyataan</th>
                                     <th class="text-center"><i class="icon icon-settings"></i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($kriteria as $value)
+                                @foreach($pernyataan as $value)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$value->kriteria_nama}}</td>
-                                        <td class="text-center">
-                                            <a href="{{action('MasterController@show',$value->kriteria_id)}}" class="btn btn-sm btn-primary">Lihat</a>
+                                        <td>{{$value->pernyataan_item}}</td>
+                                        <td>{{$value->pernyataan_isi}}</td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-success"><i class="icon icon-editors"></i> </a>
+                                            <a href="" class="btn btn-sm btn-danger"><i class="icon icon-trash-filled"></i> </a>
                                         </td>
                                     </tr>
                                 @endforeach
