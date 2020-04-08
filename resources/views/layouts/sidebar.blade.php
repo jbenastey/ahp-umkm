@@ -16,6 +16,20 @@
                         class="icon icon-dashboard icon-fw icon-lg"></i>
                     <span class="dt-side-nav__text">Dashboard</span> </a>
             </li>
+            <li class="dt-side-nav__item open">
+                <a href="javascript:void(0)" class="dt-side-nav__link dt-side-nav__arrow" title="Dashboard">
+                    <i class="icon icon-settings icon-fw icon-lg"></i> <span class="dt-side-nav__text">Data Master</span> </a>
+
+                <!-- Sub-menu -->
+                <ul class="dt-side-nav__sub-menu" style="display: block;">
+                    <li class="dt-side-nav__item">
+                        <a href="{{url('master')}}" class="dt-side-nav__link" title="CRM">
+                            <span class="dt-side-nav__text">&nbsp;Data Pernyataan</span> </a>
+                    </li>
+                </ul>
+                <!-- /sub-menu -->
+
+            </li>
             <li class="dt-side-nav__item">
                 <a href="{{url('kuesioner')}}" class="dt-side-nav__link" title="Task Manager"> <i
                         class="icon icon-forms-advanced icon-fw icon-lg"></i>

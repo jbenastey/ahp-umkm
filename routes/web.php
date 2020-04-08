@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('master','MasterController')->middleware('auth');
+
 //Route::resource('/kuesioner','KuesionerController')->middleware('auth');
 Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
 Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
