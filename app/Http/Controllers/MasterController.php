@@ -115,4 +115,25 @@ class MasterController extends Controller
         alert()->success('Berhasil Menyimpan Data','Sukses');
         return redirect('master/'.$request->id);
     }
+
+    public function editPernyataan($id){
+        $data['pernyataan'] = DB::table('master_pernyataan')
+            ->where('pernyataan_id',$id)
+            ->first();
+        return view('master.pernyataan.update',$data);
+    }
+
+    public function updatePernyataan(Request $request){
+
+        $data = [
+            'pernyataan_item' => $request->item,
+            'pernyataan_isi' => $request->pernyataan,
+        ];
+
+        DB::table('master_pernyataan')
+            ->where('pernyataan_id',$request->id)
+            ->update($data);
+        alert()->success('Berhasil Memperbaharui Data','Sukses');
+        return redirect('master/'.$request->id_kriteria);
+    }
 }

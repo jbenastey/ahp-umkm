@@ -46,7 +46,7 @@
                                         <td>{{$value->pernyataan_item}}</td>
                                         <td>{{$value->pernyataan_isi}}</td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-success"><i class="icon icon-editors"></i> </a>
+                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/edit')}}" class="btn btn-sm btn-success"><i class="icon icon-editors"></i> </a>
                                             <a href="" class="btn btn-sm btn-danger"><i class="icon icon-trash-filled"></i> </a>
                                         </td>
                                     </tr>
