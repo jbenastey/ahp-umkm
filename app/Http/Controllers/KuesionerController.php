@@ -32,7 +32,9 @@ class KuesionerController extends Controller
     public function kuesioner()
     {
         //
-        return view('kuesioner.kuesioner');
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
+        return view('kuesioner.kuesioner',$data);
     }
 
     public function simpanKuesioner(Request $request)
