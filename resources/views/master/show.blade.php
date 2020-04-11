@@ -27,6 +27,7 @@
 
                     <!-- Card Body -->
                     <div class="dt-card__body">
+                        <a href="{{url('master')}}" class="btn btn-sm btn-outline-primary mb-5"><i class="icon icon-arrow-left"></i> Kembali</a>
                         <a href="{{url('pernyataan/'.$kriteria->kriteria_id.'/create')}}" class="btn btn-sm btn-primary mb-5"><i class="icon icon-plus"></i> Tambah Pernyataan</a>
                         <!-- Tables -->
                         <div class="table-responsive">
