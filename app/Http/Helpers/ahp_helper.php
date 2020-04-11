@@ -22,3 +22,21 @@ if (! function_exists('ri')) {
         return $result[$n];
     }
 }
+
+if (! function_exists('combinations')) {
+
+    function combinations($k, $xs){
+        if ($k === 0)
+            return array(array());
+        if (count($xs) === 0)
+            return array();
+        $x = $xs[0];
+        $xs1 = array_slice($xs,1,count($xs)-1);
+        $res1 = combinations($k-1,$xs1);
+        for ($i = 0; $i < count($res1); $i++) {
+            array_splice($res1[$i], 0, 0, $x);
+        }
+        $res2 = combinations($k,$xs1);
+        return array_merge($res1, $res2);
+    }
+}
