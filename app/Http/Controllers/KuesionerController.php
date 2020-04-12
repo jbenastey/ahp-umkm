@@ -66,107 +66,71 @@ class KuesionerController extends Controller
         $umur = $request->kuesioner_umur;
         $jurusan = $request->kuesioner_jurusan;
         $jabatan = $request->kuesioner_jabatan;
-        $hr = [
-            'hr1' => $request->hr1,
-            'hr2' => $request->hr2,
-            'hr3' => $request->hr3,
-            'hr4' => $request->hr4,
-        ];
-        $sr = [
-            'sr1' => $request->sr1,
-            'sr2' => $request->sr2,
-            'sr3' => $request->sr3,
-        ];
-        $cs = [
-            'cs1' => $request->cs1,
-            'cs2' => $request->cs2,
-            'cs3' => $request->cs3,
-        ];
-        $eh = [
-            'eh1' => $request->eh1,
-            'eh2' => $request->eh2,
-            'eh3' => $request->eh3,
-        ];
-        $qk = [
-            'qk1' => $request->qk1,
-            'qk2' => $request->qk2,
-            'qk3' => $request->qk3,
-            'qk4' => $request->qk4,
-            'qk5' => $request->qk5,
-            'qk6' => $request->qk6,
-        ];
-        $ks = [
-            'ks1' => $request->ks_1,
-            'ks2' => $request->ks_2,
-            'ks3' => $request->ks_3,
-            'ks4' => $request->ks_4,
-            'ks5' => $request->ks_5,
-            'ks6' => $request->ks_6,
-            'ks7' => $request->ks_7,
-            'ks8' => $request->ks_8,
-            'ks9' => $request->ks_9,
-            'ks10' => $request->ks_10,
-        ];
-        $ks_hr = [
-            'hr_1' => $request->hr_1,
-            'hr_2' => $request->hr_2,
-            'hr_3' => $request->hr_3,
-            'hr_4' => $request->hr_4,
-            'hr_5' => $request->hr_5,
-            'hr_6' => $request->hr_6,
-        ];
-        $ks_sr = [
-            'sr_1' => $request->sr_1,
-            'sr_2' => $request->sr_2,
-            'sr_3' => $request->sr_3,
-        ];
-        $ks_cs = [
-            'cs_1' => $request->cs_1,
-            'cs_2' => $request->cs_2,
-            'cs_3' => $request->cs_3,
-        ];
-        $ks_eh = [
-            'eh_1' => $request->eh_1,
-            'eh_2' => $request->eh_2,
-            'eh_3' => $request->eh_3,
-        ];
-        $ks_qk = [
-            'qk_1' => $request->qk_1,
-            'qk_2' => $request->qk_2,
-            'qk_3' => $request->qk_3,
-            'qk_4' => $request->qk_4,
-            'qk_5' => $request->qk_5,
-            'qk_6' => $request->qk_6,
-            'qk_7' => $request->qk_7,
-            'qk_8' => $request->qk_8,
-            'qk_9' => $request->qk_9,
-            'qk_10' => $request->qk_10,
-            'qk_11' => $request->qk_11,
-            'qk_12' => $request->qk_12,
-            'qk_13' => $request->qk_13,
-            'qk_14' => $request->qk_14,
-            'qk_15' => $request->qk_15,
-        ];
 
-        $data = [
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
+
+        $kriteria = [];
+        $pernyataan = [];
+
+        foreach ($data['kriteria'] as $value){
+            array_push($kriteria, $value->kriteria_nama);
+//            foreach ($data['pernyataan'] as $value2){
+//                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+            $pernyataan[$value->kriteria_id] = array();
+//                }
+//            }
+        }
+        foreach ($data['kriteria'] as $value){
+            foreach ($data['pernyataan'] as $value2){
+                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                }
+            }
+        }
+        $kombinasi = combinations(2,$kriteria);
+
+
+        echo '<pre>';
+        $pertama = [];
+        foreach ($pernyataan as $value2) {
+            foreach ($value2 as $value3) {
+            $pertama[$value3] = $request->$value3;
+            }
+        }
+
+        $kedua = [];
+        foreach ($kombinasi as $key => $value) {
+            $name = 'ks_'.($key+1);
+            $kedua['ks']['ks_'.($key+1)] = $request->$name;
+        }
+
+        foreach ($data['kriteria'] as $value){
+            if ($pernyataan[$value->kriteria_id] != null){
+                $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
+                if(count($kombinasi_p) > 0){
+                    $nama = strtolower(rtrim($kombinasi_p[0][0],1));
+                    for($i = 1; $i <= count($kombinasi_p) ; $i++) {
+                        $name = $nama.'_'.$i;
+                       $kedua[$nama][$nama.'_'.$i] = $request->$name;
+                    }
+                }
+            }
+        }
+
+//        var_dump(json_encode($pertama));
+//        var_dump(($kedua));
+        $simpan = [
             'kuesioner_nama' => $nama,
             'kuesioner_umur' => $umur,
             'kuesioner_jurusan' => $jurusan,
             'kuesioner_jabatan' => $jabatan,
-            'kuesioner_hr' => json_encode($hr),
-            'kuesioner_sr' => json_encode($sr),
-            'kuesioner_cs' => json_encode($cs),
-            'kuesioner_eh' => json_encode($eh),
-            'kuesioner_qk' => json_encode($qk),
-            'kuesioner_ks' => json_encode($ks),
-            'kuesioner_ks_hr' => json_encode($ks_hr),
-            'kuesioner_ks_sr' => json_encode($ks_sr),
-            'kuesioner_ks_cs' => json_encode($ks_cs),
-            'kuesioner_ks_eh' => json_encode($ks_eh),
-            'kuesioner_ks_qk' => json_encode($ks_qk),
+            'kuesioner_pertama' => json_encode($pertama),
+            'kuesioner_kedua' => json_encode($kedua),
         ];
+//        var_dump($simpan);
 
-        DB::table('kuesioner')->insert($data);
+        DB::table('kuesioner')->insert($simpan);
         alert()->success('Terima kasih telah mengisi kuesioner','Sukses');
         return redirect('/');
     }
