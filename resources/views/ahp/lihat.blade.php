@@ -29,7 +29,8 @@
                     <div class="dt-card__body">
                         <h4>Knowledge Sharing</h4>
                         @php
-                        //var_dump($cek)
+                        $p1 = 0;
+                        $p2 = count($kriteria) + 1;
                         @endphp
                         @if(count($cek) == 0)
                             <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/hitung/ks')}}"
@@ -248,6 +249,7 @@
 
                                 <p>Nilai CI = {{$value->hitung_ci}}</p>
                                 @if($value->hitung_cr <= 0.1)
+                                    @php $p1++ @endphp
                                 <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR <= 0.1)</p>
                                 @else
                                 <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR > 0.1)</p>
@@ -476,8 +478,8 @@
 
                                             <p>Nilai CI = {{$value2->hitung_ci}}</p>
                                             @if($value2->hitung_cr <= 0.1)
+                                                @php $p1++ @endphp
                                                 <p>Nilai CR = {{$value2->hitung_cr}} (Nilai CR <= 0.1)</p>
-
                                             @else
                                                 <p>Nilai CR = {{$value2->hitung_cr}} (Nilai CR > 0.1)</p>
                                                 <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}" class="btn btn-sm btn-success">Update Kuesioner</a>
@@ -492,6 +494,11 @@
                                 @endif
                                 <hr>
                             @endforeach
+                        @endif
+
+                        @if($p1 == $p2)
+                            <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/kinerja')}}"
+                               class="btn btn-primary btn-sm">Hitung Performance Measurement</a>
                         @endif
                     </div>
                 </div>

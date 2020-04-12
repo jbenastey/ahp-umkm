@@ -40,14 +40,9 @@ Route::get('/kuesioner/{id}/lihat','KuesionerController@show')->middleware('auth
 Route::get('/ahp','AhpController@index')->middleware('auth');
 Route::get('/ahp/{id}/lihat','AhpController@show')->middleware('auth');
 Route::get('/ahp/{id}/hitung/{jenis}','AhpController@hitung')->middleware('auth');
-Route::get('/ahp/{id}/bagi-kriteria','AhpController@bagiKriteria')->middleware('auth');
-Route::get('/ahp/{id}/kali-kriteria','AhpController@kaliKriteria')->middleware('auth');
+Route::get('/ahp/{id}/kinerja','AhpController@kinerja')->middleware('auth');
 
 Route::get('/kuesioner/{id}/ubah-kriteria','KuesionerController@ubahKriteria')->middleware('auth');
 Route::post('/kuesioner/{id}/update-kriteria','KuesionerController@updateKriteria')->middleware('auth');
-
-Route::get('/ahp/{id}/matriks-kriteria-hr','AhpController@matriksKriteriaHr')->middleware('auth');
-Route::get('/ahp/{id}/bagi-kriteria-hr','AhpController@bagiKriteriaHr')->middleware('auth');
-Route::get('/ahp/{id}/kali-kriteria-hr','AhpController@kaliKriteriaHr')->middleware('auth');
 
 

@@ -40,3 +40,22 @@ if (! function_exists('combinations')) {
         return array_merge($res1, $res2);
     }
 }
+
+
+if (! function_exists('pertama')) {
+    function pertama($jawaban){
+        $nilai = 0;
+        if ($jawaban == 'ss'){
+            $nilai = 5;
+        }elseif ($jawaban == 's'){
+            $nilai = 4;
+        }elseif ($jawaban == 'ks'){
+            $nilai = 3;
+        }elseif ($jawaban == 'ts'){
+            $nilai = 2;
+        }elseif ($jawaban == 'sts'){
+            $nilai = 1;
+        }
+        return $nilai;
+    }
+}
