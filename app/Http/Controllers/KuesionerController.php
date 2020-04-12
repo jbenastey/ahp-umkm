@@ -188,13 +188,63 @@ class KuesionerController extends Controller
 
 
     public function ubahKriteria($id){
+
         $data['kuesioner'] = DB::table('kuesioner')
-            ->where('kuesioner_id', $id)
+            ->where('kuesioner_id',$id)
             ->first();
+
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
+
+        $kriteria = [];
+        $pernyataan = [];
+        foreach ($data['kriteria'] as $value){
+            array_push($kriteria, $value->kriteria_nama);
+//            foreach ($data['pernyataan'] as $value2){
+//                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+            $pernyataan[$value->kriteria_id] = array();
+//                }
+//            }
+        }
+        foreach ($data['kriteria'] as $value){
+            foreach ($data['pernyataan'] as $value2){
+                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                }
+            }
+        }
+        $kombinasi = combinations(2,$kriteria);
+        $data['kombinasi'] = $kombinasi;
+        $data['k_pernyataan'] = $pernyataan;
+
         return view('ahp.ubah-kriteria',$data);
     }
 
     public function updateKriteria(Request $request,$id){
+
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
+
+        $kriteria = [];
+        $pernyataan = [];
+
+        foreach ($data['kriteria'] as $value){
+            array_push($kriteria, $value->kriteria_nama);
+//            foreach ($data['pernyataan'] as $value2){
+//                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+            $pernyataan[$value->kriteria_id] = array();
+//                }
+//            }
+        }
+        foreach ($data['kriteria'] as $value){
+            foreach ($data['pernyataan'] as $value2){
+                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                }
+            }
+        }
+        $kombinasi = combinations(2,$kriteria);
+
         $ks = [
             'ks1' => $request->ks_1,
             'ks2' => $request->ks_2,

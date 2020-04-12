@@ -254,6 +254,7 @@
                                 <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR <= 0.1)</p>
                                 @else
                                 <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR > 0.1)</p>
+                                 <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}" class="btn btn-sm btn-success">Update Kuesioner</a>
                                 @endif
                             @endif
                         @endforeach
