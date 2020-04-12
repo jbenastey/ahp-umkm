@@ -95,255 +95,39 @@
                                         </ul>
                                     </ul>
 
-                                    <p><i>Hard Rewards</i> (Imbalan Keras)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Pernyataan</th>
-                                            <th>Jawaban</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                        $hr = json_decode($kuesioner->kuesioner_hr);
-                                        @endphp
-                                        <tr>
-                                            <td>HR1</td>
-                                            <td>Saya berharap untuk mendapatkan promosi sebagai imbalan dari pengetahuan
-                                                yang saya bagi dengan dosen lainnya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($hr->hr1)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>HR2</td>
-                                            <td>Saya berharap untuk dinaikkan gaji sebagai imbalan dari berbagi
-                                                pengetahuan dengan dosen lainnya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($hr->hr2)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>HR3</td>
-                                            <td>Saya berharap untuk mendapatkan hadiah (bonus) sebagai imbalan dari
-                                                berbagi pengetahuan dengan dosen lainnya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($hr->hr3)}}
-                                            </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td>HR4</td>
-                                            <td>Saya berharap mendapatkan kesempatan untuk belajar dari orang lain
-                                                dengan imbalan dari pengetahuan yang saya bagi dengan dosen lainnya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($hr->hr4)}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
-
-                                    <p><i>Soft Rewards</i> (Imbalan Lembut)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Pernyataan</th>
-                                            <th>Jawaban</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $sr = json_decode($kuesioner->kuesioner_sr);
-                                        @endphp
-                                        <tr>
-                                            <td>SR1</td>
-                                            <td>Berbagi pengetahuan akan memperluas lingkup asosiasi saya dengan anggota
-                                                lain.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($sr->sr1)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>SR2</td>
-                                            <td>Berbagi pengetahuan akan memperkuat ikatan antara dosen lainnya dengan
-                                                saya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($sr->sr2)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>SR3</td>
-                                            <td>Berbagi pengetahuan akan membuat kerja sama dengan dosen lainnya.</td>
-                                            <td>
-                                                {{strtoupper($sr->sr3)}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
-
-                                    <p><i>Communication Skills</i> (Kemampuan Berkomunikasi)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Pernyataan</th>
-                                            <th>Jawaban</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $cs = json_decode($kuesioner->kuesioner_cs);
-                                        @endphp
-                                        <tr>
-                                            <td>CS1</td>
-                                            <td>Saya tipe orang yang ingin tahu apa yang terjadi, bersosialisasi dan
-                                                berpikiran terbuka.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($cs->cs1)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS2</td>
-                                            <td>Kemampuan komunikasi saya membantu saya dalam menyelesaikan pekerjaan.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($cs->cs2)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS3</td>
-                                            <td>Kemampuan berkomunikasi membuat lebih mudah untuk mendapatkan informasi
-                                                dari orang lain.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($cs->cs3)}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
-
-                                    <p><i>Enjoyment to Help Others</i> (Senang Membantu Orang Lain)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Pernyataan</th>
-                                            <th>Jawaban</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $eh = json_decode($kuesioner->kuesioner_eh);
-                                        @endphp
-                                        <tr>
-                                            <td>EH1</td>
-                                            <td>Saya senang berbagi pengetahuan dengan dosen lainnya.</td>
-                                            <td>
-                                                {{strtoupper($eh->eh1)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>EH2</td>
-                                            <td>Saya senang membantu dosen lainnya dengan cara berbagi pengetahuan yang
-                                                saya miliki.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($eh->eh2)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>EH3</td>
-                                            <td>Rasanya sangat bagus dalam membantu orang lain dengan berbagi
-                                                pengetahuan.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($eh->eh3)}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
-
-                                    <p><i>Quality Of Knowledge Shared</i> (Kualitas dari Berbagai Pengetahuan)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Pernyataan</th>
-                                            <th>Jawaban</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $qk = json_decode($kuesioner->kuesioner_qk);
-                                        @endphp
-                                        <tr>
-                                            <td>QK1</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya sangat relavan dengan
-                                                pekerjaan saya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($qk->qk1)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>QK2</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya mudah di mengerti.</td>
-                                            <td>
-                                                {{strtoupper($qk->qk2)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>QK3</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya sangat akurat.</td>
-
-                                            <td>
-                                                {{strtoupper($qk->qk3)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>QK4</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya merupakan informasi yang
-                                                lengkap.
-                                            </td>
-
-                                            <td>
-                                                {{strtoupper($qk->qk4)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>QK5</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya adalah informasi yang
-                                                terpercaya.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($qk->qk5)}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>QK6</td>
-                                            <td>Pengetahuan yang saya bagi dengan dosen lainnya sampaikan tepat pada
-                                                waktu.
-                                            </td>
-                                            <td>
-                                                {{strtoupper($qk->qk6)}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
+                                    @foreach($kriteria as $key => $value)
+                                        <p>{{$value->kriteria_nama}}</p>
+                                        <table class="table table-bordered" width="100">
+                                            <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Pernyataan</th>
+                                                <th>Jawaban</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($pernyataan as $key2 => $value2)
+                                                @if($value2->pernyataan_kriteria_id == $value->kriteria_id)
+                                                    <tr>
+                                                        <td>{{$value2->pernyataan_item}}</td>
+                                                        <td>
+                                                            {{$value2->pernyataan_isi}}
+                                                        </td>
+                                                        <td>
+                                                            @foreach(json_decode($kuesioner->kuesioner_pertama) as $key3 => $value3)
+                                                                @if($value2->pernyataan_item == $key3)
+                                                                    {{strtoupper($value3)}}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                    @endforeach
                                     <hr>
 
                                     <h2>2. Kuesioner Kedua</h2>
@@ -427,376 +211,114 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @php
-                                            $a = [
-                                                'Hard Rewards','Hard Rewards','Hard Rewards','Hard Rewards','Communication Skills','Communication Skills','Communication Skills','Enjoyment to Help Others','Enjoyment to Help Others','Soft Rewards'
-                                            ];
-                                            $b = [
-                                                'Communication Skills','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Enjoyment to Help Others','Soft Rewards','Quality of Knowledge Shared','Soft Rewards','Quality of Knowledge Shared','Quality of Knowledge Shared'
-                                            ];
-                                            $ks = json_decode($kuesioner->kuesioner_ks,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 10 ; $i++)
+                                        @for($i = 1; $i <= count($kombinasi) ; $i++)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="9" @if($ks['ks'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="8" @if($ks['ks'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="7" @if($ks['ks'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="6" @if($ks['ks'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="5" @if($ks['ks'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="4" @if($ks['ks'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="3" @if($ks['ks'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="2" @if($ks['ks'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="1" @if($ks['ks'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="2" @if($ks['ks'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="3" @if($ks['ks'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="4" @if($ks['ks'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="5" @if($ks['ks'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="6" @if($ks['ks'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="7" @if($ks['ks'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="8" @if($ks['ks'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="9" @if($ks['ks'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
+                                                <td>{{$kombinasi[$i-1][0]}}</td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-9" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-8" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-7" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-6" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-5" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-4" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-3" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-2" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="1" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="2" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="3" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="4" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="5" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="6" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="7" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="8" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="9" required></td>
+                                                <td>{{$kombinasi[$i-1][1]}}</td>
                                             </tr>
                                         @endfor
                                         </tbody>
                                     </table>
 
                                     <br>
-                                    <p>Kriteria <i>Hard Rewards</i> (Imbalan Keras)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Pernyataan A</th>
-                                            <th colspan="17">Skala</th>
-                                            <th rowspan="2">Pernyataan B</th>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>7</td>
-                                            <td>6</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $a = [
-                                                'HR1','HR1','HR1','HR2','HR2','HR3',
-                                            ];
-                                            $b = [
-                                                'HR2','HR3','HR4','HR3','HR4','HR4',
-                                                ];
-                                            $ks_hr = json_decode($kuesioner->kuesioner_ks_hr,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 6 ; $i++)
-                                            <tr>
-                                                <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="9" @if($ks_hr['hr_'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="8" @if($ks_hr['hr_'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="7" @if($ks_hr['hr_'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="6" @if($ks_hr['hr_'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="5" @if($ks_hr['hr_'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="4" @if($ks_hr['hr_'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="3" @if($ks_hr['hr_'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="2" @if($ks_hr['hr_'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="1"  @if($ks_hr['hr_'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="2"  @if($ks_hr['hr_'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="3"  @if($ks_hr['hr_'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="4"  @if($ks_hr['hr_'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="5"  @if($ks_hr['hr_'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="6"  @if($ks_hr['hr_'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="7"  @if($ks_hr['hr_'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="8"  @if($ks_hr['hr_'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="hr_{{$i}}"  value="9"  @if($ks_hr['hr_'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
-                                            </tr>
-                                        @endfor
-                                        </tbody>
-                                    </table>
 
-                                    <br>
-                                    <p>Kriteria <i>Soft Rewards</i> (Imbalan Lembut)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Pernyataan A</th>
-                                            <th colspan="17">Skala</th>
-                                            <th rowspan="2">Pernyataan B</th>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>7</td>
-                                            <td>6</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $a = [
-                                                'SR1','SR1','SR2'
-                                            ];
-                                            $b = [
-                                                'SR2','SR3','SR3'
-                                                ];
-                                            $ks_sr = json_decode($kuesioner->kuesioner_ks_sr,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 3 ; $i++)
+                                    @foreach($kriteria as $key => $value)
+                                        <p>Kriteria {{$value->kriteria_nama}}</p>
+                                        <table class="table table-bordered" width="100">
+                                            <thead class="text-center">
                                             <tr>
-                                                <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="9" @if($ks_sr['sr_'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="8" @if($ks_sr['sr_'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="7" @if($ks_sr['sr_'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="6" @if($ks_sr['sr_'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="5" @if($ks_sr['sr_'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="4" @if($ks_sr['sr_'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="3" @if($ks_sr['sr_'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="2" @if($ks_sr['sr_'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="1"  @if($ks_sr['sr_'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="2"  @if($ks_sr['sr_'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="3"  @if($ks_sr['sr_'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="4"  @if($ks_sr['sr_'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="5"  @if($ks_sr['sr_'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="6"  @if($ks_sr['sr_'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="7"  @if($ks_sr['sr_'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="8"  @if($ks_sr['sr_'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="sr_{{$i}}"  value="9"  @if($ks_sr['sr_'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
+                                                <th rowspan="2">No</th>
+                                                <th rowspan="2">Pernyataan A</th>
+                                                <th colspan="17">Skala</th>
+                                                <th rowspan="2">Pernyataan B</th>
                                             </tr>
-                                        @endfor
-                                        </tbody>
-                                    </table>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>8</td>
+                                                <td>7</td>
+                                                <td>6</td>
+                                                <td>5</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                                <td>7</td>
+                                                <td>8</td>
+                                                <td>9</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @if ($k_pernyataan[$value->kriteria_id] != null)
+                                                @php
+                                                    $kombinasi_p = combinations(2,$k_pernyataan[$value->kriteria_id]);
+                                                @endphp
+                                                @if(count($kombinasi_p) > 0)
+                                                    @php
+                                                        $nama = strtolower(rtrim($kombinasi_p[0][0],1));
+                                                    @endphp
+                                                    @for($i = 1; $i <= count($kombinasi_p) ; $i++)
+                                                        <tr>
+                                                            <td>{{$i}}</td>
+                                                            <td>{{$kombinasi_p[$i-1][0]}}</td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-9" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-8" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-7" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-6" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-5" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-4" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-3" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-2" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="1" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="2" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="3" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="4" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="5" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="6" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="7" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="8" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="9" required></td>
+                                                            <td>{{$kombinasi_p[$i-1][1]}}</td>
+                                                        </tr>
+                                                    @endfor
+                                                @else
+                                                    <tr>
+                                                        <td colspan="20" class="text-center">Dibutuhkan lebih dari satu pernyataan</td>
+                                                    </tr>
+                                                @endif
 
-                                    <br>
-                                    <p>Kriteria <i>Communications Skills</i> (Kemampuan Berkomunikasi)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Pernyataan A</th>
-                                            <th colspan="17">Skala</th>
-                                            <th rowspan="2">Pernyataan B</th>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>7</td>
-                                            <td>6</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $a = [
-                                                'CS1','CS1','CS2'
-                                            ];
-                                            $b = [
-                                                'CS2','CS3','CS3'
-                                                ];
-                                            $ks_cs = json_decode($kuesioner->kuesioner_ks_cs,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 3 ; $i++)
-                                            <tr>
-                                                <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="9" @if($ks_cs['cs_'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="8" @if($ks_cs['cs_'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="7" @if($ks_cs['cs_'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="6" @if($ks_cs['cs_'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="5" @if($ks_cs['cs_'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="4" @if($ks_cs['cs_'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="3" @if($ks_cs['cs_'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="2" @if($ks_cs['cs_'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="1"  @if($ks_cs['cs_'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="2"  @if($ks_cs['cs_'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="3"  @if($ks_cs['cs_'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="4"  @if($ks_cs['cs_'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="5"  @if($ks_cs['cs_'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="6"  @if($ks_cs['cs_'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="7"  @if($ks_cs['cs_'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="8"  @if($ks_cs['cs_'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="cs_{{$i}}"  value="9"  @if($ks_cs['cs_'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
-                                            </tr>
-                                        @endfor
-                                        </tbody>
-                                    </table>
+                                            @else
+                                                <tr>
+                                                    <td colspan="20" class="text-center">Belum ada pernyataan</td>
+                                                </tr>
+                                            @endif
+                                            </tbody>
+                                        </table>
 
-                                    <br>
-                                    <p>Kriteria <i>Enjoyment to Help Others</i> (Kesenangan Membantu Orang Lain)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Pernyataan A</th>
-                                            <th colspan="17">Skala</th>
-                                            <th rowspan="2">Pernyataan B</th>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>7</td>
-                                            <td>6</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $a = [
-                                                'EH1','EH1','EH2'
-                                            ];
-                                            $b = [
-                                                'EH2','EH3','EH3'
-                                                ];
-                                            $ks_eh = json_decode($kuesioner->kuesioner_ks_eh,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 3 ; $i++)
-                                            <tr>
-                                                <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="9" @if($ks_eh['eh_'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="8" @if($ks_eh['eh_'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="7" @if($ks_eh['eh_'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="6" @if($ks_eh['eh_'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="5" @if($ks_eh['eh_'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="4" @if($ks_eh['eh_'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="3" @if($ks_eh['eh_'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="2" @if($ks_eh['eh_'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="1"  @if($ks_eh['eh_'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="2"  @if($ks_eh['eh_'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="3"  @if($ks_eh['eh_'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="4"  @if($ks_eh['eh_'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="5"  @if($ks_eh['eh_'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="6"  @if($ks_eh['eh_'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="7"  @if($ks_eh['eh_'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="8"  @if($ks_eh['eh_'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="eh_{{$i}}"  value="9"  @if($ks_eh['eh_'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
-                                            </tr>
-                                        @endfor
-                                        </tbody>
-                                    </table>
-
-                                    <br>
-                                    <p>Kriteria <i>Quality of Knowledge< Shared</i> (Kualitas dari Berbagai Pengetahuan)</p>
-                                    <table class="table table-bordered" width="100">
-                                        <thead class="text-center">
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Pernyataan A</th>
-                                            <th colspan="17">Skala</th>
-                                            <th rowspan="2">Pernyataan B</th>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>7</td>
-                                            <td>6</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php
-                                            $a = [
-                                                'QK1','QK1','QK1','QK1','QK1','QK2','QK2','QK2','QK2','QK3','QK3','QK3','QK4','QK4','QK5',
-                                            ];
-                                            $b = [
-                                                'QK2','QK3','QK4','QK5','QK6','QK3','QK4','QK5','QK6','QK4','QK5','QK6','QK5','QK6','QK6',
-                                                ];
-                                            $ks_qk = json_decode($kuesioner->kuesioner_ks_qk,true);
-                                        @endphp
-                                        @for($i = 1; $i <= 15 ; $i++)
-                                            <tr>
-                                                <td>{{$i}}</td>
-                                                <td><i>{{$a[$i-1]}}</i></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="9" @if($ks_qk['qk_'.$i] == -9) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="8" @if($ks_qk['qk_'.$i] == -8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="7" @if($ks_qk['qk_'.$i] == -7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="6" @if($ks_qk['qk_'.$i] == -6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="5" @if($ks_qk['qk_'.$i] == -5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="4" @if($ks_qk['qk_'.$i] == -4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="3" @if($ks_qk['qk_'.$i] == -3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="2" @if($ks_qk['qk_'.$i] == -2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="1"  @if($ks_qk['qk_'.$i] == 1) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="2"  @if($ks_qk['qk_'.$i] == 2) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="3"  @if($ks_qk['qk_'.$i] == 3) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="4"  @if($ks_qk['qk_'.$i] == 4) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="5"  @if($ks_qk['qk_'.$i] == 5) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="6"  @if($ks_qk['qk_'.$i] == 6) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="7"  @if($ks_qk['qk_'.$i] == 7) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="8"  @if($ks_qk['qk_'.$i] == 8) echo checked @endif disabled></td>
-                                                <td><input type="radio" name="qk_{{$i}}"  value="9"  @if($ks_qk['qk_'.$i] == 9) echo checked @endif disabled></td>
-                                                <td><i>{{$b[$i-1]}}</i></td>
-                                            </tr>
-                                        @endfor
-                                        </tbody>
-                                    </table>
+                                        <br>
+                                    @endforeach
                                 </div>
                             </div>
                             <!-- /form group -->
