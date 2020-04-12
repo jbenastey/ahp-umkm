@@ -53,29 +53,34 @@ class AhpController extends Controller
             ->where('kuesioner_id', $id)
             ->first();
 
-        $data['kriteria'] = DB::table('matriks_kriteria')
-            ->where('kriteria_kuesioner_id', $id)
-            ->first();
+        $kriteria = DB::table('master_kriteria')->get();
+        $data['kriteria'] = $kriteria;
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
 
-        $data['bagi'] = DB::table('pembagian_kriteria')
-            ->where('pembagian_kuesioner_id', $id)
-            ->first();
+        $data['namaKri'] = [];
+        $pernyataan = [];
+        foreach ($kriteria as $value){
+            $pernyataan[$value->kriteria_id] = array();
+        }
+        foreach ($kriteria as $value){
+            foreach ($data['pernyataan'] as $value2){
+                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                }
+            }
+        }
+        foreach ($kriteria as $value){
+            if ($pernyataan[$value->kriteria_id] != null){
+                $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
+                if(count($kombinasi_p) > 0){
+                    array_push($data['namaKri'], (strtolower(rtrim($kombinasi_p[0][0],1))));
+                }
+            }
+        }
 
-        $data['kali'] = DB::table('perkalian_kriteria')
-            ->where('perkalian_kuesioner_id', $id)
-            ->first();
-
-        $data['kriteria_hr'] = DB::table('matriks_kriteria_hr')
-            ->where('kriteria_kuesioner_id', $id)
-            ->first();
-
-        $data['bagi_hr'] = DB::table('pembagian_kriteria_hr')
-            ->where('pembagian_kuesioner_id', $id)
-            ->first();
-
-        $data['kali_hr'] = DB::table('perkalian_kriteria_hr')
-            ->where('perkalian_kuesioner_id', $id)
-            ->first();
+        $data['cek'] = DB::table('hitung')
+            ->where('hitung_kuesioner_id', $id)
+            ->get();
 
         return view('ahp.lihat', $data);
     }
