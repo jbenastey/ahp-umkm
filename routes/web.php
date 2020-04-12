@@ -39,7 +39,7 @@ Route::get('/kuesioner/{id}/lihat','KuesionerController@show')->middleware('auth
 
 Route::get('/ahp','AhpController@index')->middleware('auth');
 Route::get('/ahp/{id}/lihat','AhpController@show')->middleware('auth');
-Route::get('/ahp/{id}/matriks-kriteria','AhpController@matriksKriteria')->middleware('auth');
+Route::get('/ahp/{id}/hitung/{jenis}','AhpController@hitung')->middleware('auth');
 Route::get('/ahp/{id}/bagi-kriteria','AhpController@bagiKriteria')->middleware('auth');
 Route::get('/ahp/{id}/kali-kriteria','AhpController@kaliKriteria')->middleware('auth');
 

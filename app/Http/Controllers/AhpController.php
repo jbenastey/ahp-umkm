@@ -80,6 +80,161 @@ class AhpController extends Controller
         return view('ahp.lihat', $data);
     }
 
+    public function hitung($id,$jenis){
+        $kuesioner = DB::table('kuesioner')
+            ->where('kuesioner_id', $id)
+            ->first();
+        $kriteria = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')->get();
+
+        $kedua = json_decode($kuesioner->kuesioner_kedua,true);
+        $skala = $kedua[$jenis];
+
+        $namaKri = [];
+        $pernyataan = [];
+        foreach ($kriteria as $value){
+            $pernyataan[$value->kriteria_id] = array();
+        }
+        foreach ($kriteria as $value){
+            foreach ($data['pernyataan'] as $value2){
+                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                }
+            }
+        }
+        foreach ($kriteria as $value){
+            if ($pernyataan[$value->kriteria_id] != null){
+                $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
+                if(count($kombinasi_p) > 0){
+                    array_push($namaKri, (rtrim($kombinasi_p[0][0],1)));
+                }
+            }
+        }
+
+
+        $matriks = [];
+        foreach ($namaKri as $value) {
+            $matriks[$value] = [];
+        }
+        foreach ($namaKri as $value) {
+            foreach ($namaKri as $value2){
+                if ($value2 == $value){
+                    $matriks[$value][$value2] = 1;
+                } else {
+                    $matriks[$value][$value2] = 0;
+                }
+            }
+        }
+//        var_dump($skala);
+        $kom = combinations(2,$namaKri);
+        for ($i = 0; $i < count($skala); $i++) {
+            if ($skala[$jenis.'_'.($i+1)] > 0){
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs($skala[$jenis.'_'.($i+1)]),2);
+                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),2);
+            } else {
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),2);
+                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs($skala[$jenis.'_'.($i+1)]),2);
+            }
+        }
+//        var_dump($matriks); //matriks udah dapat
+
+        $jumlahKolom = [];
+        $jumlahBaris = [];
+        $rata = [];
+        $kali = [];
+        $hasil = [];
+        $jumlahBarisKali = [];
+        $jumlahSemua = 0;
+        foreach ($matriks as $key => $value) {
+            $jumlahKolom[$key] = 0;
+            $jumlahBaris[$key] = 0;
+            $rata[$key] = 0;
+            $hasil[$key] = 0;
+            $jumlahBarisKali[$key] = 0;
+            foreach ($matriks as $key2 =>$value2) {
+                $kali[$key][$key2] = 0;
+            }
+        }
+
+
+        //mencari pembagian
+        foreach ($jumlahKolom as $key => $value) {
+            foreach ($matriks as $key2 => $value2) {
+                $jumlahKolom[$key] += $matriks[$key2][$key];
+            }
+        }
+//        var_dump($jumlahKolom);
+
+        $bagi = [];
+        foreach ($matriks as $key => $value) {
+            foreach ($matriks as $key2 => $value2) {
+                $bagi[$key][$key2] =  round($matriks[$key2][$key] / round($jumlahKolom[$key],2),4);
+            }
+        }
+//        var_dump($bagi);
+
+
+        //mencari perkalian
+        foreach ($bagi as $key => $value) {
+            foreach ($bagi as $key2 => $value2) {
+                $jumlahBaris[$key] += $bagi[$key2][$key];
+                $rata[$key] = round($jumlahBaris[$key] / count($bagi),4);
+            }
+        }
+//        var_dump($jumlahBaris);
+//        var_dump($rata);
+
+        foreach ($matriks as $key => $value) {
+            foreach ($matriks as $key2 => $value2) {
+                $kali[$key][$key2] =  round($matriks[$key2][$key] * $rata[$key],4);
+            }
+        }
+//        var_dump($kali);
+        foreach ($kali as $key => $value) {
+            foreach ($kali as $key2 => $value2) {
+                $jumlahBarisKali[$key] += $kali[$key2][$key];
+            }
+        }
+//        var_dump($jumlahBarisKali);
+
+        foreach ($jumlahBarisKali as $key => $value) {
+            $hasil[$key] = round($value / $rata[$key],4);
+        }
+
+//        var_dump($hasil);
+
+        //mencari CI
+        foreach ($hasil as $key=>$value) {
+            $jumlahSemua += $value;
+        }
+        $n = count($hasil);
+        $rataSemua = round($jumlahSemua / $n,4);
+        $ci = ($rataSemua - $n) / ($n - 1);
+
+        //mencari cr
+        $cr = $ci / ri($n);
+//        var_dump($cr);
+
+        $save = [
+            'hitung_kuesioner_id' => $id,
+            'hitung_jenis' => $jenis,
+            'hitung_matriks' => json_encode($matriks),
+            'hitung_bagi' => json_encode($bagi),
+            'hitung_baris_bagi' => json_encode($jumlahBaris),
+            'hitung_rata_bagi' => json_encode($rata),
+            'hitung_kali' => json_encode($kali),
+            'hitung_baris_kali' => json_encode($jumlahBarisKali),
+            'hitung_hasil' => json_encode($hasil),
+            'hitung_ci' => json_encode($ci),
+            'hitung_cr' => json_encode($cr)
+        ];
+//        var_dump($save);
+
+        DB::table('hitung')->insert($save);
+        alert()->success('Perhitungan Selesai', 'Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
+    }
+
     public function matriksKriteria($id)
     {
         //
