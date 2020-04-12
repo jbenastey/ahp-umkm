@@ -97,25 +97,39 @@ class AhpController extends Controller
 
         $namaKri = [];
         $pernyataan = [];
-        foreach ($kriteria as $value){
-            $pernyataan[$value->kriteria_id] = array();
-        }
-        foreach ($kriteria as $value){
-            foreach ($data['pernyataan'] as $value2){
-                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
-                    array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+        if ($jenis == 'ks'){
+            foreach ($kriteria as $value){
+                $pernyataan[$value->kriteria_id] = array();
+            }
+            foreach ($kriteria as $value){
+                foreach ($data['pernyataan'] as $value2){
+                    if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
+                        array_push($pernyataan[$value->kriteria_id], $value2->pernyataan_item);
+                    }
                 }
             }
-        }
-        foreach ($kriteria as $value){
-            if ($pernyataan[$value->kriteria_id] != null){
-                $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
-                if(count($kombinasi_p) > 0){
-                    array_push($namaKri, (rtrim($kombinasi_p[0][0],1)));
+            foreach ($kriteria as $value){
+                if ($pernyataan[$value->kriteria_id] != null){
+                    $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
+                    if(count($kombinasi_p) > 0){
+                        array_push($namaKri, (rtrim($kombinasi_p[0][0],1)));
+                    }
                 }
             }
-        }
 
+        } else {
+            $jns = strtoupper($jenis);
+//            var_dump($jns);
+            foreach ($data['pernyataan'] as $value2){
+                if (strpos($value2->pernyataan_item,$jns) !== false){
+                    array_push($pernyataan, $value2->pernyataan_item);
+                }
+            }
+
+            $namaKri = $pernyataan;
+
+
+        }
 
         $matriks = [];
         foreach ($namaKri as $value) {
@@ -134,11 +148,11 @@ class AhpController extends Controller
         $kom = combinations(2,$namaKri);
         for ($i = 0; $i < count($skala); $i++) {
             if ($skala[$jenis.'_'.($i+1)] > 0){
-                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs($skala[$jenis.'_'.($i+1)]),2);
-                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),2);
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs($skala[$jenis.'_'.($i+1)]),4);
+                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
             } else {
-                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),2);
-                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs($skala[$jenis.'_'.($i+1)]),2);
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
+                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs($skala[$jenis.'_'.($i+1)]),4);
             }
         }
 //        var_dump($matriks); //matriks udah dapat
@@ -233,7 +247,14 @@ class AhpController extends Controller
             'hitung_ci' => json_encode($ci),
             'hitung_cr' => json_encode($cr)
         ];
-//        var_dump($save);
+//        var_dump($matriks);
+//        var_dump($bagi);
+//        var_dump($jumlahBaris);
+//        var_dump($rata);
+//        var_dump($kali);
+//        var_dump($jumlahBarisKali);
+//        var_dump($hasil);
+//        var_dump(($save));
 
         DB::table('hitung')->insert($save);
         alert()->success('Perhitungan Selesai', 'Sukses');
