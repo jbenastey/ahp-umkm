@@ -211,27 +211,32 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @php
+                                        $kedua = json_decode($kuesioner->kuesioner_kedua,true);
+                                        $ks = $kedua['ks'];
+                                        $sub = [];
+                                        @endphp
                                         @for($i = 1; $i <= count($kombinasi) ; $i++)
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td>{{$kombinasi[$i-1][0]}}</td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-9" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-8" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-7" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-6" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-5" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-4" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-3" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="-2" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="1" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="2" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="3" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="4" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="5" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="6" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="7" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="8" required></td>
-                                                <td><input type="radio" name="ks_{{$i}}" value="9" required></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-9" @if($ks['ks_'.$i] == -9) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-8" @if($ks['ks_'.$i] == -8) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-7" @if($ks['ks_'.$i] == -7) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-6" @if($ks['ks_'.$i] == -6) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-5" @if($ks['ks_'.$i] == -5) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-4" @if($ks['ks_'.$i] == -4) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-3" @if($ks['ks_'.$i] == -3) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="-2" @if($ks['ks_'.$i] == -2) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="1" @if($ks['ks_'.$i] == 1) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="2" @if($ks['ks_'.$i] == 2) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="3" @if($ks['ks_'.$i] == 3) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="4" @if($ks['ks_'.$i] == 4) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="5" @if($ks['ks_'.$i] == 5) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="6" @if($ks['ks_'.$i] == 6) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="7" @if($ks['ks_'.$i] == 7) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="8" @if($ks['ks_'.$i] == 8) checked @endif disabled></td>
+                                                <td><input type="radio" name="ks_{{$i}}" value="9" @if($ks['ks_'.$i] == 9) checked @endif disabled></td>
                                                 <td>{{$kombinasi[$i-1][1]}}</td>
                                             </tr>
                                         @endfor
@@ -278,28 +283,29 @@
                                                 @if(count($kombinasi_p) > 0)
                                                     @php
                                                         $nama = strtolower(rtrim($kombinasi_p[0][0],1));
+                                                        $sub = $kedua[$nama];
                                                     @endphp
                                                     @for($i = 1; $i <= count($kombinasi_p) ; $i++)
                                                         <tr>
                                                             <td>{{$i}}</td>
                                                             <td>{{$kombinasi_p[$i-1][0]}}</td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-9" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-8" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-7" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-6" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-5" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-4" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-3" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-2" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="1" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="2" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="3" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="4" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="5" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="6" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="7" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="8" required></td>
-                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="9" required></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-9" @if($sub[$nama.'_'.$i] == -9) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-8" @if($sub[$nama.'_'.$i] == -8) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-7" @if($sub[$nama.'_'.$i] == -7) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-6" @if($sub[$nama.'_'.$i] == -6) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-5" @if($sub[$nama.'_'.$i] == -5) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-4" @if($sub[$nama.'_'.$i] == -4) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-3" @if($sub[$nama.'_'.$i] == -3) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="-2" @if($sub[$nama.'_'.$i] == -2) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="1" @if($sub[$nama.'_'.$i] == 1) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="2" @if($sub[$nama.'_'.$i] == 2) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="3" @if($sub[$nama.'_'.$i] == 3) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="4" @if($sub[$nama.'_'.$i] == 4) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="5" @if($sub[$nama.'_'.$i] == 5) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="6" @if($sub[$nama.'_'.$i] == 6) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="7" @if($sub[$nama.'_'.$i] == 7) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="8" @if($sub[$nama.'_'.$i] == 8) checked @endif disabled></td>
+                                                            <td><input type="radio" name="{{$nama}}_{{$i}}"  value="9" @if($sub[$nama.'_'.$i] == 9) checked @endif disabled></td>
                                                             <td>{{$kombinasi_p[$i-1][1]}}</td>
                                                         </tr>
                                                     @endfor
