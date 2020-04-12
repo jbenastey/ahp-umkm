@@ -62,7 +62,7 @@ class KuesionerController extends Controller
     public function simpanKuesioner(Request $request)
     {
         //
-        $nama = $request->kuesioner_nama;
+        $namaK = $request->kuesioner_nama;
         $umur = $request->kuesioner_umur;
         $jurusan = $request->kuesioner_jurusan;
         $jabatan = $request->kuesioner_jabatan;
@@ -121,7 +121,7 @@ class KuesionerController extends Controller
 //        var_dump(json_encode($pertama));
 //        var_dump(($kedua));
         $simpan = [
-            'kuesioner_nama' => $nama,
+            'kuesioner_nama' => $namaK,
             'kuesioner_umur' => $umur,
             'kuesioner_jurusan' => $jurusan,
             'kuesioner_jabatan' => $jabatan,
