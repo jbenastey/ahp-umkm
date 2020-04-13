@@ -59,3 +59,17 @@ if (! function_exists('pertama')) {
         return $nilai;
     }
 }
+
+if (! function_exists('performa')) {
+    function performa($jawaban){
+        $nilai = '';
+        if ($jawaban >= 0 && $jawaban < 3){
+            $nilai = 'Tidak Bagus';
+        }elseif ($jawaban >= 3 && $jawaban < 7){
+            $nilai = 'Cukup Bagus';
+        }elseif ($jawaban >= 7 && $jawaban <= 10){
+            $nilai = 'Bagus';
+        }
+        return $nilai;
+    }
+}

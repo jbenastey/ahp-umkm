@@ -339,6 +339,7 @@ class AhpController extends Controller
 //        }
 
         $opor = [
+            'kriteria' => $data['namaKri'],
             'pm' => $pm,
             'total' => $total,
             'rataRata' => $rataRata,
@@ -351,9 +352,7 @@ class AhpController extends Controller
 //        var_dump($totalSeluruh);
 //        var_dump($max);
 //
-//
-        var_dump($opor);
-
+        return view('ahp.kinerja',$opor);
 
     }
     /**
