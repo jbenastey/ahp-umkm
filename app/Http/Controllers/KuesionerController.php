@@ -230,11 +230,7 @@ class KuesionerController extends Controller
 
         foreach ($data['kriteria'] as $value){
             array_push($kriteria, $value->kriteria_nama);
-//            foreach ($data['pernyataan'] as $value2){
-//                if ($value2->pernyataan_kriteria_id == $value->kriteria_id){
             $pernyataan[$value->kriteria_id] = array();
-//                }
-//            }
         }
         foreach ($data['kriteria'] as $value){
             foreach ($data['pernyataan'] as $value2){
@@ -245,27 +241,30 @@ class KuesionerController extends Controller
         }
         $kombinasi = combinations(2,$kriteria);
 
-        $ks = [
-            'ks1' => $request->ks_1,
-            'ks2' => $request->ks_2,
-            'ks3' => $request->ks_3,
-            'ks4' => $request->ks_4,
-            'ks5' => $request->ks_5,
-            'ks6' => $request->ks_6,
-            'ks7' => $request->ks_7,
-            'ks8' => $request->ks_8,
-            'ks9' => $request->ks_9,
-            'ks10' => $request->ks_10,
-        ];
+        $ks = [];
+        foreach ($kombinasi as $key=>$value){
+            $nama = 'ks_'.($key+1);
+            $ks['ks_'.($key+1)] = $request->$nama;
+        }
+
+        $kedua = DB::table('kuesioner')
+            ->where('kuesioner_id',$id)
+            ->first();
+        $kedua = json_decode($kedua->kuesioner_kedua,true);
+
+        $kedua['ks'] = $ks;
 
         $data = [
-            'kuesioner_ks' => json_encode($ks),
+            'kuesioner_kedua' => json_encode($kedua),
         ];
-        DB::table('kuesioner')->where('kuesioner_id',$id)->update($data);
-        DB::table('matriks_kriteria')->where('kriteria_kuesioner_id',$id)->delete();
-        DB::table('pembagian_kriteria')->where('pembagian_kuesioner_id',$id)->delete();
-        DB::table('perkalian_kriteria')->where('perkalian_kuesioner_id',$id)->delete();
 
+        DB::table('kuesioner')->where('kuesioner_id',$id)->update($data);
+//
+        DB::table('hitung')
+            ->where('hitung_kuesioner_id',$id)
+            ->where('hitung_jenis','ks')
+            ->delete();
+//
         alert()->success('Terima kasih telah mengupdate kuesioner, silahkan menghitung ulang','Sukses');
         return redirect('/ahp/'.$id.'/lihat');
     }
