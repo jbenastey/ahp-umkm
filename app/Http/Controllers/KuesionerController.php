@@ -269,6 +269,75 @@ class KuesionerController extends Controller
         return redirect('/ahp/'.$id.'/lihat');
     }
 
+    public function ubahSubkriteria($id,$jenis){
+
+        $data['kuesioner'] = DB::table('kuesioner')
+            ->where('kuesioner_id',$id)
+            ->first();
+
+        $data['jenis'] = $jenis;
+
+        $jenis = strtoupper($jenis);
+//        var_dump($jenis);
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')
+            ->where('pernyataan_item','like','%'.$jenis.'%')
+            ->get();
+
+        $pernyataan = [];
+
+        foreach ($data['pernyataan'] as $value2){
+            array_push($pernyataan, $value2->pernyataan_item);
+        }
+
+        $kombinasi = combinations(2,$pernyataan);
+        $data['kombinasi'] = $kombinasi;
+
+        return view('ahp.ubah-subkriteria',$data);
+    }
+
+    public function updateSubkriteria(Request $request,$id,$jenis){
+
+        $data['kriteria'] = DB::table('master_kriteria')->get();
+        $data['pernyataan'] = DB::table('master_pernyataan')
+            ->where('pernyataan_item','like','%'.$jenis.'%')
+            ->get();
+
+        $pernyataan = [];
+
+        foreach ($data['pernyataan'] as $value2){
+            array_push($pernyataan, $value2->pernyataan_item);
+        }
+        $kombinasi = combinations(2,$pernyataan);
+
+        $ks = [];
+        foreach ($kombinasi as $key=>$value){
+            $nama = $jenis.'_'.($key+1);
+            $ks[$jenis.'_'.($key+1)] = $request->$nama;
+        }
+
+        $kedua = DB::table('kuesioner')
+            ->where('kuesioner_id',$id)
+            ->first();
+        $kedua = json_decode($kedua->kuesioner_kedua,true);
+
+        $kedua[$jenis] = $ks;
+
+        $data = [
+            'kuesioner_kedua' => json_encode($kedua),
+        ];
+
+
+        DB::table('kuesioner')->where('kuesioner_id',$id)->update($data);
+//
+        DB::table('hitung')
+            ->where('hitung_kuesioner_id',$id)
+            ->where('hitung_jenis',$jenis)
+            ->delete();
+//
+        alert()->success('Terima kasih telah mengupdate kuesioner, silahkan menghitung ulang','Sukses');
+        return redirect('/ahp/'.$id.'/lihat');
+    }
     /**
      * Show the form for editing the specified resource.
      *

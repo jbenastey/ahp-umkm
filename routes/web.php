@@ -45,4 +45,7 @@ Route::get('/ahp/{id}/kinerja','AhpController@kinerja')->middleware('auth');
 Route::get('/kuesioner/{id}/ubah-kriteria','KuesionerController@ubahKriteria')->middleware('auth');
 Route::post('/kuesioner/{id}/update-kriteria','KuesionerController@updateKriteria')->middleware('auth');
 
+Route::get('/kuesioner/{id}/ubah-subkriteria/{jenis}','KuesionerController@ubahSubkriteria')->middleware('auth');
+Route::post('/kuesioner/{id}/update-subkriteria/{jenis}','KuesionerController@updateSubkriteria')->middleware('auth');
+
 
