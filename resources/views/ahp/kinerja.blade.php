@@ -36,7 +36,7 @@
                                 //var_dump($rataRata);
                             @endphp
                             @foreach($kriteria as $key => $value)
-                            <h4>{{$value}}</h4>
+                            <h4>{{$namaKriteria[$value]}}</h4>
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
@@ -62,7 +62,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                $pengaruh = null;
+                                $tinggi = max($rataRata);
+                                @endphp
                                 @foreach($rataRata as $key2 => $value2)
+                                    @if($value2 == $tinggi)
+                                        @php $pengaruh = $key2; @endphp
+                                    @endif
                                     <tr>
                                         <td>{{$key2}}</td>
                                         <td>{{$value2}}</td>
@@ -99,6 +106,8 @@
 
 
                         <p>Kategori = {{performa($totalSeluruh)}}</p>
+                        <p>Nilai Tertinggi =  {{max($rataRata)}}</p>
+                        <p>Kriteria yang paling berpengaruh = {{$namaKriteria[$pengaruh]}}</p>
                     </div>
                     <!-- /card body -->
 

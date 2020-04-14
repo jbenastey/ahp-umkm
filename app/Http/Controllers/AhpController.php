@@ -279,11 +279,15 @@ class AhpController extends Controller
                 }
             }
         }
+        $data['namaKriteria'] = [];
         foreach ($kriteria as $value){
             if ($pernyataan[$value->kriteria_id] != null){
                 $kombinasi_p = combinations(2,$pernyataan[$value->kriteria_id]);
                 if(count($kombinasi_p) > 0){
+//                    var_dump($value->kriteria_nama);
+//                    var_dump((rtrim($kombinasi_p[0][0],1)));
                     array_push($data['namaKri'], ((rtrim($kombinasi_p[0][0],1))));
+                    $data['namaKriteria'][rtrim($kombinasi_p[0][0],1)] = $value->kriteria_nama;
                 }
             }
         }
@@ -345,6 +349,7 @@ class AhpController extends Controller
             'rataRata' => $rataRata,
             'totalSeluruh' => $totalSeluruh,
             'max' => $max,
+            'namaKriteria' => $data['namaKriteria'],
         ];
 //        var_dump($pm);
 //        var_dump($total);
