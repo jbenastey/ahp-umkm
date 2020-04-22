@@ -58,8 +58,13 @@
                                 <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Jurusan</label>
 
                                 <div class="col-xl-7">
-                                    <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jurusan" name="kuesioner_jurusan" required>
+                                    <select name="kuesioner_jurusan" id="password-2" class="form-control" required>
+                                        <option value="tif">Teknik Informatika</option>
+                                        <option value="tin">Teknik Industri</option>
+                                        <option value="te">Teknik Elektro</option>
+                                        <option value="sif">Sistem Informasi</option>
+                                        <option value="mt">Matematika Terapan</option>
+                                    </select>
                                 </div>
                             </div>
                             <!-- /form group -->

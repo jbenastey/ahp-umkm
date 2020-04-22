@@ -101,6 +101,7 @@
 <script src="{{('drift/default/assets/js/custom/data-table.js')}}"></script>
 {{--<script src="{{asset('drift/default/assets/js/custom/sweet-alert.js')}}"></script>--}}
 <script src="{{asset('drift/default/assets/js/script.js')}}"></script>
+<script src="{{asset('js/grafik.js')}}"></script>
 
 @include('sweet::alert')
 </body>

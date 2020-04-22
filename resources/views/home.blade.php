@@ -38,6 +38,10 @@
                                         </div>
                                     @endif
                                     You are logged in!
+                                        <div class="chart">
+                                            <canvas id="dosen-chart" width="1000" height="280"></canvas>
+                                        </div>
+                                        <hr>
                                 </div>
                             </div>
                             <!-- /grid -->
