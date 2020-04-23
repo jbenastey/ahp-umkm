@@ -351,12 +351,19 @@ class AhpController extends Controller
             'max' => $max,
             'namaKriteria' => $data['namaKriteria'],
         ];
-//        var_dump($pm);
-//        var_dump($total);
-//        var_dump($rataRata);
-//        var_dump($totalSeluruh);
-//        var_dump($max);
-//
+
+        $cek = DB::table('hasil')
+            ->join('kuesioner','kuesioner_id','=','hasil_kuesioner_id')
+            ->where('hasil_kuesioner_id', '=',$id)
+            ->first();
+
+        if ($cek == null){
+            DB::table('hasil')->insert([
+                'hasil_kuesioner_id' => $id,
+                'hasil_rata' => json_encode($rataRata)
+            ]);
+        }
+
         return view('ahp.kinerja',$opor);
 
     }
