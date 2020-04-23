@@ -38,7 +38,11 @@
                                         </div>
                                     @endif
                                         <div class="chart">
-                                            <canvas id="dosen-chart" width="1000" height="280"></canvas>
+                                            <canvas id="fakultas-chart" width="1000" height="280"></canvas>
+                                        </div>
+                                        <hr>
+                                        <div class="chart">
+                                            <canvas id="jurusan-chart" width="1000" height="280"></canvas>
                                         </div>
                                         <hr>
                                 </div>

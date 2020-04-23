@@ -10,7 +10,8 @@ $(document).ready(function () {
     var mode = 'index';
     var intersect = true;
 
-    var $salesChart = $('#dosen-chart');
+    var fakultas = $('#fakultas-chart');
+    var jurusan = $('#jurusan-chart');
     $.ajax({
         url: root + 'grafik/jurusan',
         type: 'GET',
@@ -18,7 +19,90 @@ $(document).ready(function () {
         cache: false,
         dataType: 'json',
         success: function (response) {
-            var salesChart = new Chart($salesChart, {
+            console.table(response);
+            var hr = (response.tif.HR + response.tin.HR + response.te.HR + response.sif.HR + response.mt.HR) / 5;
+            var cs = (response.tif.CS + response.tin.CS + response.te.CS + response.sif.CS + response.mt.CS) / 5;
+            var eh = (response.tif.EH + response.tin.EH + response.te.EH + response.sif.EH + response.mt.EH) / 5;
+            var sr = (response.tif.SR + response.tin.SR + response.te.SR + response.sif.SR + response.mt.SR) / 5;
+            var qk = (response.tif.QK + response.tin.QK + response.te.QK + response.sif.QK + response.mt.QK) / 5;
+
+
+            var fChart = new Chart(fakultas, {
+                type: 'bar',
+                data: {
+                    labels: ['Fakultas Sains dan Teknologi'],
+                    datasets: [
+                        {
+                            label: 'HR',
+                            backgroundColor: '#4f81bd',
+                            borderColor: '#4f81bd',
+                            data: [
+                                hr,
+                            ]
+                        },
+                        {
+                            label: 'SR',
+                            backgroundColor: '#c0504d',
+                            borderColor: '#c0504d',
+                            data: [
+                                sr,
+                            ]
+                        },
+                        {
+                            label: 'CS',
+                            backgroundColor: '#9bbb59',
+                            borderColor: '#9bbb59',
+                            data: [
+                                cs,
+                            ]
+                        },
+                        {
+                            label: 'EH',
+                            backgroundColor: '#8064a2',
+                            borderColor: '#8064a2',
+                            data: [
+                                eh,
+                            ]
+                        },
+                        {
+                            label: 'QK',
+                            backgroundColor: '#4bacc6',
+                            borderColor: '#4bacc6',
+                            data: [
+                                qk,
+                            ]
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        mode: mode,
+                        intersect: intersect
+                    },
+                    hover: {
+                        mode: mode,
+                        intersect: intersect
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                    },
+                    scales: {
+                        yAxes:[{
+                            ticks: {
+                                beginAtZero : true
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Hasil Performansi Fakultas Sains dan Teknologi'
+                    },
+                }
+            });
+
+            var jChart = new Chart(jurusan, {
                 type: 'bar',
                 data: {
                     labels: ['TIF','TIN','TE','SIF','MT'],
