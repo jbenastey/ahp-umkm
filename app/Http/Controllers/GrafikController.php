@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Facade\Ignition\Support\Packagist\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,7 @@ class GrafikController extends Controller
     {
         //
     }
+
     public function jurusan()
     {
         $hasil = DB::table('hasil')
@@ -23,10 +25,10 @@ class GrafikController extends Controller
             ->get();
         $this->jurusan = [
             'tif' => [],
-            'te' => null,
-            'tin' => null,
-            'sif' => null,
-            'mt' => null,
+            'te' => [],
+            'tin' => [],
+            'sif' => [],
+            'mt' => [],
         ];
         foreach ($hasil as $key => $value) {
             foreach ($this->jurusan as $key2 => $value2) {
@@ -36,7 +38,7 @@ class GrafikController extends Controller
             }
         }
         foreach ($this->jurusan as $key2 => $value2) {
-            if ($value2 != null){
+            if ($value2 != null) {
                 $i = 0;
                 $total['HR'] = 0;
                 $total['CS'] = 0;
@@ -46,11 +48,11 @@ class GrafikController extends Controller
                 foreach ($value2 as $key3 => $value3) {
                     $i++;
                     $this->jurusan[$key2] = [
-                        'HR' => ($total['HR']+=$value3['HR']) / $i,
-                        'CS' => ($total['CS']+=$value3['CS']) / $i,
-                        'EH' => ($total['EH']+=$value3['EH']) / $i,
-                        'SR' => ($total['SR']+=$value3['SR']) / $i,
-                        'QK' => ($total['QK']+=$value3['QK']) / $i,
+                        'HR' => ($total['HR'] += $value3['HR']) / $i,
+                        'CS' => ($total['CS'] += $value3['CS']) / $i,
+                        'EH' => ($total['EH'] += $value3['EH']) / $i,
+                        'SR' => ($total['SR'] += $value3['SR']) / $i,
+                        'QK' => ($total['QK'] += $value3['QK']) / $i,
                     ];
                 }
             } else {
@@ -66,6 +68,34 @@ class GrafikController extends Controller
         echo json_encode($this->jurusan);
     }
 
+    public function individu($jurusan)
+    {
+        $hasil = DB::table('hasil')
+            ->join('kuesioner', 'kuesioner_id', '=', 'hasil_kuesioner_id')
+            ->where('kuesioner_jurusan', $jurusan)
+            ->get();
+        $individu = [];
+        if (count($hasil) > 0) {
+            foreach ($hasil as $item) {
+                array_push($individu, [
+                    'nama' => $item->kuesioner_nama,
+                    'hasil' => json_decode($item->hasil_rata)
+                ]);
+            }
+        } else {
+            array_push($individu, [
+                'nama' => 'Belum ada data',
+                'hasil' => [
+                    'HR' => 0,
+                    'CS' => 0,
+                    'EH' => 0,
+                    'SR' => 0,
+                    'QK' => 0,
+                ]
+            ]);
+        }
+        echo json_encode($individu);
+    }
 
     /**
      * Show the form for creating a new resource.
