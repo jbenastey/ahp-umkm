@@ -45,6 +45,17 @@
                                             <canvas id="jurusan-chart" width="1000" height="280"></canvas>
                                         </div>
                                         <hr>
+                                        <select name="jurusan" id="jurusan">
+                                            <option selected disabled>Pilih Jurusan</option>
+                                            <option value="tif">Teknik Informatika</option>
+                                            <option value="tin">Teknik Industri</option>
+                                            <option value="te">Teknik Elektro</option>
+                                            <option value="sif">Sistem Informasi</option>
+                                            <option value="mt">Matematika Terapan</option>
+                                        </select>
+                                        <div id="individu">
+
+                                        </div>
                                 </div>
                             </div>
                             <!-- /grid -->

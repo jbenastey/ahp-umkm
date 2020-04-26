@@ -49,5 +49,6 @@ Route::get('/kuesioner/{id}/ubah-subkriteria/{jenis}','KuesionerController@ubahS
 Route::post('/kuesioner/{id}/update-subkriteria/{jenis}','KuesionerController@updateSubkriteria')->middleware('auth');
 
 Route::get('/grafik/jurusan','GrafikController@jurusan')->middleware('auth');
+Route::get('/grafik/individu/{jurusan}','GrafikController@individu')->middleware('auth');
 
 

@@ -19,7 +19,6 @@ $(document).ready(function () {
         cache: false,
         dataType: 'json',
         success: function (response) {
-            console.table(response);
             var hr = (response.tif.HR + response.tin.HR + response.te.HR + response.sif.HR + response.mt.HR) / 5;
             var cs = (response.tif.CS + response.tin.CS + response.te.CS + response.sif.CS + response.mt.CS) / 5;
             var eh = (response.tif.EH + response.tin.EH + response.te.EH + response.sif.EH + response.mt.EH) / 5;
@@ -199,4 +198,120 @@ $(document).ready(function () {
         }
     });
 
+    $('#jurusan').change(function () {
+        $('#individu').html(
+            '<div class="chart">' +
+                '<canvas id="individu-chart" width="1000" height="280"></canvas>' +
+            '</div>' +
+            '<hr>'
+        );
+        var jur = $(this).val();
+        var nama = [];
+        var hr = [];
+        var sr = [];
+        var cs = [];
+        var eh = [];
+        var qk = [];
+        $.ajax({
+            url: root + 'grafik/individu/'+jur,
+            type: 'GET',
+            async: true,
+            cache: false,
+            dataType: 'json',
+            success: function (response) {
+
+                for (var i = 0; i < response.length ; i++) {
+                    nama.push(response[i].nama);
+                    hr.push(response[i].hasil.HR);
+                    sr.push(response[i].hasil.SR);
+                    cs.push(response[i].hasil.CS);
+                    eh.push(response[i].hasil.EH);
+                    qk.push(response[i].hasil.QK);
+                }
+
+                var individu = $('#individu-chart');
+                var iChart = new Chart(individu, {
+                    type: 'bar',
+                    data: {
+                        labels: nama,
+                        datasets: [
+                            {
+                                label: 'HR',
+                                backgroundColor: '#4f81bd',
+                                borderColor: '#4f81bd',
+                                data:
+                                    hr
+                            },
+                            {
+                                label: 'SR',
+                                backgroundColor: '#c0504d',
+                                borderColor: '#c0504d',
+                                data: sr
+                            },
+                            {
+                                label: 'CS',
+                                backgroundColor: '#9bbb59',
+                                borderColor: '#9bbb59',
+                                data: cs
+                            },
+                            {
+                                label: 'EH',
+                                backgroundColor: '#8064a2',
+                                borderColor: '#8064a2',
+                                data: eh
+                            },
+                            {
+                                label: 'QK',
+                                backgroundColor: '#4bacc6',
+                                borderColor: '#4bacc6',
+                                data: qk
+                            }
+                        ]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                        },
+                        hover: {
+                            mode: mode,
+                            intersect: intersect
+                        },
+                        tooltips: {
+                            mode: mode,
+                            intersect: intersect
+                        },
+                        scales: {
+                            yAxes:[{
+                                ticks: {
+                                    beginAtZero : true
+                                }
+                            }]
+                        },
+                        title: {
+                            display: true,
+                            text: 'Hasil Performansi Individu Jurusan '+jurusannya(jur)
+                        },
+                    }
+                });
+            }
+        });
+    })
 });
+
+function jurusannya(jur) {
+    var jurusan = '';
+    if (jur === 'tif'){
+        jurusan = 'Teknik Informatika'
+    } else if (jur === 'tin'){
+        jurusan = 'Teknik Industri'
+    } else if (jur === 'te'){
+        jurusan = 'Teknik Elektro'
+    } else if (jur === 'sif'){
+        jurusan = 'Sistem Informasi'
+    } else if (jur === 'mt'){
+        jurusan = 'Matematika Terapan'
+    }
+    return jurusan
+}
