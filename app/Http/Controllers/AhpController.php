@@ -148,11 +148,11 @@ class AhpController extends Controller
         $kom = combinations(2,$namaKri);
         for ($i = 0; $i < count($skala); $i++) {
             if ($skala[$jenis.'_'.($i+1)] > 0){
-                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs($skala[$jenis.'_'.($i+1)]),4);
-                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
-            } else {
-                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
                 $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs($skala[$jenis.'_'.($i+1)]),4);
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
+            } else {
+                $matriks[$kom[$i][1]][$kom[$i][0]] = round(abs(1 / $skala[$jenis.'_'.($i+1)]),4);
+                $matriks[$kom[$i][0]][$kom[$i][1]] = round(abs($skala[$jenis.'_'.($i+1)]),4);
             }
         }
 //        var_dump($matriks); //matriks udah dapat
