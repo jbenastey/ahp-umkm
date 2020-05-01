@@ -44,6 +44,7 @@
                                         @php
                                             $p1 = 0;
                                             $p2 = count($kriteria) + 1;
+                                            $cekKs = 0;
                                         @endphp
                                         @if(count($cek) == 0)
                                             <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/hitung/ks')}}"
@@ -51,6 +52,7 @@
                                         @else
                                             @foreach($cek as $value)
                                                 @if($value->hitung_jenis == 'ks')
+                                                    @php $cekKs++; @endphp
                                                     <h5>Matriks Kriteria</h5>
                                                     <table class="table table-bordered">
                                                         <thead>
@@ -268,15 +270,21 @@
                                                         <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR > 0.1)</p>
                                                         <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}"
                                                            class="btn btn-sm btn-success">Update Kuesioner</a>
+                                                    @endif
                                                 @endif
+                                            @endforeach
+                                            @if($cekKs == 0)
+                                                <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/hitung/ks')}}"
+                                                   class="btn btn-primary btn-sm">Hitung</a>
                                             @endif
-                                        @endforeach
+                                        @endif
                                         <!-- /form -->
                                     </div>
                                 </div>
                             </div>
 
-                            @foreach($kriteria as $key => $value)
+                            @if(count($cek)>0)
+                                @foreach($kriteria as $key => $value)
                                 @php $cekHitung = 0; @endphp
                                 <div class="card">
                                     <div class="card-header" id="heading{{$key}}">
