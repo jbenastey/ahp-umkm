@@ -1,4 +1,18 @@
 $(document).ready(function () {
+
+    $('#btn-pertama').click(function () {
+        $('#kedua').css('display','block');
+        $('#btn-pertama').css('display','none');
+    })
+    $('#btn-kedua').click(function () {
+        $('#kriteria').css('display','block');
+        $('#btn-kedua').css('display','none');
+    })
+    $('#btn-kriteria').click(function () {
+        $('#simpan').css('display','flex');
+        $('#btn-kriteria').css('display','none');
+    })
+
     'use strict';
     var root = window.location.origin + '/ahp/public/';
 
