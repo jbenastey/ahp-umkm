@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ahp.iml" filepath="$PROJECT_DIR$/.idea/ahp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ahp-umkm.iml" filepath="$PROJECT_DIR$/.idea/ahp-umkm.iml" />
     </modules>
   </component>
 </project>

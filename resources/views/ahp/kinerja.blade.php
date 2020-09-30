@@ -91,16 +91,16 @@
                         <div>
                             <table style="width: 100%;" >
                                 <tr class="text-center">
-                                    <td width="30%" style="border-left: 1px solid #512da8">Tidak Bagus</td>
+                                    <td width="20%" style="border-left: 1px solid #512da8">Tidak Bagus</td>
                                     <td width="40%" style="border-left: 1px solid #512da8">Cukup Bagus</td>
-                                    <td width="30%" style="border-right: 1px solid #512da8">Bagus</td>
+                                    <td width="40%" style="border-right: 1px solid #512da8;border-left: 1px solid #512da8">Bagus</td>
                                 </tr>
                             </table>
                         </div>
                         <div class="progress mb-2">
-                            <div class="progress-bar" role="progressbar" style="width: {{$totalSeluruh*10}}%"
+                            <div class="progress-bar" role="progressbar" style="width: {{($totalSeluruh*10) * 2}}%"
                                  aria-valuenow="{{$totalSeluruh*10}}" aria-valuemin="0"
-                                 aria-valuemax="100">{{round($totalSeluruh,3)}}
+                                 aria-valuemax="50">{{round($totalSeluruh,3)}}
                             </div>
                         </div>
 

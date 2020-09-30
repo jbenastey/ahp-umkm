@@ -27,6 +27,51 @@
 
                     <!-- Card Body -->
                     <div class="dt-card__body">
+                        <div class="form-group form-row">
+                            <label class="col-xl-3 col-form-label text-sm-right" for="email-2">Nama</label>
+
+                            <div class="col-xl-7">
+                                <input type="text" class="form-control" id="email-2"
+                                       aria-describedby="emailHelp2"
+                                       placeholder="Nama" value="{{$kuesioner->kuesioner_nama}}" readonly >
+                            </div>
+                        </div>
+                        <!-- /form group -->
+
+                        <!-- Form Group -->
+                        <div class="form-group form-row">
+                            <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Umur</label>
+
+                            <div class="col-xl-7">
+                                <input type="number" class="form-control" id="password-2"
+                                       placeholder="Umur" value="{{$kuesioner->kuesioner_umur}}" readonly>
+                            </div>
+                        </div>
+                        <!-- /form group -->
+
+                        <!-- Form Group -->
+                        <div class="form-group form-row">
+                            <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Jurusan</label>
+
+                            <div class="col-xl-7">
+                                <input type="text" class="form-control" id="password-2"
+                                       placeholder="Jurusan" value="{{$kuesioner->kuesioner_jurusan}}" readonly >
+                            </div>
+                        </div>
+                        <!-- /form group -->
+
+                        <!-- Form Group -->
+                        <div class="form-group form-row">
+                            <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Jabatan</label>
+
+                            <div class="col-xl-7">
+                                <input type="text" class="form-control" id="password-2"
+                                       placeholder="Jabatan" value="{{$kuesioner->kuesioner_jabatan}}" readonly>
+                            </div>
+                        </div>
+                        <!-- /form group -->
+
+                        <hr>
                         <div class="accordion" id="accordion-example">
                             <div class="card">
                                 <div class="card-header" id="headingZero">
@@ -241,10 +286,12 @@
                                                             $rata = json_decode($value->hitung_rata_bagi,true);
                                                             $hasil = json_decode($value->hitung_hasil,true);
                                                             $jumlah = 0;
+                                                            $no = 0;
                                                         @endphp
                                                         @foreach($baris as $key2 => $value2)
                                                             @php
                                                                 $jumlah += $hasil[$key2];
+                                                                $no++;
                                                             @endphp
                                                             <tr>
                                                                 <td>{{$key2}}</td>
@@ -262,11 +309,22 @@
                                                     </table>
                                                     <br>
 
-                                                    <p>Nilai CI = {{$value->hitung_ci}}</p>
+                                                    <p>Hitung Nilai CI (<i>Consistency Index</i>)</p>
+                                                    <p>CI = (λ-n) / (n-1)</p>
+                                                    <p>CI = ({{$jumlah/$no}}-{{$no}}) / ({{($no)}}-1)</p>
+                                                    <p>CI = {{($jumlah/$no)-$no}} / {{$no-1}}</p>
+                                                    <p>Nilai CI = {{$value->hitung_ci}}</p><br>
+                                                    <p>Hitung Nilai CR (<i>Consistency Ratio</i>)</p>
                                                     @if($value->hitung_cr <= 0.1)
                                                         @php $p1++ @endphp
+                                                        <p>n = {{$no}}, IR = {{ri($no)}}</p>
+                                                        <p>CR = CI / IR</p>
+                                                        <p>CR = {{$value->hitung_ci}} / {{ri($no)}}</p>
                                                         <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR <= 0.1)</p>
                                                     @else
+                                                        <p>n = {{$no}}, IR = {{ri($no)}}</p>
+                                                        <p>CR = CI / IR</p>
+                                                        <p>CR = {{$value->hitung_ci}} / {{ri($no)}}</p>
                                                         <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR > 0.1)</p>
                                                         <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}"
                                                            class="btn btn-sm btn-success">Update Kuesioner</a>
@@ -493,10 +551,12 @@
                                                                 $rata = json_decode($value2->hitung_rata_bagi,true);
                                                                 $hasil = json_decode($value2->hitung_hasil,true);
                                                                 $jumlah = 0;
+                                                                $no = 0;
                                                             @endphp
                                                             @foreach($baris as $key3 => $value3)
                                                                 @php
                                                                     $jumlah += $hasil[$key3];
+                                                                    $no++;
                                                                 @endphp
                                                                 <tr>
                                                                     <td>{{$key3}}</td>
@@ -514,11 +574,22 @@
                                                         </table>
                                                         <br>
 
-                                                        <p>Nilai CI = {{$value2->hitung_ci}}</p>
+                                                        <p>Hitung Nilai CI (<i>Consistency Index</i>)</p>
+                                                        <p>CI = (λ-n) / (n-1)</p>
+                                                        <p>CI = ({{$jumlah/$no}}-{{$no}}) / ({{($no)}}-1)</p>
+                                                        <p>CI = {{($jumlah/$no)-$no}} / {{$no-1}}</p>
+                                                        <p>CI = {{$value2->hitung_ci}}</p><br>
+                                                        <p>Hitung Nilai CR (<i>Consistency Ratio</i>)</p>
                                                         @if($value2->hitung_cr <= 0.1)
                                                             @php $p1++ @endphp
+                                                            <p>n = {{$no}}, IR = {{ri($no)}}</p>
+                                                            <p>CR = CI / IR</p>
+                                                            <p>CR = {{$value2->hitung_ci}} / {{ri($no)}}</p>
                                                             <p>Nilai CR = {{$value2->hitung_cr}} (Nilai CR <= 0.1)</p>
                                                         @else
+                                                            <p>n = {{$no}}, IR = {{ri($no)}}</p>
+                                                            <p>CR = CI / IR</p>
+                                                            <p>CR = {{$value2->hitung_ci}} / {{ri($no)}}</p>
                                                             <p>Nilai CR = {{$value2->hitung_cr}} (Nilai CR > 0.1)</p>
                                                             <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-subkriteria/'.$value2->hitung_jenis)}}"
                                                                class="btn btn-sm btn-success">Update Kuesioner</a>
