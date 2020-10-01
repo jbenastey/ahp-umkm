@@ -1,48 +1,36 @@
-<aside id="main-sidebar" class="dt-sidebar">
-    <div class="dt-sidebar__container">
-
-        <!-- Sidebar Navigation -->
-        <ul class="dt-side-nav">
-
-            <!-- Menu Header -->
-            <li class="dt-side-nav__item dt-side-nav__header">
-                <span class="dt-side-nav__text">menu</span>
-            </li>
-            <!-- /menu header -->
-
-            <!-- Menu Item -->
-            <li class="dt-side-nav__item @if(request()->is('home')) open @endif">
-                <a href="{{url('home')}}" class="dt-side-nav__link" title="Widgets"> <i
-                        class="icon icon-dashboard icon-fw icon-lg"></i>
-                    <span class="dt-side-nav__text">Dashboard</span> </a>
-            </li>
-            <li class="dt-side-nav__item @if(request()->is('master/*')) open @endif">
-                <a href="javascript:void(0)" class="dt-side-nav__link dt-side-nav__arrow" title="Dashboard">
-                    <i class="icon icon-settings icon-fw icon-lg"></i> <span class="dt-side-nav__text">Data Master</span> </a>
-
-                <!-- Sub-menu -->
-                <ul class="dt-side-nav__sub-menu" style="@if(request()->is('master')) display:block @endif">
-                    <li class="dt-side-nav__item">
-                        <a href="{{url('master')}}" class="dt-side-nav__link" title="CRM">
-                            <span class="dt-side-nav__text"> <i class="icon icon-chart-pie"></i>Data Kriteria</span> </a>
-                    </li>
-                </ul>
-                <!-- /sub-menu -->
-
-            </li>
-            <li class="dt-side-nav__item @if(request()->is('kuesioner')) open @endif">
-                <a href="{{url('kuesioner')}}" class="dt-side-nav__link" title="Task Manager"> <i
-                        class="icon icon-forms-advanced icon-fw icon-lg"></i>
-                    <span class="dt-side-nav__text">Data Kuesioner</span> </a>
-            </li>
-            <li class="dt-side-nav__item @if(request()->is('ahp')) open @endif">
-                <a href="{{url('ahp')}}" class="dt-side-nav__link" title="Task Manager"> <i
-                        class="icon icon-chart-line icon-fw icon-lg"></i>
-                    <span class="dt-side-nav__text">Analisa AHP</span> </a>
-            </li>
-
-        </ul>
-        <!-- /sidebar navigation -->
-
+<!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
+<div class="app-sidebar menu-fixed" data-background-color="man-of-steel" data-image="{{asset('apex/app-assets/img/sidebar-bg/01.jpg')}}" data-scroll-to-active="true">
+    <!-- main menu header-->
+    <!-- Sidebar Header starts-->
+    <div class="sidebar-header">
+        <div class="logo clearfix"><a class="logo-text float-left" href="{{route('home')}}">
+                <div class="logo-img"><img src="{{asset('apex/app-assets/img/logo.png')}}" alt="Apex Logo"/></div><span class="text">UMKM</span></a><a class="nav-toggle d-none d-lg-none d-xl-block" id="sidebarToggle" href="javascript:;"><i class="toggle-icon ft-toggle-right" data-toggle="expanded"></i></a><a class="nav-close d-block d-lg-block d-xl-none" id="sidebarClose" href="javascript:;"><i class="ft-x"></i></a></div>
     </div>
-</aside>
+    <!-- Sidebar Header Ends-->
+    <!-- / main menu header-->
+    <!-- main menu content-->
+    <div class="sidebar-content main-menu-content">
+        <div class="nav-container">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item @if(request()->is('home')) open @endif"><a href="{{url('home')}}"><i class="ft-home"></i><span class="menu-title" data-i18n="Email">Dashboard</span></a>
+                </li>
+                <li class="has-sub nav-item @if(request()->is('master/*')) open @endif"><a href="javascript:;"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="Charts">Data Master</span></a>
+                    <ul class="menu-content">
+                        <li><a href="{{url('master')}}"><i class="ft-arrow-right submenu-icon"></i><span class="menu-item" data-i18n="Apex Charts">Data Kriteria</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item @if(request()->is('kuesioner')) open @endif"><a href="{{url('kuesioner')}}"><i class="ft-file-text"></i><span class="menu-title" data-i18n="Email">Kuesioner</span></a>
+                </li>
+                <li class=" nav-item @if(request()->is('ahp')) open @endif"><a href="{{url('ahp')}}"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="Email">Analisa AHP</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- main menu content-->
+    <div class="sidebar-background"></div>
+    <!-- main menu footer-->
+    <!-- include includes/menu-footer-->
+    <!-- main menu footer-->
+    <!-- / main menu-->
+</div>
