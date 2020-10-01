@@ -1,34 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Login Container -->
-<div class="dt-login--container dt-lock-screen">
+    <div class="wrapper">
+        <div class="main-panel">
+            <!-- BEGIN : Main Content-->
+            <div class="main-content">
+                <div class="content-overlay"></div>
+                <div class="content-wrapper"><!--Under Maintenance Starts-->
+                    <section id="maintenance" class="auth-height">
+                        <div class="container-fluid">
+                            <div class="row full-height-vh">
+                                <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <img src="{{asset('apex/app-assets/img/gallery/maintenance.png')}}" alt="" class="img-fluid maintenance-img mt-2" height="300" width="300">
+                                            <h1 class="mt-4">Kuesioner UMKM</h1>
+                                            <a href="{{route('isi')}}" class="btn btn-warning my-2">Isi Kuesioner</a><br>
+                                            <a href="{{route('home')}}" class=" my-2">Login Admin</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--Under Maintenance Starts-->
 
-    <!-- Login Content -->
-    <div class="dt-login__content-wrapper">
-
-        <!-- Avatar -->
-        <img class="dt-avatar size-120" src="{{asset('drift/default/assets/images/logo/logo baru uin suska riau.jpg')}}" alt="Zakie chain">
-        <!-- /avatar -->
-
-        <h2 class="text-white display-1 font-weight-light mb-6">Kuesioner</h2>
-
-        <!-- Form -->
-
-
-            <div class="mb-5">
-                <a class="btn btn-light" href="{{route('isi')}}">Isi Kuesioner</a>
+                </div>
             </div>
-
-            <div>
-                <a class="d-inline-block text-white f-16" href="{{route('home')}}">Login Admin</a>
-            </div>
-
-        <!-- /form -->
-
+            <!-- END : End Main Content-->
+        </div>
     </div>
-    <!-- /login content -->
-
-</div>
-<!-- /login container -->
 @endsection

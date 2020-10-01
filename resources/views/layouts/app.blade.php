@@ -48,6 +48,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END APEX CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('apex/app-assets/css/pages/dashboard1.min.css')}}">
+    <link rel="stylesheet" href="{{asset('apex/app-assets/css/pages/page-maintenance.min.css')}}">
+    <link rel="stylesheet" href="{{asset('apex/app-assets/css/pages/authentication.css')}}">
     <!-- END Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('apex/assets/css/style.css')}}">
