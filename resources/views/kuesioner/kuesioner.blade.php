@@ -1,32 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="dt-content">
+    <div class="sizing">
 
 
         <!-- Grid -->
         <div class="row">
 
+            <div class="col-xl-1">
+            </div>
             <!-- Grid Item -->
-            <div class="col-xl-12">
-
-                <!-- Entry Header -->
-                <div class="dt-entry__header">
-
-                    <!-- Entry Heading -->
-                    <div class="dt-entry__heading">
-                        <h3 class="dt-entry__title">Isi Kuesioner</h3>
-                    </div>
-                    <!-- /entry heading -->
-
-                </div>
-                <!-- /entry header -->
+            <div class="col-xl-10">
 
                 <!-- Card -->
-                <div class="dt-card">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Isi Kuesioner</h4>
+                    </div>
 
+                    <div class="card-content">
                     <!-- Card Body -->
-                    <div class="dt-card__body">
+                        <div class="card-body">
 
                         <form method="post" action="{{route('simpan')}}">
                         @csrf
@@ -482,6 +476,7 @@
 
                         </form>
                         <!-- /form -->
+                    </div>
                     </div>
                 </div>
 
