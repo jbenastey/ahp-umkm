@@ -30,7 +30,7 @@
                         <a href="{{url('master/create')}}" class="btn btn-sm btn-primary mb-5"><i class="icon icon-plus"></i> Tambah Kriteria</a>
                         <!-- Tables -->
                         <div class="table-responsive">
-                            <table id="data-table" class="table table-striped table-bordered table-hover">
+                            <table id="data-table" class="table table-striped table-bordered table-hover zero-configuration">
                                 <thead>
                                 <tr>
                                     <th>No</th>
