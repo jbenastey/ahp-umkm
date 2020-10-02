@@ -14,7 +14,7 @@ $(document).ready(function () {
     })
 
     'use strict';
-    var root = window.location.origin + '/ahp/public/';
+    var root = window.location.origin + '/ahp-umkm/public/';
 
     var ticksStyle = {
         fontColor: '#495057',

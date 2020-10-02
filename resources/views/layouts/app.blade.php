@@ -100,6 +100,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="{{asset('apex/app-assets/vendors/js/datatable/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('apex/app-assets/vendors/js/datatable/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('apex/app-assets/vendors/js/chart.min.js')}}"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN APEX JS-->
 <script src="{{asset('apex/app-assets/js/core/app-menu.min.js')}}"></script>
@@ -113,6 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END PAGE LEVEL JS-->
 <!-- BEGIN: Custom CSS-->
 <script src="{{asset('apex/assets/js/scripts.js')}}"></script>
+<script src="{{asset('js/grafik.js')}}"></script>
 <!-- END: Custom CSS-->
 </body>
 <!-- END : Body-->
