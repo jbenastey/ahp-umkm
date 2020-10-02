@@ -10,28 +10,23 @@
             <!-- Grid Item -->
             <div class="col-xl-12">
 
-                <!-- Entry Header -->
-                <div class="dt-entry__header">
+                <!-- Card -->
+                <div class="card">
 
                     <!-- Entry Heading -->
-                    <div class="dt-entry__heading">
-                        <h3 class="dt-entry__title">Data Kriteria {{$kriteria->kriteria_nama}}</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Data Kriteria {{$kriteria->kriteria_nama}}</h3>
                     </div>
                     <!-- /entry heading -->
 
-                </div>
-                <!-- /entry header -->
-
-                <!-- Card -->
-                <div class="dt-card">
-
                     <!-- Card Body -->
-                    <div class="dt-card__body">
-                        <a href="{{url('master')}}" class="btn btn-sm btn-outline-primary mb-5"><i class="icon icon-arrow-left"></i> Kembali</a>
-                        <a href="{{url('pernyataan/'.$kriteria->kriteria_id.'/create')}}" class="btn btn-sm btn-primary mb-5"><i class="icon icon-plus"></i> Tambah Pernyataan</a>
+                    <div class="card-content">
+                        <div class="card-body">
                         <!-- Tables -->
                         <div class="table-responsive">
-                            <table id="data-table" class="table table-striped table-bordered table-hover">
+                            <table id="data-table" class="table table-striped table-bordered table-hover zero-configuration">
+                                <a href="{{url('master')}}" class="btn btn-sm btn-outline-primary float-left mr-1"><i class="icon icon-arrow-left"></i> Kembali</a>
+                                <a href="{{url('pernyataan/'.$kriteria->kriteria_id.'/create')}}" class="btn btn-sm btn-primary float-right ml-1"><i class="icon icon-plus"></i> Tambah Pernyataan</a>
                                 <thead>
                                 <tr>
                                     <th>No</th>
@@ -47,8 +42,8 @@
                                         <td>{{$value->pernyataan_item}}</td>
                                         <td>{{$value->pernyataan_isi}}</td>
                                         <td>
-                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/edit')}}" class="btn btn-sm btn-success"><i class="icon icon-editors"></i> </a>
-                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/delete/'.$value->pernyataan_kriteria_id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus Data ?')"><i class="icon icon-trash-filled"></i> </a>
+                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/edit')}}" class="success"><i class="ft-edit font-medium-3"></i> </a>
+                                            <a href="{{url('/pernyataan/'.$value->pernyataan_id.'/delete/'.$value->pernyataan_kriteria_id)}}" class="danger" onclick="return confirm('Hapus Data ?')"><i class="ft-trash font-medium-3"></i> </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -58,6 +53,7 @@
                         </div>
                         <!-- /tables -->
 
+                    </div>
                     </div>
                     <!-- /card body -->
 
