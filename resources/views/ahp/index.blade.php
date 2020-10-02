@@ -10,28 +10,22 @@
             <!-- Grid Item -->
             <div class="col-xl-12">
 
-                <!-- Entry Header -->
-                <div class="dt-entry__header">
+                <!-- Card -->
+                <div class="card">
 
                     <!-- Entry Heading -->
-                    <div class="dt-entry__heading">
-                        <h3 class="dt-entry__title">Data AHP</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Data AHP</h3>
                     </div>
                     <!-- /entry heading -->
-
-                </div>
-                <!-- /entry header -->
-
-                <!-- Card -->
-                <div class="dt-card">
-
                     <!-- Card Body -->
-                    <div class="dt-card__body">
+                    <div class="card-content">
+                        <div class="card-body">
 
                         <!-- Tables -->
                         <div class="table-responsive">
 
-                            <table id="data-table" class="table table-striped table-bordered table-hover">
+                            <table id="data-table" class="table table-striped table-bordered table-hover zero-configuration">
                                 <thead>
                                 <tr>
                                     <th>No</th>
@@ -71,6 +65,7 @@
                         </div>
                         <!-- /tables -->
 
+                    </div>
                     </div>
                     <!-- /card body -->
 
