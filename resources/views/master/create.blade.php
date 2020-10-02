@@ -10,23 +10,18 @@
             <!-- Grid Item -->
             <div class="col-xl-12">
 
-                <!-- Entry Header -->
-                <div class="dt-entry__header">
+                <!-- Card -->
+                <div class="card">
 
                     <!-- Entry Heading -->
-                    <div class="dt-entry__heading">
-                        <h3 class="dt-entry__title">Tambah Kriteria</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Tambah Kriteria</h3>
                     </div>
                     <!-- /entry heading -->
 
-                </div>
-                <!-- /entry header -->
-
-                <!-- Card -->
-                <div class="dt-card">
-
                     <!-- Card Body -->
-                    <div class="dt-card__body">
+                    <div class="card-title">
+                        <div class="card-body">
 
                         <form method="post" action="{{action('MasterController@store')}}">
                         @csrf
@@ -52,6 +47,7 @@
 
                         </form>
 
+                    </div>
                     </div>
                 </div>
             </div>
