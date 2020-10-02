@@ -14,9 +14,9 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item @if(request()->is('home')) open @endif"><a href="{{url('home')}}"><i class="ft-home"></i><span class="menu-title" data-i18n="Email">Dashboard</span></a>
                 </li>
-                <li class="has-sub nav-item @if(request()->is('master/*')) open @endif"><a href="javascript:;"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="Charts">Data Master</span></a>
+                <li class="has-sub nav-item @if(request()->is('master')) open @endif"><a href="javascript:;"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="Charts">Data Master</span></a>
                     <ul class="menu-content">
-                        <li><a href="{{url('master')}}"><i class="ft-arrow-right submenu-icon"></i><span class="menu-item" data-i18n="Apex Charts">Data Kriteria</span></a>
+                        <li class="@if(request()->is('master/*')) active @endif"><a href="{{url('master')}}"><i class="ft-arrow-right submenu-icon"></i><span class="menu-item" data-i18n="Apex Charts">Data Kriteria</span></a>
                         </li>
                     </ul>
                 </li>
