@@ -46,12 +46,12 @@
                                         </div>
                                         <hr>
                                         <select name="jurusan" id="jurusan">
-                                            <option selected disabled>Pilih Jurusan</option>
-                                            <option value="tif">Teknik Informatika</option>
-                                            <option value="tin">Teknik Industri</option>
-                                            <option value="te">Teknik Elektro</option>
-                                            <option value="sif">Sistem Informasi</option>
-                                            <option value="mt">Matematika Terapan</option>
+                                            <option selected disabled>Pilih Nama UMKM</option>
+                                            <option value="mpg">Merah Putih Grosir</option>
+                                            <option value="ivo">IVO</option>
+                                            <option value="ts">Tokyo Style</option>
+                                            <option value="dt">Dunia Tekstil</option>
+                                            <option value="it">Istana Tekstil</option>
                                         </select>
                                         <div id="individu">
 

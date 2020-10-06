@@ -33,58 +33,40 @@ $(document).ready(function () {
         cache: false,
         dataType: 'json',
         success: function (response) {
-            var hr = (response.tif.HR + response.tin.HR + response.te.HR + response.sif.HR + response.mt.HR) / 5;
-            var cs = (response.tif.CS + response.tin.CS + response.te.CS + response.sif.CS + response.mt.CS) / 5;
-            var eh = (response.tif.EH + response.tin.EH + response.te.EH + response.sif.EH + response.mt.EH) / 5;
-            var sr = (response.tif.SR + response.tin.SR + response.te.SR + response.sif.SR + response.mt.SR) / 5;
-            var qk = (response.tif.QK + response.tin.QK + response.te.QK + response.sif.QK + response.mt.QK) / 5;
+            var sb = (response.mpg.SB + response.ivo.SB + response.ts.SB + response.dt.SB + response.it.SB) / 5;
+            var ipk = (response.mpg.IPK + response.ivo.IPK + response.ts.IPK + response.dt.IPK + response.it.IPK) / 5;
+            var ppk = (response.mpg.PPK + response.ivo.PPK + response.ts.PPK + response.dt.PPK + response.it.PPK) / 5;
 
 
             var fChart = new Chart(fakultas, {
                 type: 'bar',
                 data: {
-                    labels: ['Fakultas Sains dan Teknologi'],
+                    labels: ['UMKM'],
                     datasets: [
                         {
-                            label: 'HR',
+                            label: 'SB',
                             backgroundColor: '#4f81bd',
                             borderColor: '#4f81bd',
                             data: [
-                                hr,
+                                sb,
                             ]
                         },
                         {
-                            label: 'SR',
+                            label: 'IPK',
                             backgroundColor: '#c0504d',
                             borderColor: '#c0504d',
                             data: [
-                                sr,
+                                ipk,
                             ]
                         },
                         {
-                            label: 'CS',
+                            label: 'PPK',
                             backgroundColor: '#9bbb59',
                             borderColor: '#9bbb59',
                             data: [
-                                cs,
+                                ppk,
                             ]
                         },
-                        {
-                            label: 'EH',
-                            backgroundColor: '#8064a2',
-                            borderColor: '#8064a2',
-                            data: [
-                                eh,
-                            ]
-                        },
-                        {
-                            label: 'QK',
-                            backgroundColor: '#4bacc6',
-                            borderColor: '#4bacc6',
-                            data: [
-                                qk,
-                            ]
-                        }
                     ]
                 },
                 options: {
@@ -110,7 +92,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Hasil Performansi Fakultas Sains dan Teknologi'
+                        text: 'Hasil Performansi UMKM'
                     },
                 }
             });
@@ -118,68 +100,44 @@ $(document).ready(function () {
             var jChart = new Chart(jurusan, {
                 type: 'bar',
                 data: {
-                    labels: ['TIF','TIN','TE','SIF','MT'],
+                    labels: ['Merah Putih Grosir','IVO','Tokyo Style','Dunia Tekstil','Istana Tekstil'],
                     datasets: [
                         {
-                            label: 'HR',
+                            label: 'SB',
                             backgroundColor: '#4f81bd',
                             borderColor: '#4f81bd',
                             data: [
-                                response.tif.HR,
-                                response.tin.HR,
-                                response.te.HR,
-                                response.sif.HR,
-                                response.mt.HR,
+                                response.mpg.SB,
+                                response.ivo.SB,
+                                response.ts.SB,
+                                response.dt.SB,
+                                response.it.SB,
                             ]
                         },
                         {
-                            label: 'SR',
+                            label: 'IPK',
                             backgroundColor: '#c0504d',
                             borderColor: '#c0504d',
                             data: [
-                                response.tif.SR,
-                                response.tin.SR,
-                                response.te.SR,
-                                response.sif.SR,
-                                response.mt.SR,
+                                response.mpg.IPK,
+                                response.ivo.IPK,
+                                response.ts.IPK,
+                                response.dt.IPK,
+                                response.it.IPK,
                             ]
                         },
                         {
-                            label: 'CS',
+                            label: 'PPK',
                             backgroundColor: '#9bbb59',
                             borderColor: '#9bbb59',
                             data: [
-                                response.tif.CS,
-                                response.tin.CS,
-                                response.te.CS,
-                                response.sif.CS,
-                                response.mt.CS,
+                                response.mpg.PPK,
+                                response.ivo.PPK,
+                                response.ts.PPK,
+                                response.dt.PPK,
+                                response.it.PPK,
                             ]
                         },
-                        {
-                            label: 'EH',
-                            backgroundColor: '#8064a2',
-                            borderColor: '#8064a2',
-                            data: [
-                                response.tif.EH,
-                                response.tin.EH,
-                                response.te.EH,
-                                response.sif.EH,
-                                response.mt.EH,
-                            ]
-                        },
-                        {
-                            label: 'QK',
-                            backgroundColor: '#4bacc6',
-                            borderColor: '#4bacc6',
-                            data: [
-                                response.tif.QK,
-                                response.tin.QK,
-                                response.te.QK,
-                                response.sif.QK,
-                                response.mt.QK,
-                            ]
-                        }
                     ]
                 },
                 options: {
@@ -205,7 +163,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Hasil Performansi Berdasarkan Jurusan di Fakultas Sains dan Teknologi'
+                        text: 'Hasil Performansi Berdasarkan Nama UMKM'
                     },
                 }
             });
@@ -221,11 +179,9 @@ $(document).ready(function () {
         );
         var jur = $(this).val();
         var nama = [];
-        var hr = [];
-        var sr = [];
-        var cs = [];
-        var eh = [];
-        var qk = [];
+        var sb = [];
+        var ipk = [];
+        var ppk = [];
         $.ajax({
             url: root + 'grafik/individu/'+jur,
             type: 'GET',
@@ -236,11 +192,9 @@ $(document).ready(function () {
 
                 for (var i = 0; i < response.length ; i++) {
                     nama.push(response[i].nama);
-                    hr.push(response[i].hasil.HR);
-                    sr.push(response[i].hasil.SR);
-                    cs.push(response[i].hasil.CS);
-                    eh.push(response[i].hasil.EH);
-                    qk.push(response[i].hasil.QK);
+                    sb.push(response[i].hasil.SB);
+                    ipk.push(response[i].hasil.IPK);
+                    ppk.push(response[i].hasil.PPK);
                 }
 
                 var individu = $('#individu-chart');
@@ -250,36 +204,24 @@ $(document).ready(function () {
                         labels: nama,
                         datasets: [
                             {
-                                label: 'HR',
+                                label: 'SB',
                                 backgroundColor: '#4f81bd',
                                 borderColor: '#4f81bd',
                                 data:
-                                    hr
+                                    sb
                             },
                             {
-                                label: 'SR',
+                                label: 'IPK',
                                 backgroundColor: '#c0504d',
                                 borderColor: '#c0504d',
-                                data: sr
+                                data: ipk
                             },
                             {
-                                label: 'CS',
+                                label: 'PPK',
                                 backgroundColor: '#9bbb59',
                                 borderColor: '#9bbb59',
-                                data: cs
+                                data: ppk
                             },
-                            {
-                                label: 'EH',
-                                backgroundColor: '#8064a2',
-                                borderColor: '#8064a2',
-                                data: eh
-                            },
-                            {
-                                label: 'QK',
-                                backgroundColor: '#4bacc6',
-                                borderColor: '#4bacc6',
-                                data: qk
-                            }
                         ]
                     },
                     options: {
@@ -305,7 +247,7 @@ $(document).ready(function () {
                         },
                         title: {
                             display: true,
-                            text: 'Hasil Performansi Individu Jurusan '+jurusannya(jur)
+                            text: 'Hasil Performansi Individu '+jurusannya(jur)
                         },
                     }
                 });
@@ -316,16 +258,16 @@ $(document).ready(function () {
 
 function jurusannya(jur) {
     var jurusan = '';
-    if (jur === 'tif'){
-        jurusan = 'Teknik Informatika'
-    } else if (jur === 'tin'){
-        jurusan = 'Teknik Industri'
-    } else if (jur === 'te'){
-        jurusan = 'Teknik Elektro'
-    } else if (jur === 'sif'){
-        jurusan = 'Sistem Informasi'
-    } else if (jur === 'mt'){
-        jurusan = 'Matematika Terapan'
+    if (jur === 'mpg'){
+        jurusan = 'Merah Putih Grosir'
+    } else if (jur === 'ivo'){
+        jurusan = 'IVO'
+    } else if (jur === 'ts'){
+        jurusan = 'Tokyo Style'
+    } else if (jur === 'dt'){
+        jurusan = 'Dunia Tekstil'
+    } else if (jur === 'it'){
+        jurusan = 'Istana Tekstil'
     }
     return jurusan
 }

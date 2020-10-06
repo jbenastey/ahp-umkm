@@ -24,15 +24,15 @@ class GrafikController extends Controller
             ->join('kuesioner', 'kuesioner_id', '=', 'hasil_kuesioner_id')
             ->get();
         $this->jurusan = [
-            'tif' => [],
-            'te' => [],
-            'tin' => [],
-            'sif' => [],
-            'mt' => [],
+            'mpg' => [],
+            'ivo' => [],
+            'ts' => [],
+            'dt' => [],
+            'it' => [],
         ];
         foreach ($hasil as $key => $value) {
             foreach ($this->jurusan as $key2 => $value2) {
-                if ($value->kuesioner_jurusan == $key2) {
+                if ($value->kuesioner_umkm == $key2) {
                     array_push($this->jurusan[$key2], json_decode($value->hasil_rata, true));
                 }
             }
@@ -40,28 +40,22 @@ class GrafikController extends Controller
         foreach ($this->jurusan as $key2 => $value2) {
             if ($value2 != null) {
                 $i = 0;
-                $total['HR'] = 0;
-                $total['CS'] = 0;
-                $total['EH'] = 0;
-                $total['SR'] = 0;
-                $total['QK'] = 0;
+                $total['SB'] = 0;
+                $total['IPK'] = 0;
+                $total['PPK'] = 0;
                 foreach ($value2 as $key3 => $value3) {
                     $i++;
                     $this->jurusan[$key2] = [
-                        'HR' => ($total['HR'] += $value3['HR']) / $i,
-                        'CS' => ($total['CS'] += $value3['CS']) / $i,
-                        'EH' => ($total['EH'] += $value3['EH']) / $i,
-                        'SR' => ($total['SR'] += $value3['SR']) / $i,
-                        'QK' => ($total['QK'] += $value3['QK']) / $i,
+                        'SB' => ($total['SB'] += $value3['SB']) / $i,
+                        'IPK' => ($total['IPK'] += $value3['IPK']) / $i,
+                        'PPK' => ($total['PPK'] += $value3['PPK']) / $i,
                     ];
                 }
             } else {
                 $this->jurusan[$key2] = [
-                    'HR' => 0,
-                    'CS' => 0,
-                    'EH' => 0,
-                    'SR' => 0,
-                    'QK' => 0,
+                    'SB' => 0,
+                    'IPK' => 0,
+                    'PPK' => 0,
                 ];
             }
         }
@@ -72,7 +66,7 @@ class GrafikController extends Controller
     {
         $hasil = DB::table('hasil')
             ->join('kuesioner', 'kuesioner_id', '=', 'hasil_kuesioner_id')
-            ->where('kuesioner_jurusan', $jurusan)
+            ->where('kuesioner_umkm', $jurusan)
             ->get();
         $individu = [];
         if (count($hasil) > 0) {
@@ -86,11 +80,9 @@ class GrafikController extends Controller
             array_push($individu, [
                 'nama' => 'Belum ada data',
                 'hasil' => [
-                    'HR' => 0,
-                    'CS' => 0,
-                    'EH' => 0,
-                    'SR' => 0,
-                    'QK' => 0,
+                    'SB' => 0,
+                    'IPK' => 0,
+                    'PPK' => 0,
                 ]
             ]);
         }
