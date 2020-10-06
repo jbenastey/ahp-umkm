@@ -44,7 +44,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$value->kuesioner_nama}}</td>
                                     <td>{{$value->kuesioner_umur}}</td>
-                                    <td>{{$value->kuesioner_umkm}}</td>
+                                    <td>{{getNamaUmkm($value->kuesioner_umkm)}}</td>
                                     <td>{{$value->kuesioner_jabatan}}</td>
                                     <td class="text-center">
                                         <a href="{{url('/kuesioner/'.$value->kuesioner_id.'/lihat')}}" class="btn btn-sm btn-primary">Lihat</a>
