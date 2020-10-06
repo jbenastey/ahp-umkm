@@ -49,15 +49,15 @@
 
                             <!-- Form Group -->
                             <div class="form-group form-row">
-                                <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Jurusan</label>
+                                <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Nama UMKM</label>
 
                                 <div class="col-xl-7">
-                                    <select name="kuesioner_jurusan" id="password-2" class="form-control" required>
-                                        <option value="tif">Teknik Informatika</option>
-                                        <option value="tin">Teknik Industri</option>
-                                        <option value="te">Teknik Elektro</option>
-                                        <option value="sif">Sistem Informasi</option>
-                                        <option value="mt">Matematika Terapan</option>
+                                    <select name="kuesioner_umkm" id="password-2" class="form-control" required>
+                                        <option value="mpg">Merah Putih Grosir</option>
+                                        <option value="ivo">IVO</option>
+                                        <option value="ts">Tokyo Style</option>
+                                        <option value="dt">Dunia Tekstil</option>
+                                        <option value="it">Istana Tekstil</option>
                                     </select>
                                 </div>
                             </div>
@@ -228,47 +228,47 @@
                                                     <th rowspan="2">Kriteria B</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>9</td>
-                                                    <td>8</td>
-                                                    <td>7</td>
-                                                    <td>6</td>
-                                                    <td>5</td>
-                                                    <td>4</td>
-                                                    <td>3</td>
-                                                    <td>2</td>
-                                                    <td>1</td>
-                                                    <td>2</td>
-                                                    <td>3</td>
-                                                    <td>4</td>
-                                                    <td>5</td>
-                                                    <td>6</td>
-                                                    <td>7</td>
-                                                    <td>8</td>
-                                                    <td>9</td>
+                                                    <td class="p-0">9</td>
+                                                    <td class="p-0">8</td>
+                                                    <td class="p-0">7</td>
+                                                    <td class="p-0">6</td>
+                                                    <td class="p-0">5</td>
+                                                    <td class="p-0">4</td>
+                                                    <td class="p-0">3</td>
+                                                    <td class="p-0">2</td>
+                                                    <td class="p-0">1</td>
+                                                    <td class="p-0">2</td>
+                                                    <td class="p-0">3</td>
+                                                    <td class="p-0">4</td>
+                                                    <td class="p-0">5</td>
+                                                    <td class="p-0">6</td>
+                                                    <td class="p-0">7</td>
+                                                    <td class="p-0">8</td>
+                                                    <td class="p-0">9</td>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td><i>Hard Rewards</i></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh" checked></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><input type="radio" name="contoh"></td>
-                                                    <td><i>Communications Skills</i></td>
+                                                    <td><i>Suasana Bekerja (Imbalan Keras)</i></td>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh" checked></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td class="p-1"><input type="radio" name="contoh"></tdcl>
+                                                    <td><i>Intensi Positif Karyawan</i></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -285,7 +285,7 @@
                                                     paling penting untuk di prioritaskan?</p></li>
                                         </ol>
 
-                                        <table class="table table-bordered" width="100">
+                                        <table class="table table-bordered" width="100%">
                                             <thead class="text-center">
                                             <tr>
                                                 <th rowspan="2">No</th>
@@ -294,23 +294,23 @@
                                                 <th rowspan="2">Kriteria B</th>
                                             </tr>
                                             <tr>
-                                                <td>9</td>
-                                                <td>8</td>
-                                                <td>7</td>
-                                                <td>6</td>
-                                                <td>5</td>
-                                                <td>4</td>
-                                                <td>3</td>
-                                                <td>2</td>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>3</td>
-                                                <td>4</td>
-                                                <td>5</td>
-                                                <td>6</td>
-                                                <td>7</td>
-                                                <td>8</td>
-                                                <td>9</td>
+                                                <td class="p-0">9</td>
+                                                <td class="p-0">8</td>
+                                                <td class="p-0">7</td>
+                                                <td class="p-0">6</td>
+                                                <td class="p-0">5</td>
+                                                <td class="p-0">4</td>
+                                                <td class="p-0">3</td>
+                                                <td class="p-0">2</td>
+                                                <td class="p-0">1</td>
+                                                <td class="p-0">2</td>
+                                                <td class="p-0">3</td>
+                                                <td class="p-0">4</td>
+                                                <td class="p-0">5</td>
+                                                <td class="p-0">6</td>
+                                                <td class="p-0">7</td>
+                                                <td class="p-0">8</td>
+                                                <td class="p-0">9</td>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -318,23 +318,23 @@
                                                 <tr>
                                                     <td>{{$i}}</td>
                                                     <td>{{$kombinasi[$i-1][0]}}</td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-9" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-8" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-7" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-6" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-5" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-4" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-3" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="-2" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="1" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="2" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="3" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="4" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="5" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="6" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="7" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="8" required></td>
-                                                    <td><input type="radio" name="ks_{{$i}}" value="9" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-9" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-8" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-7" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-6" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-5" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-4" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-3" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="-2" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="1" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="2" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="3" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="4" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="5" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="6" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="7" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="8" required></td>
+                                                    <td class="p-1"><input type="radio" name="ks_{{$i}}" value="9" required></td>
                                                     <td>{{$kombinasi[$i-1][1]}}</td>
                                                 </tr>
                                             @endfor
@@ -363,23 +363,23 @@
                                                     <th rowspan="2">Pernyataan B</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>9</td>
-                                                    <td>8</td>
-                                                    <td>7</td>
-                                                    <td>6</td>
-                                                    <td>5</td>
-                                                    <td>4</td>
-                                                    <td>3</td>
-                                                    <td>2</td>
-                                                    <td>1</td>
-                                                    <td>2</td>
-                                                    <td>3</td>
-                                                    <td>4</td>
-                                                    <td>5</td>
-                                                    <td>6</td>
-                                                    <td>7</td>
-                                                    <td>8</td>
-                                                    <td>9</td>
+                                                    <td class="p-0">9</td>
+                                                    <td class="p-0">8</td>
+                                                    <td class="p-0">7</td>
+                                                    <td class="p-0">6</td>
+                                                    <td class="p-0">5</td>
+                                                    <td class="p-0">4</td>
+                                                    <td class="p-0">3</td>
+                                                    <td class="p-0">2</td>
+                                                    <td class="p-0">1</td>
+                                                    <td class="p-0">2</td>
+                                                    <td class="p-0">3</td>
+                                                    <td class="p-0">4</td>
+                                                    <td class="p-0">5</td>
+                                                    <td class="p-0">6</td>
+                                                    <td class="p-0">7</td>
+                                                    <td class="p-0">8</td>
+                                                    <td class="p-0">9</td>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -395,39 +395,39 @@
                                                             <tr>
                                                                 <td>{{$i}}</td>
                                                                 <td>{{$kombinasi_p[$i-1][0]}}</td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-9" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-8" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-7" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-6" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-5" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-4" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-3" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="-2" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="1" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="2" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="3" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="4" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="5" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="6" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="7" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="8" required></td>
-                                                                <td><input type="radio" name="{{$nama}}_{{$i}}"
+                                                                <td class="p-1"><input type="radio" name="{{$nama}}_{{$i}}"
                                                                            value="9" required></td>
                                                                 <td>{{$kombinasi_p[$i-1][1]}}</td>
                                                             </tr>

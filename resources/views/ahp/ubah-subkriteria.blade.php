@@ -39,23 +39,23 @@
                                 <th rowspan="2">Pernyataan B</th>
                             </tr>
                             <tr>
-                                <td>9</td>
-                                <td>8</td>
-                                <td>7</td>
-                                <td>6</td>
-                                <td>5</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                <td>9</td>
+                                <td class="p-0">9</td>
+                                <td class="p-0">8</td>
+                                <td class="p-0">7</td>
+                                <td class="p-0">6</td>
+                                <td class="p-0">5</td>
+                                <td class="p-0">4</td>
+                                <td class="p-0">3</td>
+                                <td class="p-0">2</td>
+                                <td class="p-0">1</td>
+                                <td class="p-0">2</td>
+                                <td class="p-0">3</td>
+                                <td class="p-0">4</td>
+                                <td class="p-0">5</td>
+                                <td class="p-0">6</td>
+                                <td class="p-0">7</td>
+                                <td class="p-0">8</td>
+                                <td class="p-0">9</td>
                             </tr>
                             </thead>
                             <tbody>
@@ -68,23 +68,23 @@
                                     <tr>
                                         <td>{{$i}}</td>
                                         <td>{{$kombinasi[$i-1][0]}}</td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-9" @if($ks[$jenis.'_'.$i] == -9) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-8" @if($ks[$jenis.'_'.$i] == -8) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-7" @if($ks[$jenis.'_'.$i] == -7) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-6" @if($ks[$jenis.'_'.$i] == -6) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-5" @if($ks[$jenis.'_'.$i] == -5) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-4" @if($ks[$jenis.'_'.$i] == -4) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-3" @if($ks[$jenis.'_'.$i] == -3) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="-2" @if($ks[$jenis.'_'.$i] == -2) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="1" @if($ks[$jenis.'_'.$i] == 1) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="2" @if($ks[$jenis.'_'.$i] == 2) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="3" @if($ks[$jenis.'_'.$i] == 3) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="4" @if($ks[$jenis.'_'.$i] == 4) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="5" @if($ks[$jenis.'_'.$i] == 5) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="6" @if($ks[$jenis.'_'.$i] == 6) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="7" @if($ks[$jenis.'_'.$i] == 7) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="8" @if($ks[$jenis.'_'.$i] == 8) checked @endif required></td>
-                                        <td><input type="radio" name="{{$jenis}}_{{$i}}" value="9" @if($ks[$jenis.'_'.$i] == 9) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-9" @if($ks[$jenis.'_'.$i] == -9) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-8" @if($ks[$jenis.'_'.$i] == -8) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-7" @if($ks[$jenis.'_'.$i] == -7) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-6" @if($ks[$jenis.'_'.$i] == -6) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-5" @if($ks[$jenis.'_'.$i] == -5) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-4" @if($ks[$jenis.'_'.$i] == -4) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-3" @if($ks[$jenis.'_'.$i] == -3) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="-2" @if($ks[$jenis.'_'.$i] == -2) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="1" @if($ks[$jenis.'_'.$i] == 1) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="2" @if($ks[$jenis.'_'.$i] == 2) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="3" @if($ks[$jenis.'_'.$i] == 3) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="4" @if($ks[$jenis.'_'.$i] == 4) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="5" @if($ks[$jenis.'_'.$i] == 5) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="6" @if($ks[$jenis.'_'.$i] == 6) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="7" @if($ks[$jenis.'_'.$i] == 7) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="8" @if($ks[$jenis.'_'.$i] == 8) checked @endif required></td>
+                                        <td class="p-1"><input type="radio" name="{{$jenis}}_{{$i}}" value="9" @if($ks[$jenis.'_'.$i] == 9) checked @endif required></td>
                                         <td>{{$kombinasi[$i-1][1]}}</td>
                                     </tr>
                                 @endfor

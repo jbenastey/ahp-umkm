@@ -31,7 +31,7 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Umur</th>
-                                    <th>Jurusan</th>
+                                    <th>Nama UMKM</th>
                                     <th>Jabatan</th>
                                     <th class="text-center"><i class="icon icon-settings"></i></th>
                                 </tr>
@@ -42,7 +42,7 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$value->kuesioner_nama}}</td>
                                         <td>{{$value->kuesioner_umur}}</td>
-                                        <td>{{$value->kuesioner_jurusan}}</td>
+                                        <td>{{$value->kuesioner_umkm}}</td>
                                         <td>{{$value->kuesioner_jabatan}}</td>
                                         <td class="text-center">
                                             <a href="{{url('/ahp/'.$value->kuesioner_id.'/lihat')}}" class="btn btn-sm btn-primary">Lihat</a>
@@ -55,7 +55,7 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Umur</th>
-                                    <th>Jurusan</th>
+                                    <th>Nama UMKM</th>
                                     <th>Jabatan</th>
                                     <th class="text-center"><i class="icon icon-settings"></i></th>
                                 </tr>

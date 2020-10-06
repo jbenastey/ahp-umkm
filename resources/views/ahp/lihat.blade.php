@@ -46,11 +46,11 @@
 
                             <!-- Form Group -->
                             <div class="form-group form-row">
-                                <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Jurusan</label>
+                                <label class="col-xl-3 col-form-label text-sm-right" for="password-2">Nama UMKM</label>
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jurusan" value="{{$kuesioner->kuesioner_jurusan}}" readonly>
+                                           placeholder="Jurusan" value="{{$kuesioner->kuesioner_umkm}}" readonly>
                                 </div>
                             </div>
                             <!-- /form group -->
@@ -87,7 +87,7 @@
                                                 @endphp
                                                 @if(count($cek) == 0)
                                                     <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/hitung/ks')}}"
-                                                       class="btn btn-primary btn-sm">Hitung</a>
+                                                       class="btn btn-primary btn-sm pl-1">Hitung</a>
                                                 @else
                                                     @foreach($cek as $value)
                                                         @if($value->hitung_jenis == 'ks')
@@ -323,7 +323,7 @@
                                                                 <p>CR = {{$value->hitung_ci}} / {{ri($no)}}</p>
                                                                 <p>Nilai CR = {{$value->hitung_cr}} (Nilai CR > 0.1)</p>
                                                                 <a href="{{url('kuesioner/'.$kuesioner->kuesioner_id.'/ubah-kriteria')}}"
-                                                                   class="btn btn-sm btn-success">Update Kuesioner</a>
+                                                                   class="btn btn-sm btn-success pl-1">Update Kuesioner</a>
                                                             @endif
                                                         @endif
                                                     @endforeach
@@ -612,7 +612,7 @@
 
                                     @if($p1 == $p2)
                                         <a href="{{url('/ahp/'.$kuesioner->kuesioner_id.'/kinerja')}}"
-                                           class="btn btn-primary btn-sm">Hitung Performance Measurement</a>
+                                           class="btn btn-primary btn-sm pl-1">Hitung Performance Measurement</a>
                                     @endif
                                 </div>
                             </div>

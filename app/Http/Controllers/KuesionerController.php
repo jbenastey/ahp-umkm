@@ -64,7 +64,7 @@ class KuesionerController extends Controller
         //
         $namaK = $request->kuesioner_nama;
         $umur = $request->kuesioner_umur;
-        $jurusan = $request->kuesioner_jurusan;
+        $umkm = $request->kuesioner_umkm;
         $jabatan = $request->kuesioner_jabatan;
 
         $data['kriteria'] = DB::table('master_kriteria')->get();
@@ -123,7 +123,7 @@ class KuesionerController extends Controller
         $simpan = [
             'kuesioner_nama' => $namaK,
             'kuesioner_umur' => $umur,
-            'kuesioner_jurusan' => $jurusan,
+            'kuesioner_umkm' => $umkm,
             'kuesioner_jabatan' => $jabatan,
             'kuesioner_pertama' => json_encode($pertama),
             'kuesioner_kedua' => json_encode($kedua),
