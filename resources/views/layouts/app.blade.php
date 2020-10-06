@@ -11,7 +11,7 @@ Renew Support: https://1.envato.market/apex_admin
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 
 -->
-<html class="loading" lang="en">
+<html class="loading" lang="en" style="scroll-behavior: smooth">
 <!-- BEGIN : Head-->
 
 <head>
