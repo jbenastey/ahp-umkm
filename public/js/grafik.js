@@ -33,9 +33,9 @@ $(document).ready(function () {
         cache: false,
         dataType: 'json',
         success: function (response) {
-            var sb = (response.mpg.SB + response.ivo.SB + response.ts.SB + response.dt.SB + response.it.SB) / 5;
-            var ipk = (response.mpg.IPK + response.ivo.IPK + response.ts.IPK + response.dt.IPK + response.it.IPK) / 5;
-            var ppk = (response.mpg.PPK + response.ivo.PPK + response.ts.PPK + response.dt.PPK + response.it.PPK) / 5;
+            var sb = (response.mpg.SB + response.ts.SB + response.gb.SB + response.st.SB + response.bb.SB) / 5;
+            var ipk = (response.mpg.IPK + response.ts.IPK + response.gb.IPK + response.st.IPK + response.bb.IPK) / 5;
+            var ppk = (response.mpg.PPK + response.ts.PPK + response.gb.PPK + response.st.PPK + response.bb.PPK) / 5;
 
 
             var fChart = new Chart(fakultas, {
@@ -100,7 +100,7 @@ $(document).ready(function () {
             var jChart = new Chart(jurusan, {
                 type: 'bar',
                 data: {
-                    labels: ['Merah Putih Grosir','IVO','Tokyo Style','Dunia Tekstil','Istana Tekstil'],
+                    labels: ['Merah Putih Grosir','Tokyo Style','Granada Busana','Star','Bas Baby'],
                     datasets: [
                         {
                             label: 'SB',
@@ -108,10 +108,10 @@ $(document).ready(function () {
                             borderColor: '#4f81bd',
                             data: [
                                 response.mpg.SB,
-                                response.ivo.SB,
                                 response.ts.SB,
-                                response.dt.SB,
-                                response.it.SB,
+                                response.gb.SB,
+                                response.st.SB,
+                                response.bb.SB,
                             ]
                         },
                         {
@@ -120,10 +120,10 @@ $(document).ready(function () {
                             borderColor: '#c0504d',
                             data: [
                                 response.mpg.IPK,
-                                response.ivo.IPK,
                                 response.ts.IPK,
-                                response.dt.IPK,
-                                response.it.IPK,
+                                response.gb.IPK,
+                                response.st.IPK,
+                                response.bb.IPK,
                             ]
                         },
                         {
@@ -132,10 +132,10 @@ $(document).ready(function () {
                             borderColor: '#9bbb59',
                             data: [
                                 response.mpg.PPK,
-                                response.ivo.PPK,
                                 response.ts.PPK,
-                                response.dt.PPK,
-                                response.it.PPK,
+                                response.gb.PPK,
+                                response.st.PPK,
+                                response.bb.PPK,
                             ]
                         },
                     ]
@@ -260,14 +260,14 @@ function jurusannya(jur) {
     var jurusan = '';
     if (jur === 'mpg'){
         jurusan = 'Merah Putih Grosir'
-    } else if (jur === 'ivo'){
-        jurusan = 'IVO'
     } else if (jur === 'ts'){
         jurusan = 'Tokyo Style'
-    } else if (jur === 'dt'){
-        jurusan = 'Dunia Tekstil'
-    } else if (jur === 'it'){
-        jurusan = 'Istana Tekstil'
+    } else if (jur === 'gb'){
+        jurusan = 'Granada Busana'
+    } else if (jur === 'st'){
+        jurusan = 'Star'
+    } else if (jur === 'bb'){
+        jurusan = 'Bas Baby'
     }
     return jurusan
 }

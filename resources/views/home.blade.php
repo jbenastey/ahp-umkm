@@ -48,10 +48,10 @@
                                         <select name="jurusan" id="jurusan">
                                             <option selected disabled>Pilih Nama UMKM</option>
                                             <option value="mpg">Merah Putih Grosir</option>
-                                            <option value="ivo">IVO</option>
                                             <option value="ts">Tokyo Style</option>
-                                            <option value="dt">Dunia Tekstil</option>
-                                            <option value="it">Istana Tekstil</option>
+                                            <option value="gb">Granada Busana</option>
+                                            <option value="st">Star</option>
+                                            <option value="bb">Bas Baby</option>
                                         </select>
                                         <div id="individu">
 

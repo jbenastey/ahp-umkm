@@ -25,10 +25,10 @@ class GrafikController extends Controller
             ->get();
         $this->jurusan = [
             'mpg' => [],
-            'ivo' => [],
             'ts' => [],
-            'dt' => [],
-            'it' => [],
+            'gb' => [],
+            'st' => [],
+            'bb' => [],
         ];
         foreach ($hasil as $key => $value) {
             foreach ($this->jurusan as $key2 => $value2) {

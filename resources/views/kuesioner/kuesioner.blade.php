@@ -54,10 +54,10 @@
                                 <div class="col-xl-7">
                                     <select name="kuesioner_umkm" id="password-2" class="form-control" required>
                                         <option value="mpg">Merah Putih Grosir</option>
-                                        <option value="ivo">IVO</option>
                                         <option value="ts">Tokyo Style</option>
-                                        <option value="dt">Dunia Tekstil</option>
-                                        <option value="it">Istana Tekstil</option>
+                                        <option value="gb">Granada Busana</option>
+                                        <option value="st">Star</option>
+                                        <option value="bb">Bas Baby</option>
                                     </select>
                                 </div>
                             </div>
