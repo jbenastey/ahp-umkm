@@ -53,11 +53,9 @@
 
                                 <div class="col-xl-7">
                                     <select name="kuesioner_umkm" id="password-2" class="form-control" required>
-                                        <option value="mpg">Merah Putih Grosir</option>
-                                        <option value="ts">Tokyo Style</option>
-                                        <option value="gb">Granada Busana</option>
-                                        <option value="st">Star</option>
-                                        <option value="bb">Bas Baby</option>
+                                        @foreach($umkm as $value)
+                                            <option value="{{$value->umkm_kode}}">{{$value->umkm_nama}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

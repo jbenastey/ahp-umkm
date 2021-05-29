@@ -15,7 +15,9 @@ class AhpController extends Controller
     public function index()
     {
         //
-        $data['kuesioner'] = DB::table('kuesioner')->get();
+        $data['kuesioner'] = DB::table('kuesioner')
+            ->join('master_umkm','umkm_kode','=','kuesioner_umkm')
+            ->get();
         return view('ahp.index', $data);
     }
 
@@ -50,6 +52,7 @@ class AhpController extends Controller
     {
         //
         $data['kuesioner'] = DB::table('kuesioner')
+            ->join('master_umkm','umkm_kode','=','kuesioner_umkm')
             ->where('kuesioner_id', $id)
             ->first();
 

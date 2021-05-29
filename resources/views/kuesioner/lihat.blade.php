@@ -53,7 +53,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jurusan" value="{{getNamaUmkm($kuesioner->kuesioner_umkm)}}" readonly >
+                                           placeholder="Jurusan" value="{{$kuesioner->umkm_nama}}" readonly >
                                 </div>
                             </div>
                             <!-- /form group -->

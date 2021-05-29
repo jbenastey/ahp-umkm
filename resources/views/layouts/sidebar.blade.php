@@ -18,6 +18,8 @@
                     <ul class="menu-content">
                         <li class="@if(request()->is('master/*')) active @endif"><a href="{{url('master')}}"><i class="ft-arrow-right submenu-icon"></i><span class="menu-item" data-i18n="Apex Charts">Data Kriteria</span></a>
                         </li>
+                        <li class="@if(request()->is('master/*')) active @endif"><a href="{{url('umkm')}}"><i class="ft-arrow-right submenu-icon"></i><span class="menu-item" data-i18n="Apex Charts">Data UMKM</span></a>
+                        </li>
                     </ul>
                 </li>
                 <li class=" nav-item @if(request()->is('kuesioner')) open @endif"><a href="{{url('kuesioner')}}"><i class="ft-file-text"></i><span class="menu-title" data-i18n="Email">Kuesioner</span></a>

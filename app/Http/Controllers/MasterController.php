@@ -144,4 +144,24 @@ class MasterController extends Controller
         alert()->success('Berhasil Menghapus Data','Sukses');
         return redirect('master/'.$idKriteria);
     }
+
+    public function indexUmkm(){
+        $data['umkm'] = DB::table('master_umkm')->get();
+        return view('master.umkm.index',$data);
+    }
+
+    public function createUmkm(){
+        return view('master.umkm.create');
+    }
+
+    public function storeUmkm(Request $request){
+        $data = [
+            'umkm_kode' => $request->input('umkm_kode'),
+            'umkm_nama' => $request->input('umkm_nama'),
+        ];
+
+        DB::table('master_umkm')->insert($data);
+        alert()->success('Berhasil Menyimpan Data','Sukses');
+        return redirect('umkm');
+    }
 }

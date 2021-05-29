@@ -55,4 +55,7 @@ Route::post('/kuesioner/{id}/update-subkriteria/{jenis}','KuesionerController@up
 Route::get('/grafik/jurusan','GrafikController@jurusan')->middleware('auth');
 Route::get('/grafik/individu/{jurusan}','GrafikController@individu')->middleware('auth');
 
+Route::get('umkm','MasterController@indexUmkm')->middleware('auth');
+Route::get('umkm/create','MasterController@createUmkm')->middleware('auth');
+Route::post('umkm/store','MasterController@storeUmkm')->middleware('auth');
 

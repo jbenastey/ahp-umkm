@@ -15,7 +15,9 @@ class KuesionerController extends Controller
     public function index()
     {
         //
-        $data['kuesioner'] = DB::table('kuesioner')->get();
+        $data['kuesioner'] = DB::table('kuesioner')
+            ->join('master_umkm','umkm_kode','=','kuesioner_umkm')
+            ->get();
         return view('kuesioner.index',$data);
     }
 
@@ -34,6 +36,7 @@ class KuesionerController extends Controller
         //
         $data['kriteria'] = DB::table('master_kriteria')->get();
         $data['pernyataan'] = DB::table('master_pernyataan')->get();
+        $data['umkm'] = DB::table('master_umkm')->get();
 
         $kriteria = [];
         $pernyataan = [];
@@ -64,6 +67,7 @@ class KuesionerController extends Controller
         //
         $data['kriteria'] = DB::table('master_kriteria')->get();
         $data['pernyataan'] = DB::table('master_pernyataan')->get();
+        $data['umkm'] = DB::table('master_umkm')->get();
 
         $kriteria = [];
         $pernyataan = [];
@@ -94,6 +98,7 @@ class KuesionerController extends Controller
         //
         $data['kriteria'] = DB::table('master_kriteria')->get();
         $data['pernyataan'] = DB::table('master_pernyataan')->get();
+        $data['umkm'] = DB::table('master_umkm')->get();
 
         $kriteria = [];
         $pernyataan = [];
@@ -390,6 +395,7 @@ class KuesionerController extends Controller
     {
         //
         $data['kuesioner'] = DB::table('kuesioner')
+            ->join('master_umkm','umkm_kode','=','kuesioner_umkm')
             ->where('kuesioner_id',$id)
             ->first();
 
