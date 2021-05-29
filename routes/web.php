@@ -34,6 +34,10 @@ Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
 Route::get('/kuesioner','KuesionerController@index')->middleware('auth');
 Route::get('/kuesioner/isi', 'KuesionerController@kuesioner')->name('isi');
 Route::post('/kuesioner/simpan', 'KuesionerController@simpanKuesioner')->name('simpan');
+Route::get('/kuesioner/isi-karyawan', 'KuesionerController@kuesionerKaryawan')->name('isi-karyawan');
+Route::post('/kuesioner/simpan-karyawan', 'KuesionerController@simpanKuesionerKaryawan')->name('simpan-karyawan');
+Route::get('/kuesioner/isi-pakar', 'KuesionerController@kuesionerPakar')->name('isi-pakar');
+Route::post('/kuesioner/simpan-pakar', 'KuesionerController@simpanKuesionerPakar')->name('simpan-pakar');
 
 Route::get('/kuesioner/{id}/lihat','KuesionerController@show')->middleware('auth');
 

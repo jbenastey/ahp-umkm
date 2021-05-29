@@ -22,7 +22,7 @@
                     <!-- Card Body -->
                         <div class="card-body">
 
-                        <form method="post" action="{{route('simpan')}}">
+                        <form method="post" action="{{route('simpan-pakar')}}">
                         @csrf
                         <!-- Form Group -->
                             <div class="form-group form-row">
@@ -69,7 +69,7 @@
 
                                 <div class="col-xl-7">
                                     <input type="text" class="form-control" id="password-2"
-                                           placeholder="Jabatan" name="kuesioner_jabatan" value="Pemilik" readonly required>
+                                           placeholder="Jabatan" name="kuesioner_jabatan" value="Pakar" readonly required>
                                 </div>
                             </div>
                             <!-- /form group -->

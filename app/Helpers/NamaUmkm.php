@@ -4,14 +4,14 @@
         $umkm = null;
         if ($nama == 'mpg'){
             $umkm = 'Merah Putih Grosir';
-        } elseif($nama == 'ivo'){
-            $umkm = 'IVO';
         } elseif($nama == 'ts'){
             $umkm = 'Tokyo Style';
-        } elseif($nama == 'dt'){
-            $umkm = 'Dunia Tekstil';
-        } elseif($nama == 'it'){
-            $umkm = 'Istana Tekstil';
+        } elseif($nama == 'gb'){
+            $umkm = 'Granada Busana';
+        } elseif($nama == 'st'){
+            $umkm = 'Star';
+        } elseif($nama == 'bb'){
+            $umkm = 'Bas Baby';
         }
         return $umkm;
     }

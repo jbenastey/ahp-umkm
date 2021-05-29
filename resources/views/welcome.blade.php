@@ -15,7 +15,9 @@
                                         <div class="col-12 text-center">
                                             <img src="{{asset('apex/app-assets/img/gallery/maintenance.png')}}" alt="" class="img-fluid maintenance-img mt-2" height="300" width="300">
                                             <h1 class="mt-4">Kuesioner UMKM</h1>
-                                            <a href="{{route('isi')}}" class="btn btn-warning my-2">Isi Kuesioner</a><br>
+                                            <a href="{{route('isi')}}" class="btn btn-warning my-2 btn-sm">Isi Kuesioner Pemilik</a><br>
+                                            <a href="{{route('isi-pakar')}}" class="btn btn-warning my-2 btn-sm">Isi Kuesioner Pakar</a><br>
+                                            <a href="{{route('isi-karyawan')}}" class="btn btn-warning my-2 btn-sm">Isi Kuesioner Karyawan</a><br>
                                             <a href="{{route('home')}}" class=" my-2">Login Admin</a>
                                         </div>
                                     </div>
